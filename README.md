@@ -1,6 +1,10 @@
 # manjaro-minimal-install
 Manjaro installation scripts
 
+## Link for readme.md 
+
+- `https://timamus.github.io/manjaro-minimal-install/readme.md`
+
 ## Quick start
 
 - `sudo mkdir /home/$USER/install`
