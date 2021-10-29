@@ -8,9 +8,7 @@ Manjaro installation scripts
 ## Quick start
 
 - `git clone https://github.com/timamus/manjaro-minimal-install.git`
-- `cd manjaro-minimal-install/manjaro-minimal-install/`
-- `wget -q https://timamus.github.io/manjaro-minimal-install/1_install.sh -O /home/$USER/install/1_install.sh`
-- `wget -q https://timamus.github.io/manjaro-minimal-install/2_install.sh -O /home/$USER/install/2_install.sh`
-- `find /home/$USER/install/ -name "*.sh" -exec chmod +x {} \;`
-- `/home/$USER/install/1_install.sh`
-- `/home/$USER/install/2_install.sh`
+- `cd manjaro-minimal-install/`
+- `find ./ -name "*.sh" -exec chmod +x {} \;`
+- `./1_install.sh`
+- `./2_install.sh`
