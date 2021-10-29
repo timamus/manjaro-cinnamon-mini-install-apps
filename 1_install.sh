@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update mirror list and set fastest download server
-sudo pacman-mirrors --fasttrack
+sudo pacman-mirrors --fasttrack --api --protocol https
 
 # Start by updating and upgrading all packages installed in the system
 sudo pacman -Syyu
