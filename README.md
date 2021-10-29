@@ -11,3 +11,4 @@ Manjaro installation scripts
 - `cd /home/$USER/install`
 - `sudo wget https://timamus.github.io/manjaro-minimal-install/1_install.sh`
 - `sudo wget https://timamus.github.io/manjaro-minimal-install/2_install.sh`
+- `sudo find ./ -name "*.sh" -exec chmod +x {} \;`
