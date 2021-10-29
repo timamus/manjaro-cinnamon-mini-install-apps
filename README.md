@@ -3,7 +3,7 @@ Manjaro installation scripts
 
 ## Link for readme.md 
 
-- `https://timamus.github.io/manjaro-minimal-install/readme.md`
+- `https://raw.githubusercontent.com/timamus/manjaro-minimal-install/main/README.md`
 
 ## Quick start
 
