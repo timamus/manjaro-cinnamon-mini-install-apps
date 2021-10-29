@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # Update mirror list and set fastest download server
-sudo pacman-mirrors --fasttrack 10
-# or
-# sudo pacman-mirrors -c Russia
+sudo pacman-mirrors --fasttrack
 
 # Start by updating and upgrading all packages installed in the system
 sudo pacman -Syyu
