@@ -1,7 +1,7 @@
 # manjaro-minimal-install
 Manjaro installation scripts
 
-## Link for readme.md 
+## Link for readme file
 
 - `https://raw.githubusercontent.com/timamus/manjaro-minimal-install/main/README.md`
 
