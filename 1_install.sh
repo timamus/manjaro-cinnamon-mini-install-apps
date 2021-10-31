@@ -22,4 +22,4 @@ sudo sed -Ei '/EnableAUR/s/^#//' /etc/pamac.conf
 # sudo sed -Ei '/EnableAUR/s/^/#/' /etc/pamac.conf
 
 echo "Installation successfull"
-echo 'Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
+echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
