@@ -8,14 +8,6 @@ sudo pacman -S galculator
 echo "Installing nemo-fileroller"
 sudo pacman -S nemo-fileroller
 
-# Installing telegram
-echo "Installing telegram"
-sudo pacman -S telegram-desktop
-
-# Installing bitwarden
-echo "Installing bitwarden"
-sudo pacman -S bitwarden
-
 # Installing firefox
 echo "Installing firefox"
 sudo pacman -S firefox
@@ -26,6 +18,14 @@ sudo pacman -Rcns midori
 rm -R /home/$USER/.config/midori
 rm -R /home/$USER/.cache/midori
 rm -R /home/$USER/.local/share/zeitgeist
+
+# Installing telegram
+echo "Installing telegram"
+sudo pacman -S telegram-desktop
+
+# Installing bitwarden
+echo "Installing bitwarden"
+sudo pacman -S bitwarden
 
 # Installing libreoffice with russian language pack
 echo "Installing libreoffice with russian language pack"
