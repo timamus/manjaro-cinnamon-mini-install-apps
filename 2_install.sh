@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Installing galculator
-echo "Installing galculator"
-sudo pacman -S galculator
+# Installing gnome-calculator
+echo "Installing gnome-calculator"
+sudo pacman -S gnome-calculator
 
 # Installing nemo-fileroller
 echo "Installing nemo-fileroller"
