@@ -23,6 +23,9 @@ sudo pacman -S firefox
 # Deleting midori browser and all the dependencies
 echo "Deleting midori browser and all the dependencies"
 sudo pacman -Rcns midori
+rm -R /home/$USER/.config/midori
+rm -R /home/$USER/.cache/midori
+rm -R /home/$USER/.local/share/zeitgeist
 
 # Installing libreoffice with russian language pack
 echo "Installing libreoffice with russian language pack"
