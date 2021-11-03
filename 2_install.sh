@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Installing galculator
+echo "Installing galculator"
+sudo pacman -S galculator
+
 # Installing nemo-fileroller
 echo "Installing nemo-fileroller"
 sudo pacman -S nemo-fileroller
