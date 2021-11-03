@@ -20,6 +20,10 @@ sudo pacman -S bitwarden
 echo "Installing firefox"
 sudo pacman -S firefox
 
+# Deleting midori browser and all the dependencies
+echo "Deleting midori browser and all the dependencies"
+sudo pacman -Rcns midori
+
 # Installing libreoffice with russian language pack
 echo "Installing libreoffice with russian language pack"
 sudo pacman -S libreoffice-still libreoffice-still-ru
