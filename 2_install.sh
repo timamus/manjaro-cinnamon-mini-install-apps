@@ -16,6 +16,10 @@ sudo pacman -S gprename
 echo "Installing shotcut"
 sudo pacman -S shotcut
 
+# Installing smplayer with skins
+echo "Installing smplayer with skins"
+sudo pacman -S smplayer smplayer-skins
+
 # Installing firefox
 echo "Installing firefox"
 sudo pacman -S firefox
