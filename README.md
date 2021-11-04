@@ -1,4 +1,4 @@
-# manjaro-minimal-install
+# manjaro-cinnamon-minimal-install
 Manjaro cinnamon installation apps scripts
 
 ## Link for readme file
