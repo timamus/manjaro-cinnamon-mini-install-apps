@@ -8,6 +8,10 @@ sudo pacman -S gnome-calculator
 echo "Installing nemo-fileroller"
 sudo pacman -S nemo-fileroller
 
+# Installing gprename
+echo "Installing gprename"
+sudo pacman -S gprename
+
 # Installing firefox
 echo "Installing firefox"
 sudo pacman -S firefox
