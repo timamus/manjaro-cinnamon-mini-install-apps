@@ -20,6 +20,8 @@ sudo pacman -S shotcut
 echo "Installing smplayer with skins and themes"
 sudo pacman -S smplayer smplayer-skins smplayer-themes
 sed -i 's/^\(gui\s*=\s*\).*$/\1MiniGUI/' /$HOME/.config/smplayer/smplayer.ini
+sed -i 's/^\(iconset\s*=\s*\).*$/\1PapirusDark/' /$HOME/.config/smplayer/smplayer.ini
+sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' /$HOME/.config/smplayer/smplayer.ini
 
 # Installing firefox
 echo "Installing firefox"
