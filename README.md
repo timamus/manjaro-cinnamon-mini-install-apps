@@ -7,7 +7,7 @@ Manjaro installation scripts
 
 ## Quick start
 
-- `git clone https://github.com/timamus/manjaro-minimal-install.git`
+- `git clone https://github.com/timamus/manjaro-cinnamon-minimal-install.git`
 - `cd manjaro-minimal-install/`
 - `find ./ -name "*.sh" -exec chmod +x {} \;`
 - `./1_install.sh`
