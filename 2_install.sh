@@ -12,6 +12,10 @@ sudo pacman -S nemo-fileroller
 echo "Installing gprename"
 sudo pacman -S gprename
 
+# Installing shotcut
+echo "Installing shotcut"
+sudo pacman -S shotcut
+
 # Installing firefox
 echo "Installing firefox"
 sudo pacman -S firefox
