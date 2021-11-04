@@ -1,9 +1,9 @@
 # manjaro-minimal-install
-Manjaro installation scripts
+Manjaro cinnamon installation apps scripts
 
 ## Link for readme file
 
-- `https://raw.githubusercontent.com/timamus/manjaro-minimal-install/main/README.md`
+- `https://raw.githubusercontent.com/timamus/manjaro-cinnamon-minimal-install/main/README.md`
 
 ## Quick start
 
