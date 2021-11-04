@@ -17,8 +17,8 @@ echo "Installing shotcut"
 sudo pacman -S shotcut
 
 # Installing smplayer with skins
-echo "Installing smplayer with skins"
-sudo pacman -S smplayer smplayer-skins
+echo "Installing smplayer with skins and themes"
+sudo pacman -S smplayer smplayer-skins smplayer-themes
 
 # Installing firefox
 echo "Installing firefox"
