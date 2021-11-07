@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Installing gnome-system-monitor
+echo "Installing gnome-system-monitor"
+sudo pacman -S gnome-system-monitor
+
 # Installing gnome-calculator
 echo "Installing gnome-calculator"
 sudo pacman -S gnome-calculator
