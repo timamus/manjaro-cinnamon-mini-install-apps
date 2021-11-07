@@ -8,6 +8,10 @@ sudo pacman -S gnome-calculator
 echo "Installing nemo-fileroller"
 sudo pacman -S nemo-fileroller
 
+# Installing xviewer with plugins
+echo "Installing xviewer with plugins"
+sudo pacman -S xviewer xviewer-plugins
+
 # Installing gprename
 echo "Installing gprename"
 sudo pacman -S gprename
