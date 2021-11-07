@@ -7,8 +7,8 @@ Manjaro cinnamon installation apps scripts
 
 ## Quick start
 
-- `git clone https://github.com/timamus/manjaro-cinnamon-minimal-install.git`
-- `cd manjaro-minimal-install/`
+- `git clone https://github.com/timamus/manjaro-cinnamon-mini-install-apps.git`
+- `cd manjaro-cinnamon-mini-install-apps/`
 - `find ./ -name "*.sh" -exec chmod +x {} \;`
 - `./1_install.sh`
 - `./2_install.sh`
