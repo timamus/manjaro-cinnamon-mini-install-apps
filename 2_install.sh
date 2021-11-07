@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Installing gnome-system-monitor
+# https://unix.stackexchange.com/questions/174683/custom-global-keybindings-in-cinnamon-via-gsettings
 echo "Installing gnome-system-monitor"
 sudo pacman -S gnome-system-monitor
 gsettings set org.cinnamon.desktop.keybindings custom-list \ "['custom0']"
