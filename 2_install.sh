@@ -3,6 +3,10 @@
 # Installing gnome-system-monitor
 echo "Installing gnome-system-monitor"
 sudo pacman -S gnome-system-monitor
+gsettings set org.cinnamon.desktop.keybindings custom-list \ "['custom0']"
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ name "System monitor"
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ command "gnome-system-monitor"
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ binding "['<Primary><Shift><Ctrl>Escape']"
 
 # Installing gnome-calculator
 echo "Installing gnome-calculator"
