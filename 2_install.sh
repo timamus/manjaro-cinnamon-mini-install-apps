@@ -13,6 +13,10 @@ gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/d
 echo "Installing baobab"
 sudo pacman -S baobab
 
+# Installing gparted
+echo "Installing gparted"
+sudo pacman -S gparted
+
 # Installing mintstick
 echo "Installing mintstick"
 sudo pacman -S mintstick
@@ -32,6 +36,14 @@ sudo pacman -S xviewer xviewer-plugins
 # Installing gprename
 echo "Installing gprename"
 sudo pacman -S gprename
+
+# Installing transmission
+echo "Installing transmission"
+sudo pacman -S transmission-gtk
+
+# Installing veracrypt
+echo "Installing veracrypt"
+sudo pacman -S veracrypt
 
 # Installing shotcut
 echo "Installing shotcut"
