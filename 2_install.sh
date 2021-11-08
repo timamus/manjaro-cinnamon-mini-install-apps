@@ -49,6 +49,10 @@ sudo pacman -S veracrypt
 echo "Installing remmina with rdp and vnc plugins"
 sudo pacman -S remmina freerdp libvncserver
 
+# Installing gimp with help
+echo "Installing gimp with help"
+sudo pacman -S gimp gimp-help-ru
+
 # Installing shotcut
 echo "Installing shotcut"
 sudo pacman -S shotcut
