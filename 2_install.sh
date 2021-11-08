@@ -9,6 +9,14 @@ gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/d
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ command "gnome-system-monitor"
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ binding "['<Primary><Shift><Ctrl>Escape']"
 
+# Installing baobab
+echo "Installing baobab"
+sudo pacman -S baobab
+
+# Installing mintstick
+echo "Installing mintstick"
+sudo pacman -S mintstick
+
 # Installing gnome-calculator
 echo "Installing gnome-calculator"
 sudo pacman -S gnome-calculator
