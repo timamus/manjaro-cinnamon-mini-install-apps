@@ -45,6 +45,10 @@ sudo pacman -S transmission-gtk
 echo "Installing veracrypt"
 sudo pacman -S veracrypt
 
+# Installing remmina with rdp and vnc plugins
+echo "Installing remmina with rdp and vnc plugins"
+sudo pacman -S remmina freerdp libvncserver
+
 # Installing shotcut
 echo "Installing shotcut"
 sudo pacman -S shotcut
