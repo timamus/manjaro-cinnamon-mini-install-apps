@@ -33,6 +33,10 @@ sudo pacman -S nemo-fileroller
 echo "Installing xviewer with plugins"
 sudo pacman -S xviewer xviewer-plugins
 
+# Installing xreader with support for djvu files
+echo "Installing xreader with support for djvu files"
+sudo pacman -S xreader djvulibre
+
 # Installing gnome-screenshot
 echo "Installing gnome-screenshot"
 sudo pacman -S gnome-screenshot
