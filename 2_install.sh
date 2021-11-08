@@ -13,9 +13,9 @@ gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/d
 echo "Installing baobab"
 sudo pacman -S baobab
 
-# Installing gparted
-echo "Installing gparted"
-sudo pacman -S gparted
+# Installing gnome-disk-utility
+echo "Installing gnome-disk-utility"
+sudo pacman -S gnome-disk-utility
 
 # Installing mintstick
 echo "Installing mintstick"
