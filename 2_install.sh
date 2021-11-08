@@ -17,6 +17,10 @@ sudo pacman -S baobab
 echo "Installing gnome-disk-utility"
 sudo pacman -S gnome-disk-utility
 
+# Installing gnome-font-viewer
+echo "Installing gnome-font-viewer"
+sudo pacman -S gnome-font-viewer
+
 # Installing mintstick
 echo "Installing mintstick"
 sudo pacman -S mintstick
