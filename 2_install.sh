@@ -33,6 +33,10 @@ sudo pacman -S nemo-fileroller
 echo "Installing xviewer with plugins"
 sudo pacman -S xviewer xviewer-plugins
 
+# Installing gnome-screenshot
+echo "Installing gnome-screenshot"
+sudo pacman -S gnome-screenshot
+
 # Installing gprename
 echo "Installing gprename"
 sudo pacman -S gprename
