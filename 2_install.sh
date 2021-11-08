@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Change default fonts in system
+echo "Change default fonts in system"
+gsettings set org.cinnamon.desktop.interface font-name "Ubuntu Regular 10"
+gsettings set org.nemo.desktop font "Ubuntu Regular 10"
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Medium 10"
+
 # Installing gnome-system-monitor
 # https://unix.stackexchange.com/questions/174683/custom-global-keybindings-in-cinnamon-via-gsettings
 echo "Installing gnome-system-monitor"
