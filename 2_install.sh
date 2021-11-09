@@ -6,6 +6,10 @@ gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10"
 gsettings set org.nemo.desktop font "Ubuntu 10"
 gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
 
+# Installing gufw
+echo "Installing gufw"
+sudo pacman -S gufw
+
 # Installing dconf-editor
 echo "Installing dconf-editor"
 sudo pacman -S dconf-editor
