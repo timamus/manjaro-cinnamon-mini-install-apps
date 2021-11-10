@@ -23,6 +23,8 @@ Manjaro cinnamon minimal installation apps scripts
 
 ## Firefox Options
 
+Addons:
+
 - https://addons.mozilla.org/ru/firefox/addon/adblocker-ultimate/
 - https://addons.mozilla.org/ru/firefox/addon/bitwarden-password-manager/
 - https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
