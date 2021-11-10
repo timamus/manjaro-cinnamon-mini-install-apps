@@ -13,7 +13,7 @@ Manjaro cinnamon minimal installation apps scripts
 - `./1_system_upgrade.sh`
 - `./2_install_system_apps.sh`
 - `./3_install_main_apps.sh`
-- `4_install_develop_apps.sh`
+- `./4_install_develop_apps.sh`
 
 ## Changing default fonts in the system
 
