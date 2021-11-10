@@ -29,3 +29,11 @@ Addons:
 - https://addons.mozilla.org/ru/firefox/addon/bitwarden-password-manager/
 - https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
 - https://addons.mozilla.org/ru/firefox/addon/musicpro/
+
+## Battery Applet with Monitoring and Shutdown (BAMS)
+
+Install the BAMS applet, then run:
+
+- ``
+- ``
+- ``
