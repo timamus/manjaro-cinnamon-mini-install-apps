@@ -34,6 +34,6 @@ Addons:
 
 Install the BAMS applet, then run:
 
-- ``
-- ``
+- `mkdir /$HOME/batterymonitor@pdcurtis`
+- `cp /$HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/stylesheet.css /$HOME/batterymonitor@pdcurtis`
 - ``
