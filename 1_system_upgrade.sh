@@ -18,6 +18,8 @@ if grep -q "EnableFlatpak" /etc/pamac.conf; then
 else
    sudo sed -i -e '$a\\' -e "\$ a EnableFlatpak" /etc/pamac.conf
 fi
+
+# Enable Flatpak updates for pamac (uncomment the line #CheckFlatpakUpdates)
 echo "Enable Flatpak updates for pamac"
 if grep -q "CheckFlatpakUpdates" /etc/pamac.conf; then
    sudo sed -Ei '/CheckFlatpakUpdates/s/^/#/' /etc/pamac.conf
@@ -30,6 +32,8 @@ echo "Enable AUR for pamac"
 sudo sed -Ei '/EnableAUR/s/^#//' /etc/pamac.conf
 # To comment it back
 # sudo sed -Ei '/EnableAUR/s/^/#/' /etc/pamac.conf
+
+# Enable AUR updates for pamac (uncomment the line #CheckAURUpdates)
 echo "Enable AUR updates for pamac"
 sudo sed -Ei '/CheckAURUpdates/s/^/#/' /etc/pamac.conf
 
