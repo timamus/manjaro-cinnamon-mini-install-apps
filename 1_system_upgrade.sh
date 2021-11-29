@@ -14,12 +14,16 @@ echo "Enable Flatpak for pamac"
 sudo sed -Ei '/EnableFlatpak/s/^#//' /etc/pamac.conf
 # To comment it back
 # sudo sed -Ei '/EnableFlatpak/s/^/#/' /etc/pamac.conf
+echo "Enable Flatpak updates for pamac"
+sudo sed -Ei '/CheckFlatpakUpdates/s/^/#/' /etc/pamac.conf
 
 # Enable AUR for pamac (uncomment the line #EnableAUR)
 echo "Enable AUR for pamac"
 sudo sed -Ei '/EnableAUR/s/^#//' /etc/pamac.conf
 # To comment it back
 # sudo sed -Ei '/EnableAUR/s/^/#/' /etc/pamac.conf
+echo "Enable AUR updates for pamac"
+sudo sed -Ei '/CheckAURUpdates/s/^/#/' /etc/pamac.conf
 
 echo "Installation successfull"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
