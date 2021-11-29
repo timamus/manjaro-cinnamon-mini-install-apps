@@ -11,11 +11,19 @@ pamac install flatpak libpamac-flatpak-plugin
 
 # Enable Flatpak for pamac (uncomment the line #EnableFlatpak)
 echo "Enable Flatpak for pamac"
-sudo sed -Ei '/EnableFlatpak/s/^#//' /etc/pamac.conf
-# To comment it back
-# sudo sed -Ei '/EnableFlatpak/s/^/#/' /etc/pamac.conf
+if grep -q "EnableFlatpak" /etc/pamac.conf; then
+   sudo sed -Ei '/EnableFlatpak/s/^#//' /etc/pamac.conf
+   # To comment it back
+   # sudo sed -Ei '/EnableFlatpak/s/^/#/' /etc/pamac.conf
+else
+   sudo sed -i -e '$a\\' -e "\$ a EnableFlatpak" /etc/pamac.conf
+fi
 echo "Enable Flatpak updates for pamac"
-sudo sed -Ei '/CheckFlatpakUpdates/s/^/#/' /etc/pamac.conf
+if grep -q "CheckFlatpakUpdates" /etc/pamac.conf; then
+   sudo sed -Ei '/CheckFlatpakUpdates/s/^/#/' /etc/pamac.conf
+else
+   sudo sed -i -e '$a\\' -e "\$ a CheckFlatpakUpdates" /etc/pamac.conf
+fi
 
 # Enable AUR for pamac (uncomment the line #EnableAUR)
 echo "Enable AUR for pamac"
