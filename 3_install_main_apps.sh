@@ -58,5 +58,9 @@ sudo flatpak install flathub com.valvesoftware.Steam
 echo "Installing luckybackup from AUR"
 pamac build luckybackup
 
+# Installing ProtonVPN from AUR
+echo "Installing ProtonVPN from AUR"
+pamac build protonvpn
+
 echo "Installation successfull"
 read -rsn1 -p"Press any key to exit";echo
