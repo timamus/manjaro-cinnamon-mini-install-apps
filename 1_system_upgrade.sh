@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -Eeuo pipefail
+
 # Update mirror list and set fastest download server
 sudo pacman-mirrors --fasttrack --api --protocol https
 
