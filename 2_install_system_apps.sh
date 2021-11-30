@@ -64,4 +64,4 @@ echo "Installing gprename"
 sudo pacman -S gprename
 
 echo "Installation successfull"
-read -rsn1 -p"Press any key to exit";echo
+echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
