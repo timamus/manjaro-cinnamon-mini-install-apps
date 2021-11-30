@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Update mirror list and set fastest download server
 sudo pacman-mirrors --fasttrack --api --protocol https
