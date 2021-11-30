@@ -27,7 +27,7 @@ fi
 # Enable Flatpak updates for pamac (uncomment the line #CheckFlatpakUpdates)
 echo -en "\033[1;33m Enable Flatpak updates for pamac... \033[0m \n"
 if grep -q "CheckFlatpakUpdates" /etc/pamac.conf; then
-   sudo sed -Ei '/CheckFlatpakUpdates/s/^/#/' /etc/pamac.conf
+   sudo sed -Ei '/CheckFlatpakUpdates/s/^#//' /etc/pamac.conf
 else
    sudo sed -i -e '$a\\' -e "\$ a CheckFlatpakUpdates" /etc/pamac.conf
 fi
