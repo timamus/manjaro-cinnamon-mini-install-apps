@@ -41,3 +41,5 @@ Install the BAMS applet, then run:
 Install dependencies:
 
 - `sudo pacman -S upower sox zenity`
+
+Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area
