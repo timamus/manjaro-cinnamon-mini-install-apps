@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Change default fonts in system
 echo "Change default fonts in system"
