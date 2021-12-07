@@ -22,7 +22,7 @@ Manjaro cinnamon minimal installation apps scripts
 - `gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags true`
 - `gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true`
 
-Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png`
+Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png` to support flags
 
 ## Changing default fonts in the system
 
