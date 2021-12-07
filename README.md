@@ -17,7 +17,7 @@ Manjaro cinnamon minimal installation apps scripts
 
 ## Adding and changing the keyboard layout
 
-- `gsettings set org.gnome.libgnomekbd.keyboard layouts ['us', 'ru']`
+- `gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']"`
 - `gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true`
 
 ## Changing default fonts in the system
