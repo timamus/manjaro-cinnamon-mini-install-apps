@@ -15,6 +15,10 @@ Manjaro cinnamon minimal installation apps scripts
 - `./3_install_main_apps.sh`
 - `./4_install_develop_apps.sh`
 
+## Adding and changing the keyboard layout
+
+- `gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true`
+
 ## Changing default fonts in the system
 
 - `gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10"`
