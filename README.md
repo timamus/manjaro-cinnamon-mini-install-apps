@@ -15,7 +15,7 @@ Manjaro cinnamon minimal installation apps scripts
 - `./3_install_main_apps.sh`
 - `./4_install_develop_apps.sh`
 
-## Adding and changing the keyboard layout
+## Changing the keyboard layout with hotkey
 
 - `gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']"`
 - `gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']"`
