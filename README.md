@@ -22,6 +22,8 @@ Manjaro cinnamon minimal installation apps scripts
 - `gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags true`
 - `gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true`
 
+Then, install the applet 'keyboard@cinnamon.org'
+
 ## Changing default fonts in the system
 
 - `gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10"`
