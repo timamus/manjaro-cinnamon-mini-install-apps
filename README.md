@@ -19,6 +19,7 @@ Manjaro cinnamon minimal installation apps scripts
 
 - `gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']"`
 - `gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']"`
+- `gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags true`
 - `gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true`
 
 ## Changing default fonts in the system
