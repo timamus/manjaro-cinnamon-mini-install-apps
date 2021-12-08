@@ -18,7 +18,10 @@ Manjaro cinnamon minimal installation apps scripts
 ## Changing the keyboard layout with hotkey
 
 ```bash 
-gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']" && gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']" && gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false && gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
+gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']" && 
+gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']" && 
+gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false && 
+gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
 ```
 
 Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png` to support flags
