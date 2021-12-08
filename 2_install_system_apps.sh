@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-# Change default fonts in system
-echo "Change default fonts in system"
-gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10"
-gsettings set org.nemo.desktop font "Ubuntu 10"
-gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
+# Installing timeshift
+echo "Installing timeshift"
+sudo pacman -S timeshift
 
 # Installing gufw
 echo "Installing gufw"
