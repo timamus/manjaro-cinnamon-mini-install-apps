@@ -28,9 +28,11 @@ Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacma
 
 ## Changing default fonts in the system
 
-- `gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10"`
-- `gsettings set org.nemo.desktop font "Ubuntu 10"`
-- `gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"`
+```bash
+gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10" && 
+gsettings set org.nemo.desktop font "Ubuntu 10" && 
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
+```
 
 ## Firefox Options
 
