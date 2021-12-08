@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -Eeuo pipefail
+
 # Installing timeshift
 echo "Installing timeshift"
 sudo pacman -S timeshift
