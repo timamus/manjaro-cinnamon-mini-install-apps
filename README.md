@@ -17,7 +17,7 @@ Manjaro cinnamon minimal installation apps scripts
 
 ## Changing the keyboard layout with hotkey
 
-- `gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']"`
+- `bash gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']"`
 - `gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']"`
 - `gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false`
 - `gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true`
