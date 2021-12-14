@@ -3,7 +3,7 @@ Manjaro cinnamon minimal installation apps scripts
 
 ## Link for readme file
 
-- `https://raw.githubusercontent.com/timamus/manjaro-cinnamon-mini-install-apps/main/README.md`
+`https://raw.githubusercontent.com/timamus/manjaro-cinnamon-mini-install-apps/main/README.md`
 
 ## Quick start
 
@@ -63,6 +63,6 @@ sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rg
 
 Install dependencies:
 
-- `sudo pacman -S upower sox zenity`
+`sudo pacman -S upower sox zenity`
 
 Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area
