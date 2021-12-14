@@ -39,6 +39,7 @@ gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bol
 Timeshift auto-snapshot script which runs before package upgrade using Pacman hook.
 
 ```bash
+sudo pacman -S timeshift-autosnap-manjaro
 ```
 
 ## Firefox Options
