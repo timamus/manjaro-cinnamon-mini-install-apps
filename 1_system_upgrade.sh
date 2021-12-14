@@ -8,7 +8,7 @@ sudo pacman-mirrors --fasttrack --api --protocol https
 
 # Start by updating and upgrading all packages installed in the system
 echo -en "\033[1;33m Start by updating and upgrading all packages installed in the system... \033[0m \n"
-sudo pacman -Syyu
+sudo pacman -Syu
 
 # Installing Flatpak
 echo -en "\033[1;33m Installing Flatpak... \033[0m \n"
