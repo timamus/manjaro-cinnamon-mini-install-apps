@@ -40,6 +40,8 @@ Timeshift auto-snapshot script which runs before package upgrade using Pacman ho
 
 ```bash
 sudo pacman -S timeshift-autosnap-manjaro
+sudo timeshift --list
+sudo timeshift --restore
 ```
 
 ## Firefox Options
