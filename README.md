@@ -36,13 +36,18 @@ gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bol
 
 ## Installing and using the Timeshift auto-snapshot script
 
-Timeshift auto-snapshot script which runs before package upgrade using Pacman hook.
+Timeshift auto-snapshot script which runs before package upgrade using Pacman hook. To install, type the command:
 
-```bash
-sudo pacman -S timeshift-autosnap-manjaro
-sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
-sudo timeshift --list
-sudo timeshift --restore
+`sudo pacman -S timeshift-autosnap-manjaro`
+
+Allow system snapshots to be created via rsync, for ext4 volumes, using the command below.
+
+`sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf`
+
+
+
+`sudo timeshift --list`
+`sudo timeshift --restore`
 ```
 
 ## Firefox Options
