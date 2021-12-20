@@ -40,6 +40,7 @@ Timeshift auto-snapshot script which runs before package upgrade using Pacman ho
 
 ```bash
 sudo pacman -S timeshift-autosnap-manjaro
+sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
 sudo timeshift --list
 sudo timeshift --restore
 ```
