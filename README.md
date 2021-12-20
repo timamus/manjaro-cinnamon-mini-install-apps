@@ -34,6 +34,14 @@ gsettings set org.nemo.desktop font "Ubuntu 10" &&
 gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
 ```
 
+Return to default:
+
+```bash
+gsettings set org.cinnamon.desktop.interface font-name "Cantarell Regular 10" && 
+gsettings set org.nemo.desktop font "Cantarell Regular 10" && 
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Cantarell Regular 10"
+```
+
 ## Installing and using the Timeshift auto-snapshot script
 
 Timeshift auto-snapshot script which runs before package upgrade using Pacman hook. To install, type the command:
