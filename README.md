@@ -40,15 +40,17 @@ Timeshift auto-snapshot script which runs before package upgrade using Pacman ho
 
 `sudo pacman -S timeshift-autosnap-manjaro`
 
-Allow system snapshots to be created via rsync, for ext4 volumes, using the command below.
+Allow system snapshots to be created via rsync, for ext4 volumes, using the command below. Snapshots are saved by default on the system partition in path /run/timeshift/backup/timeshift/snapshots. Timeshift exclude the /root and /home/user folders by default.
 
 `sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf`
 
-
+List snapshots:
 
 `sudo timeshift --list`
+
+Restore a snapshot (selecting which snapshot to restore interactively):
+
 `sudo timeshift --restore`
-```
 
 ## Firefox Options
 
