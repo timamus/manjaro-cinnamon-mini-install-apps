@@ -87,8 +87,11 @@ Then, in the applet settings, select the option 'Compact - Battery Percentage wi
 
 ## Splash screen
 
+/usr/share/plymouth/themes/
+
 ```bash
 sudo pacman -S plymouth && 
 sudo sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rgba(0,0,0,0.1)/' /$HOME/batterymonitor@pdcurtis/stylesheet.css && 
-sudo plymouth-set-default-theme -R Connect
+pamac build plymouth-theme-connect-git && 
+sudo plymouth-set-default-theme -R plymouth-theme-connect-git
 ```
