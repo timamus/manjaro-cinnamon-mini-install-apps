@@ -103,6 +103,9 @@ sudo plymouth-set-default-theme -R lone &&
 systemctl disable lightdm && 
 systemctl enable lightdm-plymouth &&
 
+sudo pacman -S plymouth-theme-manjaro-elegant && 
+
+
 pamac build plymouth-theme-connect-git && 
 sudo plymouth-set-default-theme -R connect && 
 pamac clean --build-files
