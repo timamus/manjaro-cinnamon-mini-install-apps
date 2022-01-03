@@ -94,7 +94,7 @@ systemctl status display-manager
 ```bash
 sudo pacman -S plymouth && 
 KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*://') && 
-sudo sed -i 's/MODULES=""/MODULES="$KERNEL_DRIVER"/' /etc/mkinitcpio.conf && 
+sudo sed -i "s/MODULES=""/MODULES="$KERNEL_DRIVER"/" /etc/mkinitcpio.conf && 
 sudo sed -i -e 's/base udev/base udev plymouth/' -e 's/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf && 
 sudo mkinitcpio -P && 
 sudo sed -i 's/quiet/quiet splash/' /etc/default/grub && 
