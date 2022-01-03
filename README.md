@@ -92,6 +92,7 @@ Then, in the applet settings, select the option 'Compact - Battery Percentage wi
 ```bash
 sudo pacman -S plymouth && 
 sudo sed -i -e 's/base udev/base udev plymouth/' -e 's/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf && 
+sudo mkinitcpio -p &&
 pamac build plymouth-theme-connect-git && 
 sudo plymouth-set-default-theme -R connect && 
 pamac clean --build-files
