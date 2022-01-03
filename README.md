@@ -89,7 +89,11 @@ Then, in the applet settings, select the option 'Compact - Battery Percentage wi
 
 /usr/share/plymouth/themes/
 
-systemctl status display-manager
+To find out which driver you are using you can use the following command:
+
+lspci -k | grep -EA3 'VGA|3D|Display'
+
+Detect display manager: systemctl status display-manager
 
 ```bash
 sudo pacman -S plymouth && 
