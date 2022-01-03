@@ -105,6 +105,8 @@ systemctl enable lightdm-plymouth &&
 
 sudo pacman -S plymouth-theme-manjaro-elegant && 
 
+KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use') && 
+echo -e "VGA: $KERNEL_DRIVER"
 
 pamac build plymouth-theme-connect-git && 
 sudo plymouth-set-default-theme -R connect && 
