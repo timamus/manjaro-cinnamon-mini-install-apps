@@ -96,7 +96,7 @@ sudo mkinitcpio -P &&
 sudo sed -i 's/quiet/quiet splash/' /etc/default/grub && 
 sudo update-grub && 
 git clone https://github.com/adi1090x/plymouth-themes.git && 
-sudo cp -r  plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
+sudo cp -r /$HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
 sudo plymouth-set-default-theme -R lone
 
 pamac build plymouth-theme-connect-git && 
