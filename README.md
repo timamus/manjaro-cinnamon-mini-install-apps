@@ -89,6 +89,8 @@ Then, in the applet settings, select the option 'Compact - Battery Percentage wi
 
 /usr/share/plymouth/themes/
 
+systemctl status display-manager
+
 ```bash
 sudo pacman -S plymouth && 
 sudo sed -i -e 's/base udev/base udev plymouth/' -e 's/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf && 
@@ -97,7 +99,9 @@ sudo sed -i 's/quiet/quiet splash/' /etc/default/grub &&
 sudo update-grub && 
 git clone https://github.com/adi1090x/plymouth-themes.git && 
 sudo cp -r /$HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
-sudo plymouth-set-default-theme -R lone
+sudo plymouth-set-default-theme -R lone && 
+systemctl disable lightdm && 
+systemctl enable lightdm-plymouth &&
 
 pamac build plymouth-theme-connect-git && 
 sudo plymouth-set-default-theme -R connect && 
