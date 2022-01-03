@@ -93,7 +93,8 @@ systemctl status display-manager
 
 ```bash
 sudo pacman -S plymouth && 
-sudo sed -i -e 's/base udev/base udev plymouth/' -e 's/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf && 
+KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*://') && 
+sudo sed -i -e 's/MODULES=""/MODULES="$KERNEL_DRIVER"/' -e 's/base udev/base udev plymouth/' -e 's/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf && 
 sudo mkinitcpio -P && 
 sudo sed -i 's/quiet/quiet splash/' /etc/default/grub && 
 sudo update-grub && 
@@ -105,8 +106,8 @@ systemctl enable lightdm-plymouth &&
 
 sudo pacman -S plymouth-theme-manjaro-elegant && 
 
-KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use') && 
-echo -e "VGA: $KERNEL_DRIVER"
+KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed 's/Kernel driver in use: / /') && 
+echo "$KERNEL_DRIVER"
 
 pamac build plymouth-theme-connect-git && 
 sudo plymouth-set-default-theme -R connect && 
