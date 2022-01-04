@@ -91,10 +91,6 @@ Plymouth is an application that provides the ability to show a graphical boot an
 
 /usr/share/plymouth/themes/
 
-To find out which driver you are using you can use the following command:
-
-lspci -k | grep -EA3 'VGA|3D|Display'
-
 ```bash
 sudo pacman -S plymouth && 
 KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*: //') && 
@@ -126,6 +122,10 @@ sudo plymouth-set-default-theme -R lone
 - `sudo pacman -S plymouth-theme-manjaro-gnome-17.0`
 - `sudo pacman -S plymouth-theme-manjaro-redefined-bsplash`
 - `sudo pacman -S plymouth-theme-manjaro-very-elegant`
+
+To find out which driver you are using you can use the following command:
+
+- `lspci -k | grep -EA3 'VGA|3D|Display'`
 
 Run the command below to determine the screen resolution and update the grub file, if necessary:
 
