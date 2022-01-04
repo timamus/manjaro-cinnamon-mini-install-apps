@@ -87,9 +87,7 @@ Then, in the applet settings, select the option 'Compact - Battery Percentage wi
 
 ## Splash screen
 
-Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process.
-
-/usr/share/plymouth/themes/
+Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process. To install and configure Plymouth, use the command below, once:
 
 ```bash
 sudo pacman -S plymouth && 
@@ -103,11 +101,15 @@ sudo systemctl disable lightdm &&
 sudo systemctl enable lightdm-plymouth
 ```
 
+Place a new plymouth themes into /usr/share/plymouth/themes directory. You can clone the theme repository for Plymouth, using the command below and copy the themes one by one.
+
 ```bash
 git clone https://github.com/adi1090x/plymouth-themes.git && 
 sudo cp -r /$HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
 sudo plymouth-set-default-theme -R lone
 ```
+
+Or install themes from the official repository
 
 - `sudo pacman -S plymouth-theme-manjaro`
 - `sudo pacman -S plymouth-theme-manjaro-cinnamon`
