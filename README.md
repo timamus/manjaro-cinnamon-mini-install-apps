@@ -128,3 +128,11 @@ sudo plymouth-set-default-theme -R lone
 - `sudo pacman -S plymouth-theme-manjaro-gnome-17.0`
 - `sudo pacman -S plymouth-theme-manjaro-redefined-bsplash`
 - `sudo pacman -S plymouth-theme-manjaro-very-elegant`
+
+Added screen resolution:
+
+```bash
+RESOLUTION=$(xdpyinfo | awk '/dimensions/ {print $2}') && 
+sudo sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE='"$RESOLUTION"'/' /etc/default/grub && 
+sudo update-grub
+```
