@@ -105,11 +105,14 @@ sudo sed -i 's/quiet/quiet splash/' /etc/default/grub &&
 sudo update-grub && 
 sudo systemctl disable lightdm && 
 sudo systemctl enable lightdm-plymouth
+```
 
+```bash
 git clone https://github.com/adi1090x/plymouth-themes.git && 
 sudo cp -r /$HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
 sudo plymouth-set-default-theme -R lone
 ```
+
 - `sudo pacman -S plymouth-theme-manjaro`
 - `sudo pacman -S plymouth-theme-manjaro-cinnamon`
 - `sudo pacman -S plymouth-theme-manjaro-circle`
