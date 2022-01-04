@@ -95,8 +95,6 @@ To find out which driver you are using you can use the following command:
 
 lspci -k | grep -EA3 'VGA|3D|Display'
 
-Detect display manager: systemctl status display-manager
-
 ```bash
 sudo pacman -S plymouth && 
 KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*: //') && 
@@ -136,3 +134,4 @@ RESOLUTION=$(xdpyinfo | awk '/dimensions/ {print $2}') &&
 sudo sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE='"$RESOLUTION"'/' /etc/default/grub && 
 sudo update-grub
 ```
+Identify the display manager used in the system: `systemctl status display-manager`
