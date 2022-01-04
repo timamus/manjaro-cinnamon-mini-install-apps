@@ -101,6 +101,8 @@ sudo systemctl disable lightdm &&
 sudo systemctl enable lightdm-plymouth
 ```
 
+Note: This does not work in every case! For a SiS 65x/M650/740 PCI/AGP VGA Display Adapter, there is no "Kernel driver in use" line.
+
 Place a new plymouth themes into /usr/share/plymouth/themes directory. You can clone the theme repository for Plymouth, using the command below and copy the themes one by one.
 
 ```bash
