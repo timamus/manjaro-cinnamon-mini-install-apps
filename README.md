@@ -110,16 +110,16 @@ git clone https://github.com/adi1090x/plymouth-themes.git &&
 sudo cp -r /$HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
 sudo plymouth-set-default-theme -R lone
 ```
-`sudo pacman -S plymouth-theme-manjaro`
-`sudo pacman -S plymouth-theme-manjaro-cinnamon`
-`sudo pacman -S plymouth-theme-manjaro-circle`
-`sudo pacman -S plymouth-theme-manjaro-deepin`
-`sudo pacman -S plymouth-theme-manjaro-deepin-circle`
-`sudo pacman -S plymouth-theme-manjaro-elegant`
-`sudo pacman -S plymouth-theme-manjaro-elegant-hidpi`
-`sudo pacman -S plymouth-theme-manjaro-extra-elegant`
-`sudo pacman -S plymouth-theme-manjaro-fancy-budgie`
-`sudo pacman -S plymouth-theme-manjaro-gnome`
-`sudo pacman -S plymouth-theme-manjaro-gnome-17.0`
-`sudo pacman -S plymouth-theme-manjaro-redefined-bsplash`
-`sudo pacman -S plymouth-theme-manjaro-very-elegant`
+- `sudo pacman -S plymouth-theme-manjaro`
+- `sudo pacman -S plymouth-theme-manjaro-cinnamon`
+- `sudo pacman -S plymouth-theme-manjaro-circle`
+- `sudo pacman -S plymouth-theme-manjaro-deepin`
+- `sudo pacman -S plymouth-theme-manjaro-deepin-circle`
+- `sudo pacman -S plymouth-theme-manjaro-elegant`
+- `sudo pacman -S plymouth-theme-manjaro-elegant-hidpi`
+- `sudo pacman -S plymouth-theme-manjaro-extra-elegant`
+- `sudo pacman -S plymouth-theme-manjaro-fancy-budgie`
+- `sudo pacman -S plymouth-theme-manjaro-gnome`
+- `sudo pacman -S plymouth-theme-manjaro-gnome-17.0`
+- `sudo pacman -S plymouth-theme-manjaro-redefined-bsplash`
+- `sudo pacman -S plymouth-theme-manjaro-very-elegant`
