@@ -129,7 +129,7 @@ sudo plymouth-set-default-theme -R lone
 - `sudo pacman -S plymouth-theme-manjaro-redefined-bsplash`
 - `sudo pacman -S plymouth-theme-manjaro-very-elegant`
 
-Run the command below to determine the screen resolution and update the grub file if necessary:
+Run the command below to determine the screen resolution and update the grub file, if necessary:
 
 ```bash
 RESOLUTION=$(xdpyinfo | awk '/dimensions/ {print $2}') && 
