@@ -87,6 +87,8 @@ Then, in the applet settings, select the option 'Compact - Battery Percentage wi
 
 ## Splash screen
 
+Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process.
+
 /usr/share/plymouth/themes/
 
 To find out which driver you are using you can use the following command:
