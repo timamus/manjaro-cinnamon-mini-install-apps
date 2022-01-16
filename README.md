@@ -15,6 +15,10 @@ Manjaro cinnamon minimal installation apps scripts
 - `./3_install_main_apps.sh`
 - `./4_install_develop_apps.sh`
 
+## How to do manual partitioning
+
+1) First, click on "New Partition Table" button and choose "GUID Partition Table (GPT)". Then choose Free Space and click button "Create". In window "Create a Partition" in field size enter 512 MiB, in field "File system" choose fat32, then in Field "Mount Point" choose "/boot" or "/boot/efi", then in field "Flags" choose "boot".
+
 ## Changing the keyboard layout with hotkey
 
 ```bash 
