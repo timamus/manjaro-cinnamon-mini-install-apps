@@ -17,7 +17,9 @@ Manjaro cinnamon minimal installation apps scripts
 
 ## How to do manual partitioning
 
-1) First, click on "New Partition Table" button and choose "GUID Partition Table (GPT)". Then choose Free Space and click button "Create". In window "Create a Partition" in field size enter 512 MiB, in field "File system" choose fat32, then in Field "Mount Point" choose "/boot" or "/boot/efi", then in field "Flags" choose "boot".
+1) First, click on "New Partition Table" button and choose "GUID Partition Table (GPT)". Then choose Free Space and click button "Create". In window "Create a Partition" in field size enter 512 MiB, in field "File system" choose fat32, then in Field "Mount Point" choose "/boot" or "/boot/efi", then in field "Flags" choose "boot". Then click ok.
+2) Choose Free Space line. In window "Create a Partition" in field "Size" choose all space, in field "File system" choose ext4, then Choose "Encrypt" and enter your password, then in Field "Mount Point" choose "/", for field "Flags" no choose. Then click ok.
+3) Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
 
 ## Changing the keyboard layout with hotkey
 
