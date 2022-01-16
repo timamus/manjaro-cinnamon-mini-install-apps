@@ -31,6 +31,7 @@ My recommendation:
     My suggestion: 100 GB (~102.400 MB)
     As for partition, use EXT4 and flag as root.
 
+```
 BOOT PARTITION
 Select the unpartitioned space → Create
 a. Size → input 512
@@ -41,7 +42,8 @@ ROOT PARTITION
 Select the unpartitioned space → Create
 a. Size → input 20480 (min. recommended size)
 b. Filesystem → select ext4
-c. Mountpoint → select / (root) → OK 
+c. Mountpoint → select / (root) → OK
+```
 
 *EOS encrpyts your kernel and initramfs. This means that grub has to unlock the volume before loading your kernel. Unfortunately, grub does not provide a lot of options at that point. When distros, like pop, are showing you are a “pretty” unlock screen, they are using plymouth or something similar to do that. However, that requires that your kernel and initram be kept in an unencrypted location. If you are OK with that, during the install create an unencrypted /boot partition. Then you can install plymouth after the fact.
 
