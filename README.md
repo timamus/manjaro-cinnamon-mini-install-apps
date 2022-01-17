@@ -21,28 +21,19 @@ First, click on the "New Partition Table" button and select "GUID Partition Tabl
 
 My recommendation:
 
-    /boot/efi
-    Minimum and recommended by Manjaro team: 512 MB, FAT32, and put flags boot and esp.
+1) BOOT PARTITION
+    Select the unpartitioned space → Create
+    a. Size → input 512
+    b. Filesystem → select FAT32
+    c. Mountpoint → select /boot/efi
+    d. Flags → check boot → OK
 
-    / (root partition)
-    Minimum I recommend: 60 GB (~61.440 mb)
-    My suggestion: 100 GB (~102.400 MB)
-    As for partition, use EXT4 and flag as root.
-
-```
-BOOT PARTITION
-Select the unpartitioned space → Create
-a. Size → input 512
-b. Filesystem → select FAT32
-c. Mountpoint → select /boot/efi
-d. Flags → check boot → OK
-ROOT PARTITION
-Select the unpartitioned space → Create
-a. Size → input 20480 (min. recommended size)
-b. Filesystem → select ext4
-c. Encrypted -> check the box and enter the password
-d. Mountpoint → select / (root) → OK
-```
+2) ROOT PARTITION
+    Select the unpartitioned space → Create
+    a. Size → input 20480 (min. recommended size)
+    b. Filesystem → select ext4
+    c. Encrypted -> check the box and enter the password
+    d. Mountpoint → select / (root) → OK
 
 Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
 
