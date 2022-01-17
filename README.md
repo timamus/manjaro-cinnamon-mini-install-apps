@@ -24,9 +24,10 @@ My recommendation:
 1. BOOT PARTITION
 Select the unpartitioned space → Create
     a. Size → input 512
-    b. Filesystem → select FAT32
-    c. Mountpoint → select /boot/efi
-    d. Flags → check boot → OK
+
+b. Filesystem → select FAT32
+c. Mountpoint → select /boot/efi
+d. Flags → check boot → OK
 
 2. ROOT PARTITION
     Select the unpartitioned space → Create
