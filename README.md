@@ -21,7 +21,7 @@ First, click on the "New Partition Table" button and select "GUID Partition Tabl
 
 My recommendation:
 
-1. BOOT PARTITION*  
+1. BOOT PARTITION\*  
    Select the free space → Create  
    a. Size → input 512 MiB  
    b. Filesystem → select FAT32  
