@@ -21,6 +21,18 @@ First, click on the "New Partition Table" button and select "GUID Partition Tabl
 
 My recommendation:
 
+<ol>
+<li>
+<p>A paragraph
+with two lines.</p>
+<pre><code>indented code
+</code></pre>
+<blockquote>
+<p>A block quote.</p>
+</blockquote>
+</li>
+</ol>
+
 1. BOOT PARTITION
 * Select the unpartitioned space → Create
     a. Size → input 512
