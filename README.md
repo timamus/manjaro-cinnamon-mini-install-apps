@@ -21,14 +21,14 @@ First, click on the "New Partition Table" button and select "GUID Partition Tabl
 
 My recommendation:
 
-1) BOOT PARTITION
+1. BOOT PARTITION
 Select the unpartitioned space → Create
     a. Size → input 512
     b. Filesystem → select FAT32
     c. Mountpoint → select /boot/efi
     d. Flags → check boot → OK
 
-2) ROOT PARTITION
+2. ROOT PARTITION
     Select the unpartitioned space → Create
     a. Size → input 20480 (min. recommended size)
     b. Filesystem → select ext4
