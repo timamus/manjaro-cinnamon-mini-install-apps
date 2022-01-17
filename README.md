@@ -22,7 +22,7 @@ First, click on the "New Partition Table" button and select "GUID Partition Tabl
 My recommendation:
 
 1. BOOT PARTITION
-- Select the unpartitioned space → Create
+* Select the unpartitioned space → Create
     a. Size → input 512
 
 b. Filesystem -> select FAT32
