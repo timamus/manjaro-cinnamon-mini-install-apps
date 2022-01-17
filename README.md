@@ -17,11 +17,7 @@ Manjaro cinnamon minimal installation apps scripts
 
 ## How to do manual partitioning
 
-Select Manual partitioning → Next.
-Select the correct disk selected - should be easy to see.
-1) First, click on "New Partition Table" button and choose "GUID Partition Table (GPT)". Then choose Free Space and click button "Create". In window "Create a Partition" in field size enter 512 MiB, in field "File system" choose fat32, then in Field "Mount Point" choose "/boot" or "/boot/efi", then in field "Flags" choose "boot". Then click ok.
-2) Choose Free Space line. In window "Create a Partition" in field "Size" choose all space, in field "File system" choose ext4, then Choose "Encrypt" and enter your password, then in Field "Mount Point" choose "/", for field "Flags" no choose. Then click ok.
-3) Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
+First, click on the "New Partition Table" button and select "GUID Partition Table (GPT)". 
 
 My recommendation:
 
@@ -47,6 +43,8 @@ b. Filesystem → select ext4
 c. Encrypted -> check the box and enter the password
 d. Mountpoint → select / (root) → OK
 ```
+
+Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
 
 *EOS encrpyts your kernel and initramfs. This means that grub has to unlock the volume before loading your kernel. Unfortunately, grub does not provide a lot of options at that point. When distros, like pop, are showing you are a “pretty” unlock screen, they are using plymouth or something similar to do that. However, that requires that your kernel and initram be kept in an unencrypted location. If you are OK with that, during the install create an unencrypted /boot partition. Then you can install plymouth after the fact.
 
