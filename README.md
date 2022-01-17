@@ -21,18 +21,18 @@ First, click on the "New Partition Table" button and select "GUID Partition Tabl
 
 My recommendation:
 
-1. BOOT PARTITION  
-   Select the unpartitioned space → Create  
-   a. Size → input 512  
-   b. Filesystem -> select FAT32  
-   c. Mountpoint → select /boot/efi  
+1. BOOT PARTITION*  
+   Select the free space → Create  
+   a. Size → input 512 MiB  
+   b. Filesystem → select FAT32  
+   c. Mountpoint → select /boot or /boot/efi  
    d. Flags → check boot → OK  
 
 2. ROOT PARTITION  
-   Select the unpartitioned space → Create  
-   a. Size → input 20480 (min. recommended size)  
+   Select the free space → Create  
+   a. Size → use all remaining available space  
    b. Filesystem → select ext4  
-   c. Encrypted -> check the box and enter the password  
+   c. Encrypted → check the box and enter the password  
    d. Mountpoint → select / (root) → OK  
 
 Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
@@ -107,7 +107,7 @@ Install dependencies:
 
 `sudo pacman -S upower sox zenity`
 
-Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area
+Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area.
 
 ## Splash screen
 
