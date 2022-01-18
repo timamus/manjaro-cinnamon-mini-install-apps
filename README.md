@@ -68,6 +68,9 @@ Thanks. I finally did it. Here is how:
 
 That’s all. Hibernated and it resumed! 
 
+Get memory
+awk '/MemTotal/ { print $2 }' /proc/meminfo
+
 ## Changing the keyboard layout with hotkey
 
 ```bash
