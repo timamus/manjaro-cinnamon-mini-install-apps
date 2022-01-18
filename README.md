@@ -23,7 +23,7 @@ My recommendation:
 
 1. BOOT PARTITION\*  
    Select the free space → Create  
-   a. Size → input 512 MiB  
+   a. Size → input 512  
    b. Filesystem → select FAT32  
    c. Mountpoint → select /boot or /boot/efi  
    d. Flags → check boot → OK  
