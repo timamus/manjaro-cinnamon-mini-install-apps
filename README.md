@@ -55,6 +55,19 @@ sudo bash -c "echo /swapfile none swap defaults 0 0 >> /etc/fstab"
     The following command may be used to identify swap_file_offset: filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
     The value of swap_file_offset can also be obtained by running swap-offset swap_file. The swap-offset binary is provided within the set of tools uswsusp. If using this method, then these two parameters have to be provided in /etc/suspend.conf via the keys resume device and resume offset. No reboot is required in this case.
 
+Thanks. I finally did it. Here is how:
+(Replace “[UUID_of_the_swap_partition]” with the actual UUID)
+
+    In /etc/fstab added:
+    UUID=[UUID_of_the_swap_partition] none swap defaults 0 0
+    In /etc/default/grub added:
+    resume=UUID=[UUID_of_the_swap_partition] to GRUB_CMDLINE_LINUX
+    In /etc/mkinitcpio.conf added:
+    resume to HOOKS (after udev)
+    sudo mkinitcpio -P && sudo update-grub
+
+That’s all. Hibernated and it resumed! 
+
 ## Changing the keyboard layout with hotkey
 
 ```bash
