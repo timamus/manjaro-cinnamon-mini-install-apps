@@ -51,6 +51,10 @@ sudo swapon /swapfile &&
 sudo bash -c "echo /swapfile none swap defaults 0 0 >> /etc/fstab"
 ```
 
+    The following command may be used to identify swap_device: findmnt -no UUID -T /swapfile
+    The following command may be used to identify swap_file_offset: filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
+    The value of swap_file_offset can also be obtained by running swap-offset swap_file. The swap-offset binary is provided within the set of tools uswsusp. If using this method, then these two parameters have to be provided in /etc/suspend.conf via the keys resume device and resume offset. No reboot is required in this case.
+
 ## Changing the keyboard layout with hotkey
 
 ```bash
