@@ -44,11 +44,17 @@ Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
 Tip There is no reason you can't have both a swap partition and a swapfile. This is an easy way to add more swap without repartitioning.
 
 ```bash
-sudo dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress && 
+TOTAL_MEMORY_MB=$(awk '/MemTotal/ { print int($2 / 1024) + 1 }' /proc/meminfo) && 
+sudo dd if=/dev/zero of=/swapfile bs=1M count=$TOTAL_MEMORY_MB status=progress && 
 sudo chmod 600 /swapfile && 
 sudo mkswap /swapfile && 
 sudo swapon /swapfile && 
-sudo bash -c "echo /swapfile none swap defaults 0 0 >> /etc/fstab"
+SWAP_DEVICE=$(findmnt -no UUID -T /swapfile) && 
+SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')
+sudo bash -c "echo UUID=$SWAP_DEVICE none swap defaults 0 0 >> /etc/fstab" && 
+sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID='"$SWAP_DEVICE"' resume_offset='"$SWAP_FILE_OFFSET"' /' /etc/default/grub && 
+sudo sed -i '52 s/fsck/resume fsck/' /etc/mkinitcpio.conf && 
+sudo mkinitcpio -P && sudo update-grub
 ```
 
     The following command may be used to identify swap_device: findmnt -no UUID -T /swapfile
