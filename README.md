@@ -44,8 +44,12 @@ Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
 Tip There is no reason you can't have both a swap partition and a swapfile. This is an easy way to add more swap without repartitioning.
 
 ```bash
-TOTAL_MEMORY_MB=$(awk '/MemTotal/ { print int($2 / 1024) + 1 }' /proc/meminfo) && 
-sudo dd if=/dev/zero of=/swapfile bs=1M count=$TOTAL_MEMORY_MB status=progress && 
+TOTAL_MEMORY_GB=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo) && 
+TOTAL_MEMORY_GB_ROUND=$(echo "$TOTAL_MEMORY_GB" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}') && 
+TOTAL_MEMORY_GB_SQRT=$(echo "$TOTAL_MEMORY_GB" | awk '{print sqrt($1)}') && 
+ADD_SWAP_SIZE_GB=$(echo "$TOTAL_MEMORY_GB_SQRT" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}') && 
+SWAP_SIZE_WITH_HYBER_MB=$((($TOTAL_MEMORY_GB_ROUND + $ADD_SWAP_SIZE_GB) * 1024)) && 
+sudo dd if=/dev/zero of=/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_MB status=progress && 
 sudo chmod 600 /swapfile && 
 sudo mkswap /swapfile && 
 sudo swapon /swapfile && 
