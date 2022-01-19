@@ -65,9 +65,8 @@ That’s all. Hibernated and it resumed!
 
 ```bash
 sudo swapoff /swapfile && 
-sudo fallocate -l 15G /swapfile $$ 
-sudo mkswap /swapfile && 
-sudo swapon /swapfile
+
+sudo rm -f /swapfile
 ```
 
 ## Changing the keyboard layout with hotkey
