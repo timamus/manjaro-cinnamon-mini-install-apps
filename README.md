@@ -55,7 +55,7 @@ sudo mkswap /swapfile &&
 sudo swapon /swapfile && 
 sudo bash -c "echo /swapfile none swap defaults 0 0 >> /etc/fstab" && 
 SWAP_DEVICE=$(findmnt -no UUID -T /swapfile) && 
-SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')
+SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}') && 
 sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID='"$SWAP_DEVICE"' resume_offset='"$SWAP_FILE_OFFSET"' /' /etc/default/grub && 
 sudo sed -i '52 s/fsck/resume fsck/' /etc/mkinitcpio.conf && 
 sudo mkinitcpio -P && sudo update-grub
