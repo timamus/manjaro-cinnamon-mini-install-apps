@@ -64,9 +64,13 @@ sudo mkinitcpio -P && sudo update-grub
 That’s all. Hibernated and it resumed!
 
 ```bash
-sudo swapoff /swapfile && 
-
-sudo rm -f /swapfile
+sudo sed -i '/swapfile none swap defaults 0 0/d' /etc/fstab && 
+SWAP_DEVICE=$(findmnt -no UUID -T /swapfile) && 
+SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}') && 
+sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID='"$SWAP_DEVICE"' resume_offset='"$SWAP_FILE_OFFSET"' /GRUB_CMDLINE_LINUX_DEFAULT="/' /etc/default/grub && 
+sudo sed -i '52 s/resume fsck/fsck/' /etc/mkinitcpio.conf && 
+sudo mkinitcpio -P && sudo update-grub && 
+sudo swapoff /swapfile && sudo rm -f /swapfile
 ```
 
 ## Changing the keyboard layout with hotkey
