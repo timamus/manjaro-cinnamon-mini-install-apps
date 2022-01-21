@@ -45,6 +45,8 @@ There is no reason you can't have both a swap partition and a swapfile. This is 
 
 For more modern systems (>4GB), your swap space should be at a minimum be ROUNDUP(SQRT(RAM)) I.E. the square root of your RAM size rounded up to the next GB. However, if you use hibernation, you need a minimum of physical memory (RAM) size plus ROUNDUP(SQRT(RAM)). The maximum, is again twice the amount of RAM, again because of diminishing returns.
 
+Below is a script that creates a swap file with automatic determination of its size for hibernation.
+
 ```bash
 TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo) && 
 TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}') && 
