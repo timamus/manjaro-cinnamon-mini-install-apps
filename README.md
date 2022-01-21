@@ -200,6 +200,12 @@ sudo update-grub
 ```
 Identify the display manager used in the system: `systemctl status display-manager`
 
+## Settings
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+
 ## Man
 
 `sudo pacman -Sy`
