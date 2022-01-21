@@ -41,7 +41,9 @@ Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
 
 ## Creating and Enabling a Static Swapfile
 
-Tip There is no reason you can't have both a swap partition and a swapfile. This is an easy way to add more swap without repartitioning.
+There is no reason you can't have both a swap partition and a swapfile. This is an easy way to add more swap without repartitioning.
+
+For more modern systems (>4GB), your swap space should be at a minimum be ROUNDUP(SQRT(RAM)) I.E. the square root of your RAM size rounded up to the next GB. However, if you use hibernation, you need a minimum of physical memory (RAM) size plus ROUNDUP(SQRT(RAM)). The maximum, is again twice the amount of RAM, again because of diminishing returns.
 
 ```bash
 TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo) && 
@@ -61,7 +63,7 @@ sudo sed -i '52 s/fsck/resume fsck/' /etc/mkinitcpio.conf &&
 sudo mkinitcpio -P && sudo update-grub
 ```
 
-That’s all. Hibernated and it resumed!
+If the RAM size changes, use the following script to delete the swapfile and its configuration.
 
 ```bash
 sudo sed -i '/swapfile none swap defaults 0 0/d' /etc/fstab && 
@@ -145,7 +147,7 @@ Then, in the applet settings, select the option 'Compact - Battery Percentage wi
 
 ## Splash screen
 
-Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process. To install and configure Plymouth, use the command below, once:
+Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process. To install and configure Plymouth, use the script below, once:
 
 ```bash
 sudo pacman -S plymouth && 
@@ -161,7 +163,7 @@ sudo systemctl enable lightdm-plymouth
 
 Note: This does not work in every case! For a SiS 65x/M650/740 PCI/AGP VGA Display Adapter, there is no "Kernel driver in use" line.
 
-Place a new plymouth themes into /usr/share/plymouth/themes directory. You can clone the theme repository for Plymouth, using the command below and copy the themes one by one.
+Place a new plymouth themes into /usr/share/plymouth/themes directory. You can clone the theme repository for Plymouth, using the script below and copy the themes one by one.
 
 ```bash
 git clone https://github.com/adi1090x/plymouth-themes.git && 
@@ -187,7 +189,7 @@ Or install themes from the official repository
 
 To find out which driver you are using you can use the following command: `lspci -k | grep -EA3 'VGA|3D|Display'`
 
-Run the command below to determine the screen resolution and update the grub file, if necessary:
+Run the script below to determine the screen resolution and update the grub file, if necessary:
 
 ```bash
 RESOLUTION=$(xdpyinfo | awk '/dimensions/ {print $2}') && 
