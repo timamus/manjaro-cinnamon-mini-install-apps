@@ -202,4 +202,4 @@ Identify the display manager used in the system: `systemctl status display-manag
 
 ## Man
 
-`sudo pacman -Syy`
+`sudo pacman -Sy`
