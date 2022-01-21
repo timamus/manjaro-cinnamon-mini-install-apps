@@ -199,3 +199,7 @@ sudo sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE='"$RESOLUTION"'/' /etc/default/gru
 sudo update-grub
 ```
 Identify the display manager used in the system: `systemctl status display-manager`
+
+## Man
+
+`sudo pacman -Syy`
