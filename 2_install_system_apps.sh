@@ -10,6 +10,14 @@ sudo pacman -S timeshift --noconfirm
 echo -en "\033[1;33m Installing gufw... \033[0m \n"
 sudo pacman -S gufw --noconfirm
 
+# Start and enable ufw
+echo -en "\033[1;33m Start and enable ufw... \033[0m \n"
+sudo systemctl start ufw
+sudo systemctl enable ufw
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw enable
+
 # Installing dconf-editor
 echo -en "\033[1;33m Installing dconf-editor... \033[0m \n"
 sudo pacman -S dconf-editor --noconfirm
