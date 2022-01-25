@@ -198,13 +198,16 @@ RESOLUTION=$(xdpyinfo | awk '/dimensions/ {print $2}') &&
 sudo sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE='"$RESOLUTION"'/' /etc/default/grub && 
 sudo update-grub
 ```
+
 Identify the display manager used in the system: `systemctl status display-manager`
 
 ## Settings
 
+```bash
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw enable
+```
 
 ## Man
 
