@@ -53,7 +53,7 @@ sudo pacman -S gnome-calculator --noconfirm
 
 # Installing nemo-fileroller
 echo -en "\033[1;33m Installing nemo-fileroller... \033[0m \n"
-sudo pacman -S nemo-fileroller --noconfirm
+sudo pacman -S nemo-fileroller p7zip unrar unace lrzip --noconfirm
 
 # Installing xviewer with plugins
 echo -en "\033[1;33m Installing xviewer with plugins... \033[0m \n"
