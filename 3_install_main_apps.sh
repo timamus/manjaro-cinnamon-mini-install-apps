@@ -48,6 +48,10 @@ sudo pacman -S telegram-desktop --noconfirm
 echo -en "\033[1;33m Installing bitwarden... \033[0m \n"
 sudo pacman -S bitwarden --noconfirm
 
+# Installing goldendict
+echo -en "\033[1;33m Installing goldendict... \033[0m \n"
+sudo pacman -S goldendict --noconfirm
+
 # Installing libreoffice with russian language pack
 echo -en "\033[1;33m Installing libreoffice with russian language pack... \033[0m \n"
 sudo pacman -S libreoffice-still libreoffice-still-ru --noconfirm
