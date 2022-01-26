@@ -58,7 +58,7 @@ sudo pacman -S --noconfirm libreoffice-still libreoffice-still-ru
 
 # Installing MS Windows 10 21H2 Build fonts from a local folder
 echo -en "\033[1;33m Installing MS Windows 10 21H2 Build fonts from a local folder... \033[0m \n"
-sudo pacman -U ttf-ms-win10-10.0.19043.1055-1-any.pkg.tar.zst
+sudo pacman -U --noconfirm ttf-ms-win10-10.0.19043.1055-1-any.pkg.tar.zst
 
 # Installing steam from flatpak repo
 echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
