@@ -12,7 +12,7 @@ sudo pacman -Syu
 
 # Installing Flatpak
 echo -en "\033[1;33m Installing Flatpak... \033[0m \n"
-sudo pacman -S flatpak libpamac-flatpak-plugin --noconfirm # pamac install flatpak libpamac-flatpak-plugin
+sudo pacman -S --noconfirm flatpak libpamac-flatpak-plugin # pamac install flatpak libpamac-flatpak-plugin
 
 # Enable Flatpak for pamac (uncomment the line #EnableFlatpak)
 echo -en "\033[1;33m Enable Flatpak for pamac... \033[0m \n"
