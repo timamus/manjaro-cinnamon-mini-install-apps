@@ -56,6 +56,18 @@ sudo pacman -S --noconfirm goldendict
 echo -en "\033[1;33m Installing libreoffice with russian language pack... \033[0m \n"
 sudo pacman -S --noconfirm libreoffice-still libreoffice-still-ru
 
+# Installing ttf-ms-fonts from AUR
+echo -en "\033[1;33m Installing ttf-ms-fonts (Arial, MS Sans Serif, Times New Roman, Verdana, etc.) from AUR... \033[0m \n"
+pamac build --no-confirm ttf-ms-fonts
+
+# Installing ttf-tahoma from AUR
+echo -en "\033[1;33m Installing ttf-tahoma from AUR... \033[0m \n"
+pamac build --no-confirm ttf-tahoma
+
+# Installing ttf-vista-fonts from AUR
+echo -en "\033[1;33m Installing ttf-vista-fonts (Calibri, Cambria, etc.) from AUR... \033[0m \n"
+pamac build --no-confirm ttf-vista-fonts
+
 # Installing steam from flatpak repo
 echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
