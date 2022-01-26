@@ -62,15 +62,15 @@ sudo flatpak install flathub com.valvesoftware.Steam
 
 # Installing luckybackup from AUR
 echo -en "\033[1;33m Installing luckybackup from AUR... \033[0m \n"
-pamac build luckybackup --no-confirm
+pamac build --no-confirm luckybackup
 
 # Installing yandex-disk-indicator from AUR
 echo -en "\033[1;33m Installing yandex-disk-indicator from AUR... \033[0m \n"
-pamac build yandex-disk-indicator --no-confirm
+pamac build --no-confirm yandex-disk-indicator
 
 # Installing ProtonVPN from AUR
 echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
-pamac build protonvpn --no-confirm
+pamac build --no-confirm protonvpn
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
