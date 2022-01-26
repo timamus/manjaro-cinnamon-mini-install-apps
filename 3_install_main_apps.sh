@@ -64,6 +64,10 @@ sudo flatpak install flathub com.valvesoftware.Steam
 echo -en "\033[1;33m Installing luckybackup from AUR... \033[0m \n"
 pamac build luckybackup
 
+# Installing yandex-disk-indicator from AUR
+echo -en "\033[1;33m Installing yandex-disk-indicator from AUR... \033[0m \n"
+pamac build yandex-disk-indicator
+
 # Installing ProtonVPN from AUR
 echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
 pamac build protonvpn
