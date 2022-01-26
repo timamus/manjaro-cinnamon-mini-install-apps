@@ -204,9 +204,6 @@ Identify the display manager used in the system: `systemctl status display-manag
 ## Settings
 
 ```bash
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw enable
 ```
 
 ## Man
