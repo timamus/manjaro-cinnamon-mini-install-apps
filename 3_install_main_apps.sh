@@ -41,9 +41,18 @@ sudo pacman -S --noconfirm firefox
 # Deleting midori browser and all the dependencies
 echo -en "\033[1;33m Deleting midori browser and all the dependencies... \033[0m \n"
 sudo pacman -Rcns midori
-rm -R /home/$USER/.config/midori
-rm -R /home/$USER/.cache/midori
-rm -R /home/$USER/.local/share/zeitgeist
+if [ -d "/home/$USER/.config/midori" ] 
+then
+  rm -R /home/$USER/.config/midori
+fi
+if [ -d "/home/$USER/.cache/midori" ] 
+then
+  rm -R /home/$USER/.cache/midori
+fi
+if [ -d "/home/$USER/.local/share/zeitgeist" ] 
+then
+  rm -R /home/$USER/.local/share/zeitgeist
+fi
 
 # Installing telegram
 echo -en "\033[1;33m Installing telegram... \033[0m \n"
