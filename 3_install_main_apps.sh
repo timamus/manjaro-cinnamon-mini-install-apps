@@ -25,6 +25,10 @@ sudo pacman -S --noconfirm shotcut
 # Installing smplayer with skins
 echo -en "\033[1;33m Installing smplayer with skins and themes... \033[0m \n"
 sudo pacman -S --noconfirm smplayer smplayer-skins smplayer-themes
+smplayer &
+echo "Waiting..."
+sleep 5s
+pkill smplayer
 sed -i 's/^\(gui\s*=\s*\).*$/\1MiniGUI/' /$HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(iconset\s*=\s*\).*$/\1PapirusDark/' /$HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' /$HOME/.config/smplayer/smplayer.ini
