@@ -82,6 +82,10 @@ sudo pacman -U --noconfirm ttf-ms-win10-10.0.19043.1055-1-any.pkg.tar.zst
 echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
 
+# Installing ProtonVPN from AUR
+echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
+pamac build --no-confirm protonvpn
+
 # Installing luckybackup from AUR
 echo -en "\033[1;33m Installing luckybackup from AUR... \033[0m \n"
 pamac build --no-confirm luckybackup
@@ -89,10 +93,6 @@ pamac build --no-confirm luckybackup
 # Installing yandex-disk-indicator from AUR
 echo -en "\033[1;33m Installing yandex-disk-indicator from AUR... \033[0m \n"
 pamac build --no-confirm yandex-disk-indicator
-
-# Installing ProtonVPN from AUR
-echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
-pamac build --no-confirm protonvpn
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
