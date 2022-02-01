@@ -68,8 +68,12 @@ echo -en "\033[1;33m Installing gnome-screenshot... \033[0m \n"
 sudo pacman -S --noconfirm gnome-screenshot
 
 # Installing gprename
-echo -en "\033[1;33m Installing gprename... \033[0m \n"
-sudo pacman -S --noconfirm gprename
+# echo -en "\033[1;33m Installing gprename... \033[0m \n"
+# sudo pacman -S --noconfirm gprename
+
+# Installing bulky is similar to gprename from the Linux Mint distribution
+echo -en "\033[1;33m Installing bulky... \033[0m \n"
+sudo pacman -S --noconfirm bulky
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
