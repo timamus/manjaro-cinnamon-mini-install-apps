@@ -136,9 +136,9 @@ Addons:
 Install the BAMS applet, then run:
 
 ```bash
-mkdir /$HOME/batterymonitor@pdcurtis && 
-cp /$HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/stylesheet.css /$HOME/batterymonitor@pdcurtis && 
-sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rgba(0,0,0,0.1)/' /$HOME/batterymonitor@pdcurtis/stylesheet.css
+mkdir $HOME/batterymonitor@pdcurtis && 
+cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/stylesheet.css $HOME/batterymonitor@pdcurtis && 
+sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rgba(0,0,0,0.1)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
 ```
 
 Install dependencies:
@@ -169,7 +169,7 @@ Place a new plymouth themes into /usr/share/plymouth/themes directory. You can c
 
 ```bash
 git clone https://github.com/adi1090x/plymouth-themes.git && 
-sudo cp -r /$HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
+sudo cp -r $HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
 sudo plymouth-set-default-theme -R lone
 ```
 
