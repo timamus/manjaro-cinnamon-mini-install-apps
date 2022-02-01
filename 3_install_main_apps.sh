@@ -30,9 +30,11 @@ smplayer &
 echo "Waiting for 5 seconds for smplayer to open..."
 sleep 5s
 smplayer -send-action close
-sed -i 's/^\(gui\s*=\s*\).*$/\1MiniGUI/' /$HOME/.config/smplayer/smplayer.ini
-sed -i 's/^\(iconset\s*=\s*\).*$/\1PapirusDark/' /$HOME/.config/smplayer/smplayer.ini
-sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' /$HOME/.config/smplayer/smplayer.ini
+echo "Waiting for 5 seconds for smplayer to close..."
+sleep 5s
+sed -i 's/^\(gui\s*=\s*\).*$/\1MiniGUI/' $HOME/.config/smplayer/smplayer.ini
+sed -i 's/^\(iconset\s*=\s*\).*$/\1PapirusDark/' $HOME/.config/smplayer/smplayer.ini
+sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplayer.ini
 
 # Installing firefox
 echo -en "\033[1;33m Installing firefox... \033[0m \n"
