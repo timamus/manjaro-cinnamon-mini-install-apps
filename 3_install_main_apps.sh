@@ -42,7 +42,9 @@ sudo pacman -S --noconfirm firefox
 
 # Deleting midori browser and all the dependencies
 echo -en "\033[1;33m Deleting midori browser and all the dependencies... \033[0m \n"
-sudo pacman -Rcns midori
+if pacman -Qs midori > /dev/null ; then
+  sudo pacman -Rcns midori
+fi
 if [ -d "$HOME/.config/midori" ] 
 then
   rm -R $HOME/.config/midori
