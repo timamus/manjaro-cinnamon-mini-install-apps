@@ -83,20 +83,20 @@ echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
 
 # Installing yay – AUR Helper
-echo -en "\033[1;33m Installing yay... \033[0m \n"
+echo -en "\033[1;33m Installing yay – AUR Helper... \033[0m \n"
 sudo pacman -S --noconfirm yay
 
 # Installing ProtonVPN from AUR
 echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
-yay -S protonvpn
+yay -S --noconfirm protonvpn
 
 # Installing luckybackup from AUR
 echo -en "\033[1;33m Installing luckybackup from AUR... \033[0m \n"
-yay -S luckybackup
+yay -S --noconfirm luckybackup
 
 # Installing yandex-disk-indicator from AUR
 echo -en "\033[1;33m Installing yandex-disk-indicator from AUR... \033[0m \n"
-yay -S yandex-disk-indicator
+yay -S --noconfirm yandex-disk-indicator
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
