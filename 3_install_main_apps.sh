@@ -82,7 +82,7 @@ sudo pacman -U --noconfirm ttf-ms-win10-10.0.19043.1055-1-any.pkg.tar.zst
 echo -en "\033[1;33m Installing yay – AUR Helper... \033[0m \n"
 sudo pacman -S --noconfirm yay
 
-# Installing ProtonVPN from AUR (it is needed first if resources are not available for downloading sources for building packages from AUR. For example, the resource "sourceforge.net" was unavailable)
+# Installing ProtonVPN from AUR (it is needed first if resources are not available for downloading sources for building packages from AUR. For example, the mirrors of the sourceforge.net resource were unavailable)
 echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
 yay -S --noconfirm protonvpn
 
