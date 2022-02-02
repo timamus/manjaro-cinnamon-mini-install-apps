@@ -209,3 +209,8 @@ Identify the display manager used in the system: `systemctl status display-manag
 ## Man
 
 `sudo pacman -Sy`
+
+I would also recommend aliasing yay to 'yay --aur' if you want to keep yay and pacman separate
+
+If I want to update only arch packages I use pacman, if I want to update and/or access AUR I use yay.
+For a full system update (arch and AUR) I use yay -Syu --noconfirm --cleanafter
