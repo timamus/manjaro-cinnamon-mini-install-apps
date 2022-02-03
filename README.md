@@ -204,6 +204,12 @@ Identify the display manager used in the system: `systemctl status display-manag
 ## Settings
 
 ```bash
+/org/cinnamon/desktop/screensaver/lock-delay
+  uint32 15
+  
+/org/cinnamon/desktop/sound/maximum-volume
+  150
+ 
 ```
 
 ## Man
