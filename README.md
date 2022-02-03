@@ -212,6 +212,8 @@ Identify the display manager used in the system: `systemctl status display-manag
  
 ```
 
+install proprietary driver - Parameters -> Manjaro Settings Manager
+
 ## Man
 
 `sudo pacman -Sy`
