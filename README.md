@@ -214,6 +214,10 @@ Identify the display manager used in the system: `systemctl status display-manag
 
 install proprietary driver - Parameters -> Manjaro Settings Manager
 
+- ScreenShot+RecordDesktop(Записывает в видео область рабочего стола. После добавления апплета необходимо выполнить команду "sudo apt install ffmpeg xdotool x11-utils").
+
+10) Пуск -> Параметры -> Десклеты. Можно поставить десклеты: Disk Space, Binary Clock^2.
+
 ## Man
 
 `sudo pacman -Sy`
