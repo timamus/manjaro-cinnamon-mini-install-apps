@@ -216,7 +216,7 @@ install proprietary driver - Parameters -> Manjaro Settings Manager
 
 - ScreenShot+RecordDesktop(Записывает в видео область рабочего стола. После добавления апплета необходимо выполнить команду "sudo apt install ffmpeg xdotool x11-utils").
 
-10) Пуск -> Параметры -> Десклеты. Можно поставить десклеты: Disk Space, Binary Clock^2.
+10) Пуск -> Параметры -> Десклеты. Можно поставить десклеты: Disk Space, Binary Clock^2. Для Disk Space включить следующие опции в настройках: Hide decorations, Use a custom circle color. Для Binary Clock^2 можно настроить Pip size: 12. В общих настройках убрать Привязка десклета к сетке;
 
 ## Man
 
