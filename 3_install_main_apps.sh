@@ -78,7 +78,7 @@ sudo pacman -S --noconfirm libreoffice-still libreoffice-still-ru
 echo -en "\033[1;33m Installing MS Windows 10 21H2 Build fonts from a local folder... \033[0m \n"
 sudo pacman -U --noconfirm ttf-ms-win10-10.0.19043.1055-1-any.pkg.tar.zst
 
-# Installing ProtonVPN from AUR (it is needed first if resources are not available for downloading sources for building packages from AUR. For example, the mirrors of the sourceforge.net resource were unavailable)
+# Installing ProtonVPN from AUR
 echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
 yay -S --noconfirm protonvpn
 
