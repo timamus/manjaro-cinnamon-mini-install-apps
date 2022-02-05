@@ -96,6 +96,9 @@ sudo flatpak install flathub com.valvesoftware.Steam
 
 if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
   sudo pacman -S --noconfirm firefox-i18n-ru gimp-help-ru libreoffice-still-ru
+  # Installing hyphen-ru from AUR
+  echo -en "\033[1;33m Installing hyphen-ru from AUR... \033[0m \n"
+  yay -S --noconfirm hyphen-ru
 fi
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
