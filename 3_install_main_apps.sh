@@ -94,5 +94,9 @@ yay -S --noconfirm yandex-disk-indicator
 echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
 
+if [ locale | sed -n 's/^LANG=//p' == "ru_RU.UTF-8" ]; then
+  echo "Strings are equal."
+fi
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
