@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm remmina freerdp libvncserver
 
 # Installing gimp with help
 echo -en "\033[1;33m Installing gimp with help... \033[0m \n"
-sudo pacman -S --noconfirm gimp gimp-help-ru
+sudo pacman -S --noconfirm gimp gimp-help-en
 
 # Installing shotcut
 echo -en "\033[1;33m Installing shotcut... \033[0m \n"
@@ -38,7 +38,7 @@ sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplay
 
 # Installing firefox
 echo -en "\033[1;33m Installing firefox... \033[0m \n"
-sudo pacman -S --noconfirm firefox
+sudo pacman -S --noconfirm firefox firefox-i18n-en-us
 
 # Deleting midori browser and all the dependencies
 echo -en "\033[1;33m Deleting midori browser and all the dependencies... \033[0m \n"
@@ -72,7 +72,7 @@ sudo pacman -S --noconfirm goldendict
 
 # Installing libreoffice with russian language pack
 echo -en "\033[1;33m Installing libreoffice with russian language pack... \033[0m \n"
-sudo pacman -S --noconfirm libreoffice-still libreoffice-still-ru
+sudo pacman -S --noconfirm libreoffice-still
 
 # Installing MS Windows 10 21H2 Build fonts from a local folder
 echo -en "\033[1;33m Installing MS Windows 10 21H2 Build fonts from a local folder... \033[0m \n"
@@ -95,7 +95,7 @@ echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
 
 if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
-  echo "Strings are equal."
+  sudo pacman -S firefox-i18n-ru gimp-help-ru libreoffice-still-ru
 fi
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
