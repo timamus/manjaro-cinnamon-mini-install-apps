@@ -95,7 +95,7 @@ echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
 
 if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
-  sudo pacman -S firefox-i18n-ru gimp-help-ru libreoffice-still-ru
+  sudo pacman -S --noconfirm firefox-i18n-ru gimp-help-ru libreoffice-still-ru
 fi
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
