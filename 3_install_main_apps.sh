@@ -72,7 +72,7 @@ sudo pacman -S --noconfirm goldendict
 
 # Installing libreoffice with russian language pack
 echo -en "\033[1;33m Installing libreoffice with russian language pack... \033[0m \n"
-sudo pacman -S --noconfirm libreoffice-still hyphen-en
+sudo pacman -S --noconfirm libreoffice-still hunspell-en_us hyphen-en
 
 # Installing MS Windows 10 21H2 Build fonts from a local folder
 echo -en "\033[1;33m Installing MS Windows 10 21H2 Build fonts from a local folder... \033[0m \n"
