@@ -10,6 +10,10 @@ sudo pacman -S --noconfirm transmission-gtk
 echo -en "\033[1;33m Installing veracrypt... \033[0m \n"
 sudo pacman -S --noconfirm veracrypt
 
+# Installing virtualbox
+echo -en "\033[1;33m Installing virtualbox... \033[0m \n"
+sudo pacman -S --noconfirm virtualbox
+
 # Installing remmina with rdp and vnc plugins
 echo -en "\033[1;33m Installing remmina with rdp and vnc plugins... \033[0m \n"
 sudo pacman -S --noconfirm remmina freerdp libvncserver
