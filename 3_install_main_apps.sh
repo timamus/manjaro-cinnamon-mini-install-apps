@@ -13,6 +13,7 @@ sudo pacman -S --noconfirm veracrypt
 # Installing virtualbox
 echo -en "\033[1;33m Installing virtualbox... \033[0m \n"
 sudo pacman -S --noconfirm virtualbox
+yay -S --noconfirm virtualbox-ext-oracle
 sudo gpasswd -a $USER vboxusers
 
 # Installing remmina with rdp and vnc plugins
