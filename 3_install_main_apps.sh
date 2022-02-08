@@ -102,9 +102,9 @@ yay -S --noconfirm yandex-disk-indicator
 echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
 
-# Installing texstudio
+# Installing texstudio (there is also group texlive-lang if you need chinese, cyrillic, etc)
 echo -en "\033[1;33m Installing texstudio... \033[0m \n"
-sudo pacman -S --noconfirm texstudio
+sudo pacman -S --noconfirm texstudio texlive-most texlive-bin
 
 if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
   sudo pacman -S --noconfirm firefox-i18n-ru gimp-help-ru libreoffice-still-ru hunspell-ru
