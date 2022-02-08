@@ -44,6 +44,10 @@ sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplay
 echo -en "\033[1;33m Installing firefox... \033[0m \n"
 sudo pacman -S --noconfirm firefox firefox-i18n-en-us
 
+# Installing thunderbird
+echo -en "\033[1;33m Installing thunderbird... \033[0m \n"
+sudo pacman -S --noconfirm thunderbird
+
 # Deleting midori browser and all the dependencies
 echo -en "\033[1;33m Deleting midori browser and all the dependencies... \033[0m \n"
 if pacman -Qs midori > /dev/null ; then
