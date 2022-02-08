@@ -103,6 +103,7 @@ echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
 
 # Installing texstudio (there is also group texlive-lang if you need chinese, cyrillic, etc)
+# The path to change the program language: Options -> Configure Texstudio -> General -> Language
 echo -en "\033[1;33m Installing texstudio... \033[0m \n"
 sudo pacman -S --noconfirm texstudio texlive-most texlive-bin
 
