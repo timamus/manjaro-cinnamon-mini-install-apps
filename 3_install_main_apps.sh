@@ -102,6 +102,10 @@ yay -S --noconfirm yandex-disk-indicator
 echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 sudo flatpak install flathub com.valvesoftware.Steam
 
+# Installing texstudio
+echo -en "\033[1;33m Installing texstudio... \033[0m \n"
+sudo pacman -S --noconfirm texstudio
+
 if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
   sudo pacman -S --noconfirm firefox-i18n-ru gimp-help-ru libreoffice-still-ru hunspell-ru
   # Installing hyphen-ru from AUR
