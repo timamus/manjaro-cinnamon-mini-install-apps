@@ -7,7 +7,7 @@
 
 
 # Installing rider
-yay -S rider
+yay -S rider xamarin-android
 
 NodeJS
 VSCode
