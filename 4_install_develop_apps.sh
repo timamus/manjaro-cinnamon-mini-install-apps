@@ -7,7 +7,7 @@
 
 
 # Installing rider
-yay -S rider xamarin-android
+yay -S rider dotnet-sdk-bin xamarin-android
 
 NodeJS
 VSCode
