@@ -226,6 +226,10 @@ install proprietary driver - Parameters -> Manjaro Settings Manager
 
 https://wallpaperaccess.com/manjaro
 
+https://www.reddit.com/r/wallpaper/
+
+https://www.reddit.com/r/wallpaper/comments/sox44n/chill_vibes_3440_1440/
+
 ## Man
 
 `sudo pacman -Sy`
