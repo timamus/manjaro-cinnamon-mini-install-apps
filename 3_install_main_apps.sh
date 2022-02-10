@@ -105,11 +105,12 @@ yay -S --noconfirm yandex-disk-indicator
 # sudo flatpak install flathub com.valvesoftware.Steam
 
 # Installing steam
+# You can enable Proton in the Steam Client in Steam > Settings > Steam Play
 echo -en "\033[1;33m Installing steam... \033[0m \n"
 sudo pacman -S steam-manjaro
 
 # Installing texstudio (there is also group texlive-lang if you need chinese, cyrillic, etc)
-# The path to change the program language: Options -> Configure Texstudio -> General -> Language
+# The path to change the program language: Options > Configure Texstudio > General > Language
 echo -en "\033[1;33m Installing texstudio... \033[0m \n"
 sudo pacman -S --noconfirm texstudio texlive-most texlive-bin
 
