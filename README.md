@@ -224,6 +224,8 @@ install proprietary driver - Parameters -> Manjaro Settings Manager
 
 10) Пуск -> Параметры -> Десклеты. Можно поставить десклеты: Disk Space, Binary Clock^2. Для Disk Space включить следующие опции в настройках: Hide decorations, Use a custom circle color. Для Binary Clock^2 можно настроить Pip size: 12. В общих настройках убрать Привязка десклета к сетке;
 
+https://wallpaperaccess.com/manjaro
+
 ## Man
 
 `sudo pacman -Sy`
