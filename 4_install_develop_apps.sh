@@ -13,11 +13,11 @@ yay -S dotnet-sdk-bin
 # Installing rider
 yay -S rider xamarin-android
 
+# Installing pycharm community edition
+sudo pacman -S --noconfirm pycharm-community-edition
+
 # Installing visual studio code
 yay -S visual-studio-code-bin
 
 NodeJS
-VSCode
 DBeawer
-PyCharm
-Dotnet
