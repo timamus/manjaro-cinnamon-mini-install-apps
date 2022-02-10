@@ -18,6 +18,9 @@ yay -S dotnet-sdk-bin
 echo -en "\033[1;33m Installing rider & xamarin-android from AUR... \033[0m \n"
 yay -S rider xamarin-android
 
+sudo sed -i '/1.2.3.4 account.jetbrains.com/d' /etc/hosts
+sudo bash -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
+
 # Installing pycharm community edition
 echo -en "\033[1;33m Installing pycharm community edition... \033[0m \n"
 sudo pacman -S --noconfirm pycharm-community-edition
