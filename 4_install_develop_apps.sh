@@ -8,7 +8,7 @@
 sudo pacman -S --noconfirm mono
 
 # Installing dotnet
-yay -S rider dotnet-sdk-bin
+yay -S dotnet-sdk-bin
 
 # Installing rider
 yay -S rider xamarin-android
