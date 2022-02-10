@@ -13,6 +13,9 @@ yay -S rider dotnet-sdk-bin
 # Installing rider
 yay -S rider xamarin-android
 
+# Installing visual studio code
+yay -S visual-studio-code-bin
+
 NodeJS
 VSCode
 DBeawer
