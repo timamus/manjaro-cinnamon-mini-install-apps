@@ -1,26 +1,38 @@
 #!/usr/bin/env bash
 
-# Installing rider from flatpak repo
-#echo -en "\033[1;33m Installing rider from flatpak repo... \033[0m \n"
-#sudo flatpak install flathub com.jetbrains.Rider
+set -Eeuo pipefail
 
 # Installing mono
+echo -en "\033[1;33m Installing mono... \033[0m \n"
 sudo pacman -S --noconfirm mono
 
-# Installing dotnet
+# Installing dotnet-sdk from AUR
+echo -en "\033[1;33m Installing dotnet-sdk from AUR... \033[0m \n"
 yay -S dotnet-sdk-bin
 
-# Installing rider
+# Installing rider from flatpak repo
+# echo -en "\033[1;33m Installing rider from flatpak repo... \033[0m \n"
+# sudo flatpak install flathub com.jetbrains.Rider
+
+# Installing rider & xamarin-android from AUR
+echo -en "\033[1;33m Installing rider & xamarin-android from AUR... \033[0m \n"
 yay -S rider xamarin-android
 
 # Installing pycharm community edition
+echo -en "\033[1;33m Installing pycharm community edition... \033[0m \n"
 sudo pacman -S --noconfirm pycharm-community-edition
 
 # Installing nodejs & npm
+echo -en "\033[1;33m Installing nodejs & npm... \033[0m \n"
 sudo pacman -S --noconfirm nodejs npm
 
-# Installing visual studio code
+# Installing visual studio code from AUR
+echo -en "\033[1;33m Installing visual studio code from AUR... \033[0m \n"
 yay -S visual-studio-code-bin
 
-# Installing dbeaver
+# Installing dbeaver with plugins
+echo -en "\033[1;33m Installing dbeaver with plugins... \033[0m \n"
 sudo pacman -S --noconfirm dbeaver dbeaver-plugin-office dbeaver-plugin-svg-format
+
+echo -en "\033[0;35m Installation successfull \033[0m \n"
+echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
