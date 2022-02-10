@@ -230,6 +230,10 @@ https://www.reddit.com/r/wallpaper/
 
 https://www.reddit.com/r/wallpaper/comments/sox44n/chill_vibes_3440_1440/
 
+https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
+
+https://www.reddit.com/r/wallpaper/comments/sovzwy/so_peaceful_3840x2160/
+
 ## Man
 
 `sudo pacman -Sy`
