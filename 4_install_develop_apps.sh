@@ -16,8 +16,10 @@ yay -S rider xamarin-android
 # Installing pycharm community edition
 sudo pacman -S --noconfirm pycharm-community-edition
 
+# Installing nodejs & npm
+sudo pacman -S --noconfirm nodejs npm
+
 # Installing visual studio code
 yay -S visual-studio-code-bin
 
-NodeJS
 DBeawer
