@@ -23,4 +23,4 @@ sudo pacman -S --noconfirm nodejs npm
 yay -S visual-studio-code-bin
 
 # Installing dbeaver
-sudo pacman -S --noconfirm dbeaver
+sudo pacman -S --noconfirm dbeaver dbeaver-plugin-office dbeaver-plugin-svg-format
