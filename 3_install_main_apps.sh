@@ -101,8 +101,12 @@ echo -en "\033[1;33m Installing yandex-disk-indicator from AUR... \033[0m \n"
 yay -S --noconfirm yandex-disk-indicator
 
 # Installing steam from flatpak repo
-echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
-sudo flatpak install flathub com.valvesoftware.Steam
+# echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
+# sudo flatpak install flathub com.valvesoftware.Steam
+
+# Installing steam
+echo -en "\033[1;33m Installing steam... \033[0m \n"
+sudo pacman -S steam
 
 # Installing texstudio (there is also group texlive-lang if you need chinese, cyrillic, etc)
 # The path to change the program language: Options -> Configure Texstudio -> General -> Language
