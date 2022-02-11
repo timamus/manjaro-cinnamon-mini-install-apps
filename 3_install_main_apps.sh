@@ -50,6 +50,10 @@ sed -i 's/^\(gui\s*=\s*\).*$/\1MiniGUI/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(iconset\s*=\s*\).*$/\1PapirusDark/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplayer.ini
 
+# Installing rhythmbox
+echo -en "\033[1;33m Installing rhythmbox... \033[0m \n"
+sudo pacman -S --noconfirm rhythmbox
+
 # Installing firefox
 echo -en "\033[1;33m Installing firefox... \033[0m \n"
 sudo pacman -S --noconfirm firefox firefox-i18n-en-us
