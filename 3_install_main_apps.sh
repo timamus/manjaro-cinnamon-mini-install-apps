@@ -84,6 +84,10 @@ sudo pacman -S --noconfirm bitwarden
 echo -en "\033[1;33m Installing goldendict... \033[0m \n"
 sudo pacman -S --noconfirm goldendict
 
+# Installing calibre
+echo -en "\033[1;33m Installing calibre... \033[0m \n"
+sudo pacman -S --noconfirm calibre
+
 # Installing redshift
 echo -en "\033[1;33m Installing redshift... \033[0m \n"
 sudo pacman -S --noconfirm redshift
