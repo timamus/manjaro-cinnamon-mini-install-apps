@@ -28,6 +28,10 @@ sudo pacman -S --noconfirm gimp gimp-help-en
 echo -en "\033[1;33m Installing inkscape... \033[0m \n"
 sudo pacman -S --noconfirm inkscape
 
+# Installing pix is an advanced image viewer and browser
+echo -en "\033[1;33m Installing pix is an advanced image viewer and browser... \033[0m \n"
+sudo pacman -S --noconfirm pix
+
 # Installing shotcut
 echo -en "\033[1;33m Installing shotcut... \033[0m \n"
 sudo pacman -S --noconfirm shotcut
