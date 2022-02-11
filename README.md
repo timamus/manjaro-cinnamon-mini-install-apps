@@ -205,19 +205,7 @@ Identify the display manager used in the system: `systemctl status display-manag
 ## Settings
 
 ```bash
-/org/cinnamon/desktop/screensaver/lock-delay
-  uint32 15
-  
-/org/cinnamon/desktop/sound/maximum-volume
-  150
- 
- 
-/org/cinnamon/desktop/interface/text-scaling-factor
-  1.2000000000000002
-
-/org/cinnamon/desktop/background/picture-options
-  'stretched'
- 
+gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
 ```
 
 install proprietary driver - Parameters -> Manjaro Settings Manager
