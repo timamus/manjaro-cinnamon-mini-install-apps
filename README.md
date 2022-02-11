@@ -78,17 +78,6 @@ sudo mkinitcpio -P && sudo update-grub &&
 sudo swapoff /swapfile && sudo rm -f /swapfile
 ```
 
-## Changing the keyboard layout with hotkey
-
-```bash
-gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']" && 
-gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']" && 
-gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false && 
-gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
-```
-
-Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png` to support flags if you need
-
 ## Installing and using the Timeshift auto-snapshot script
 
 Timeshift auto-snapshot script which runs before package upgrade using Pacman hook. To install, type the command:
@@ -188,7 +177,18 @@ Identify the display manager used in the system: `systemctl status display-manag
 
 ## Cinnamon Desktop Environment Settings
 
-Changing default fonts in the system
+Changing the keyboard layout with hotkey:
+
+```bash
+gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']" && 
+gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']" && 
+gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false && 
+gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
+```
+
+Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png` to support flags if you need
+
+Changing default fonts in the system:
 
 ```bash
 gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10" && 
@@ -209,8 +209,6 @@ Change the text scale, for laptops with a small display and high resolution:
 ```bash
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
 ```
-
-install proprietary driver - Parameters -> Manjaro Settings Manager
 
 - ScreenShot+RecordDesktop(Записывает в видео область рабочего стола. После добавления апплета необходимо выполнить команду "sudo apt install ffmpeg xdotool x11-utils").
 
