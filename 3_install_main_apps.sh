@@ -84,6 +84,10 @@ sudo pacman -S --noconfirm bitwarden
 echo -en "\033[1;33m Installing goldendict... \033[0m \n"
 sudo pacman -S --noconfirm goldendict
 
+# Installing redshift
+echo -en "\033[1;33m Installing redshift... \033[0m \n"
+sudo pacman -S --noconfirm redshift
+
 # Installing libreoffice with russian language pack
 echo -en "\033[1;33m Installing libreoffice with russian language pack... \033[0m \n"
 sudo pacman -S --noconfirm libreoffice-still hunspell-en_us hyphen-en
