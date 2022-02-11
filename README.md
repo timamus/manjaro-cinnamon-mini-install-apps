@@ -194,9 +194,7 @@ Change the text scale, for laptops with a small display and high resolution:
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
 ```
 
-Battery Applet with Monitoring and Shutdown (BAMS)
-
-Install the BAMS applet, then run:
+Battery Applet with Monitoring and Shutdown (BAMS). Install the BAMS applet, then run:
 
 ```bash
 mkdir $HOME/batterymonitor@pdcurtis && 
