@@ -172,7 +172,7 @@ gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
 
 Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png` to support flags if you need
 
-Changing default fonts in the system:
+###### Changing default fonts in the system
 
 ```bash
 gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10" && 
@@ -188,13 +188,15 @@ gsettings set org.nemo.desktop font "Cantarell 10" &&
 gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Cantarell 10"
 ```
 
-Change the text scale, for laptops with a small display and high resolution:
+###### Change the text scale, for laptops with a small display and high resolution
 
 ```bash
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
 ```
 
-Battery Applet with Monitoring and Shutdown (BAMS). Install the BAMS applet, then run:
+###### Battery Applet with Monitoring and Shutdown (BAMS)
+
+Install the BAMS applet, then run:
 
 ```bash
 mkdir $HOME/batterymonitor@pdcurtis && 
