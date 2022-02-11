@@ -21,5 +21,19 @@ sudo sed -i '52 s/fsck/resume fsck/' /etc/mkinitcpio.conf
 sudo mkinitcpio -P
 sudo update-grub
 
+# Installing and configuring plymouth
+sudo pacman -S plymouth && 
+KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*: //') && 
+sudo sed -i 's/MODULES=""/MODULES="'"$KERNEL_DRIVER"'"/' /etc/mkinitcpio.conf && 
+sudo sed -i -e '52 s/base udev/base udev plymouth/' -e '52 s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf && 
+sudo mkinitcpio -P && 
+sudo sed -i 's/quiet/quiet splash/' /etc/default/grub && 
+sudo update-grub && 
+sudo systemctl disable lightdm && 
+sudo systemctl enable lightdm-plymouth
+git clone https://github.com/adi1090x/plymouth-themes.git $HOME/ && 
+sudo cp -r $HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
+sudo plymouth-set-default-theme -R lone
+
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
