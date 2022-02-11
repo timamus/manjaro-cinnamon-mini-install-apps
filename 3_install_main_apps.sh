@@ -24,6 +24,10 @@ sudo pacman -S --noconfirm remmina freerdp libvncserver
 echo -en "\033[1;33m Installing gimp with help... \033[0m \n"
 sudo pacman -S --noconfirm gimp gimp-help-en
 
+# Installing inkscape
+echo -en "\033[1;33m Installing inkscape... \033[0m \n"
+sudo pacman -S --noconfirm inkscape
+
 # Installing shotcut
 echo -en "\033[1;33m Installing shotcut... \033[0m \n"
 sudo pacman -S --noconfirm shotcut
