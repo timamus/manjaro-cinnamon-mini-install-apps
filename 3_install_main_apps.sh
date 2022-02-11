@@ -11,8 +11,8 @@ echo -en "\033[1;33m Installing veracrypt... \033[0m \n"
 sudo pacman -S --noconfirm veracrypt
 
 # Installing virtualbox
-echo -en "\033[1;33m Installing virtualbox... \033[0m \n"
-sudo pacman -S --noconfirm virtualbox
+echo -en "\033[1;33m Installing virtualbox... Select linux*-virtualbox-host-modules, which matches the current kernel version listed below \033[0m \n"
+mhwd-kernel -li && sudo pacman -S virtualbox
 yay -S --noconfirm virtualbox-ext-oracle
 sudo gpasswd -a $USER vboxusers
 
