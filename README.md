@@ -105,22 +105,6 @@ Addons:
 - https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
 - https://addons.mozilla.org/ru/firefox/addon/musicpro/
 
-## Battery Applet with Monitoring and Shutdown (BAMS)
-
-Install the BAMS applet, then run:
-
-```bash
-mkdir $HOME/batterymonitor@pdcurtis && 
-cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/stylesheet.css $HOME/batterymonitor@pdcurtis && 
-sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rgba(0,0,0,0.1)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
-```
-
-Install dependencies:
-
-`sudo pacman -S upower sox zenity`
-
-Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area.
-
 ## Splash screen
 
 Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process. To install and configure Plymouth, use the script below, once:
@@ -209,6 +193,22 @@ Change the text scale, for laptops with a small display and high resolution:
 ```bash
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
 ```
+
+Battery Applet with Monitoring and Shutdown (BAMS)
+
+Install the BAMS applet, then run:
+
+```bash
+mkdir $HOME/batterymonitor@pdcurtis && 
+cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/stylesheet.css $HOME/batterymonitor@pdcurtis && 
+sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rgba(0,0,0,0.1)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
+```
+
+Install dependencies:
+
+`sudo pacman -S upower sox zenity`
+
+Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area.
 
 - ScreenShot+RecordDesktop(Записывает в видео область рабочего стола. После добавления апплета необходимо выполнить команду "sudo apt install ffmpeg xdotool x11-utils").
 
