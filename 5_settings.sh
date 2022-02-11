@@ -23,26 +23,32 @@ sudo update-grub
 
 # Installing and configuring plymouth
 echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
-sudo pacman -S plymouth && 
-KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*: //') && 
-sudo sed -i 's/MODULES=""/MODULES="'"$KERNEL_DRIVER"'"/' /etc/mkinitcpio.conf && 
-sudo sed -i -e '52 s/base udev/base udev plymouth/' -e '52 s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf && 
-sudo mkinitcpio -P && 
-sudo sed -i 's/quiet/quiet splash/' /etc/default/grub && 
-sudo update-grub && 
-sudo systemctl disable lightdm && 
+sudo pacman -S plymouth
+KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*: //')
+sudo sed -i 's/MODULES=""/MODULES="'"$KERNEL_DRIVER"'"/' /etc/mkinitcpio.conf
+sudo sed -i -e '52 s/base udev/base udev plymouth/' -e '52 s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf
+sudo mkinitcpio -P
+sudo sed -i 's/quiet/quiet splash/' /etc/default/grub
+sudo update-grub
+sudo systemctl disable lightdm
 sudo systemctl enable lightdm-plymouth
-git clone https://github.com/adi1090x/plymouth-themes.git $HOME/ && 
-sudo cp -r $HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
+git clone https://github.com/adi1090x/plymouth-themes.git $HOME/
+sudo cp -r $HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/
 sudo plymouth-set-default-theme -R lone
 
 # Changing the keyboard layout with hotkey
 echo -en "\033[1;33m Changing the keyboard layout with hotkey... \033[0m \n"
 sudo pacman -S iso-flag-png
-gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']" && 
-gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']" && 
-gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false && 
+gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']"
+gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']"
+gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false
 gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
+
+# Changing default fonts in the system
+echo -en "\033[1;33m Changing default fonts in the system... \033[0m \n"
+gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10"
+gsettings set org.nemo.desktop font "Ubuntu 10"
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
