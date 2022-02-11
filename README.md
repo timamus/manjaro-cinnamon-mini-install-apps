@@ -14,6 +14,7 @@ Manjaro cinnamon minimal installation apps scripts
 - `./2_install_system_apps.sh`
 - `./3_install_main_apps.sh`
 - `./4_install_develop_apps.sh`
+- `./5_settings.sh`
 
 ## How to do manual partitioning
 
