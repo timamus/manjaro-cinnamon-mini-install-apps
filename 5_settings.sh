@@ -50,5 +50,8 @@ gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10"
 gsettings set org.nemo.desktop font "Ubuntu 10"
 gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
 
+# 
+gsettings set org.cinnamon.desktop.screensaver lock-delay 15
+
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
