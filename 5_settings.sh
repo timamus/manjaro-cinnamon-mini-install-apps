@@ -50,10 +50,13 @@ gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10"
 gsettings set org.nemo.desktop font "Ubuntu 10"
 gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
 
-# 
+# Changing some Cinnamon settings (screen saver, sound, background)
+echo -en "\033[1;33m Changing some Cinnamon settings (screen saver, sound, background)... \033[0m \n"
+# Delay before screen saver is blocked
 gsettings set org.cinnamon.desktop.screensaver lock-delay 15
+# Setting the sound volume to 150%
 gsettings set org.cinnamon.desktop.sound maximum-volume 150
-gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
+# Background image format
 gsettings set org.cinnamon.desktop.background picture-options 'stretched'
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
