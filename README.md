@@ -89,22 +89,6 @@ gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
 
 Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png` to support flags if you need
 
-## Changing default fonts in the system
-
-```bash
-gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10" && 
-gsettings set org.nemo.desktop font "Ubuntu 10" && 
-gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
-```
-
-Return to default:
-
-```bash
-gsettings set org.cinnamon.desktop.interface font-name "Cantarell 10" && 
-gsettings set org.nemo.desktop font "Cantarell 10" && 
-gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Cantarell 10"
-```
-
 ## Installing and using the Timeshift auto-snapshot script
 
 Timeshift auto-snapshot script which runs before package upgrade using Pacman hook. To install, type the command:
@@ -202,7 +186,25 @@ sudo update-grub
 
 Identify the display manager used in the system: `systemctl status display-manager`
 
-## Settings
+## Cinnamon Desktop Environment Settings
+
+Changing default fonts in the system
+
+```bash
+gsettings set org.cinnamon.desktop.interface font-name "Ubuntu 10" && 
+gsettings set org.nemo.desktop font "Ubuntu 10" && 
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bold 10"
+```
+
+Return to default:
+
+```bash
+gsettings set org.cinnamon.desktop.interface font-name "Cantarell 10" && 
+gsettings set org.nemo.desktop font "Cantarell 10" && 
+gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Cantarell 10"
+```
+
+Change the text scale, for laptops with a small display and high resolution:
 
 ```bash
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
