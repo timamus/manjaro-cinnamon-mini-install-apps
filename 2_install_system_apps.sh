@@ -79,5 +79,9 @@ sudo pacman -S --noconfirm gnome-screenshot
 echo -en "\033[1;33m Installing bulky... \033[0m \n"
 sudo pacman -S --noconfirm bulky
 
+# Installing gnome-calendar
+echo -en "\033[1;33m Installing gnome-calendar... \033[0m \n"
+sudo pacman -S --noconfirm gnome-calendar
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
