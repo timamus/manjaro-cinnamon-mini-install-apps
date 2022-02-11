@@ -52,6 +52,8 @@ gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Ubuntu Semi-Bol
 
 # 
 gsettings set org.cinnamon.desktop.screensaver lock-delay 15
+gsettings set org.cinnamon.desktop.sound maximum-volume 150
+gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
