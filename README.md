@@ -96,15 +96,6 @@ Restore a snapshot (selecting which snapshot to restore interactively):
 
 `sudo timeshift --restore`
 
-## Firefox Options
-
-Addons:
-
-- https://addons.mozilla.org/ru/firefox/addon/adblocker-ultimate/
-- https://addons.mozilla.org/ru/firefox/addon/bitwarden-password-manager/
-- https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
-- https://addons.mozilla.org/ru/firefox/addon/musicpro/
-
 ## Splash screen
 
 Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process. To install and configure Plymouth, use the script below, once:
@@ -158,6 +149,15 @@ sudo update-grub
 ```
 
 Identify the display manager used in the system: `systemctl status display-manager`
+
+## Firefox Options
+
+Addons:
+
+- https://addons.mozilla.org/ru/firefox/addon/adblocker-ultimate/
+- https://addons.mozilla.org/ru/firefox/addon/bitwarden-password-manager/
+- https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
+- https://addons.mozilla.org/ru/firefox/addon/musicpro/
 
 ## Cinnamon Desktop Environment Settings
 
