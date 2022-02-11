@@ -36,5 +36,13 @@ git clone https://github.com/adi1090x/plymouth-themes.git $HOME/ &&
 sudo cp -r $HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
 sudo plymouth-set-default-theme -R lone
 
+# Changing the keyboard layout with hotkey
+echo -en "\033[1;33m Changing the keyboard layout with hotkey... \033[0m \n"
+sudo pacman -S iso-flag-png
+gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']" && 
+gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggle']" && 
+gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false && 
+gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
+
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
