@@ -42,7 +42,7 @@ sudo plymouth-set-default-theme -R lone
 
 # Changing the keyboard layout with hotkey
 echo -en "\033[1;33m Changing the keyboard layout with hotkey... \033[0m \n"
-sudo pacman -S iso-flag-png
+sudo pacman -S --noconfirm iso-flag-png
 if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
   gsettings set org.gnome.libgnomekbd.keyboard layouts "['us', 'ru']"
 fi
