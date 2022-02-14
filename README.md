@@ -230,11 +230,6 @@ https://www.reddit.com/r/wallpaper/comments/sox44n/chill_vibes_3440_1440/
 
 https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
 
-## Man
+## How to update
 
-`sudo pacman -Sy`
-
-I would also recommend aliasing yay to 'yay --aur' if you want to keep yay and pacman separate
-
-If I want to update only arch packages I use pacman, if I want to update and/or access AUR I use yay.
-For a full system update (arch and AUR) I use yay -Syu --noconfirm --cleanafter
+If I want to update only arch packages I use pacman `sudo pacman -Syu`, if I want to update and/or access AUR I use yay. For a full system update (arch and AUR) I use `yay -Syu --noconfirm --cleanafter`. I would also recommend aliasing yay to `yay --aur` if you want to keep yay and pacman separate.
