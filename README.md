@@ -124,19 +124,19 @@ sudo plymouth-set-default-theme -R lone
 
 Or install themes from the official repository
 
-- `sudo pacman -S plymouth-theme-manjaro`
-- `sudo pacman -S plymouth-theme-manjaro-cinnamon`
-- `sudo pacman -S plymouth-theme-manjaro-circle`
-- `sudo pacman -S plymouth-theme-manjaro-deepin`
-- `sudo pacman -S plymouth-theme-manjaro-deepin-circle`
-- `sudo pacman -S plymouth-theme-manjaro-elegant`
-- `sudo pacman -S plymouth-theme-manjaro-elegant-hidpi`
-- `sudo pacman -S plymouth-theme-manjaro-extra-elegant`
-- `sudo pacman -S plymouth-theme-manjaro-fancy-budgie`
-- `sudo pacman -S plymouth-theme-manjaro-gnome`
-- `sudo pacman -S plymouth-theme-manjaro-gnome-17.0`
-- `sudo pacman -S plymouth-theme-manjaro-redefined-bsplash`
-- `sudo pacman -S plymouth-theme-manjaro-very-elegant`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-cinnamon`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-circle`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-deepin`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-deepin-circle`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant-hidpi`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-extra-elegant`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-fancy-budgie`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-gnome`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-gnome-17.0`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-redefined-bsplash`
+- `sudo pacman -S --noconfirm plymouth-theme-manjaro-very-elegant`
 
 To find out which driver you are using you can use the following command: `lspci -k | grep -EA3 'VGA|3D|Display'`
 
