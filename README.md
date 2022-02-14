@@ -117,7 +117,7 @@ Note: This does not work in every case! For a SiS 65x/M650/740 PCI/AGP VGA Displ
 Place a new plymouth themes into /usr/share/plymouth/themes directory. You can clone the theme repository for Plymouth, using the script below and copy the themes one by one.
 
 ```bash
-git clone https://github.com/adi1090x/plymouth-themes.git $HOME/ && 
+git -C $HOME/ clone https://github.com/adi1090x/plymouth-themes.git && 
 sudo cp -r $HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
 sudo plymouth-set-default-theme -R lone
 ```
