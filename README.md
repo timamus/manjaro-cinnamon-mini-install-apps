@@ -170,7 +170,7 @@ gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false &&
 gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
 ```
 
-Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S --noconfirm iso-flag-png` to support flags if you need
+Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png` to support flags if you need
 
 ### Changing default fonts in the system
 
