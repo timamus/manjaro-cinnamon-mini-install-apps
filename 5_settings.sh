@@ -2,7 +2,9 @@
 
 set -Eeuo pipefail
 
+# 
 sudo pacman -S --noconfirm timeshift-autosnap-manjaro
+sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
 
 # Creating a swap file with automatic determination of its size for hibernation
 echo -en "\033[1;33m Creating a swap file with automatic determination of its size for hibernation... \033[0m \n"
