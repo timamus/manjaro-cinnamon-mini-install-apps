@@ -82,7 +82,7 @@ sudo swapoff /swapfile && sudo rm -f /swapfile
 
 Timeshift auto-snapshot script which runs before package upgrade using Pacman hook. To install, type the command:
 
-`sudo pacman -S --noconfirm timeshift-autosnap-manjaro`
+`sudo pacman -S timeshift-autosnap-manjaro`
 
 Allow system snapshots to be created via rsync, for ext4 volumes, using the command below. Snapshots are saved by default on the system partition in path /run/timeshift/backup/timeshift/snapshots. Timeshift exclude the /root and /home/user folders by default.
 
