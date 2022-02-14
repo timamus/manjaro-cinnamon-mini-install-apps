@@ -206,15 +206,21 @@ cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/stylesheet.css $H
 sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rgba(0,0,0,0.1)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
 ```
 
-Install dependencies:
-
-`sudo pacman -S upower sox zenity`
+Install dependencies: `sudo pacman -S upower sox zenity`
 
 Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area.
 
-> ScreenShot+RecordDesktop `sudo pacman -S ffmpeg xdotool xorg-xwininfo xorg-xdpyinfo`
+> ScreenShot+RecordDesktop
 
-10) Пуск -> Параметры -> Десклеты. Можно поставить десклеты: Disk Space, Binary Clock^2. Для Disk Space включить следующие опции в настройках: Hide decorations, Use a custom circle color. Для Binary Clock^2 можно настроить Pip size: 12. В общих настройках убрать Привязка десклета к сетке;
+Install dependencies: `sudo pacman -S ffmpeg xdotool xorg-xwininfo xorg-xdpyinfo`
+
+> inhibit@cinnamon.org
+
+### Desklets
+
+> diskspace@schorschii
+
+### Resources for downloading desktop wallpapers
 
 https://wallpaperaccess.com/manjaro
 
