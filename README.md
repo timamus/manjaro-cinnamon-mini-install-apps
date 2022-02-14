@@ -220,7 +220,7 @@ Install dependencies: `sudo pacman -S ffmpeg xdotool xorg-xwininfo xorg-xdpyinfo
 
 > diskspace@schorschii
 
-### Resources for downloading desktop wallpapers
+### Desktop wallpapers
 
 https://wallpaperaccess.com/manjaro
 
