@@ -2,8 +2,10 @@
 
 set -Eeuo pipefail
 
-# 
+# Installing and enable the Timeshift auto-snapshot script for ext4 volumes
+echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
 sudo pacman -S --noconfirm timeshift-autosnap-manjaro
+# Allow system snapshots to be created via rsync for ext4 volumes
 sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
 
 # Creating a swap file with automatic determination of its size for hibernation
