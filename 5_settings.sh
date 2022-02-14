@@ -2,6 +2,8 @@
 
 set -Eeuo pipefail
 
+sudo pacman -S --noconfirm timeshift-autosnap-manjaro
+
 # Creating a swap file with automatic determination of its size for hibernation
 echo -en "\033[1;33m Creating a swap file with automatic determination of its size for hibernation... \033[0m \n"
 TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo)
@@ -23,7 +25,7 @@ sudo update-grub
 
 # Installing and configuring plymouth
 echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
-sudo pacman -S plymouth
+sudo pacman -S --noconfirm plymouth
 KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*: //')
 sudo sed -i 's/MODULES=""/MODULES="'"$KERNEL_DRIVER"'"/' /etc/mkinitcpio.conf
 sudo sed -i -e '52 s/base udev/base udev plymouth/' -e '52 s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf
