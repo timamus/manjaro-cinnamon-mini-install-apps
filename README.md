@@ -124,19 +124,19 @@ sudo plymouth-set-default-theme -R lone
 
 Or install themes from the official repository
 
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-cinnamon`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-circle`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-deepin`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-deepin-circle`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant-hidpi`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-extra-elegant`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-fancy-budgie`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-gnome`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-gnome-17.0`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-redefined-bsplash`
-- `sudo pacman -S --noconfirm plymouth-theme-manjaro-very-elegant`
+- `sudo pacman -S plymouth-theme-manjaro`
+- `sudo pacman -S plymouth-theme-manjaro-cinnamon`
+- `sudo pacman -S plymouth-theme-manjaro-circle`
+- `sudo pacman -S plymouth-theme-manjaro-deepin`
+- `sudo pacman -S plymouth-theme-manjaro-deepin-circle`
+- `sudo pacman -S plymouth-theme-manjaro-elegant`
+- `sudo pacman -S plymouth-theme-manjaro-elegant-hidpi`
+- `sudo pacman -S plymouth-theme-manjaro-extra-elegant`
+- `sudo pacman -S plymouth-theme-manjaro-fancy-budgie`
+- `sudo pacman -S plymouth-theme-manjaro-gnome`
+- `sudo pacman -S plymouth-theme-manjaro-gnome-17.0`
+- `sudo pacman -S plymouth-theme-manjaro-redefined-bsplash`
+- `sudo pacman -S plymouth-theme-manjaro-very-elegant`
 
 To find out which driver you are using you can use the following command: `lspci -k | grep -EA3 'VGA|3D|Display'`
 
@@ -194,7 +194,9 @@ gsettings set org.cinnamon.desktop.wm.preferences titlebar-font "Cantarell 10"
 gsettings set org.cinnamon.desktop.interface text-scaling-factor 1.2
 ```
 
-### Battery Applet with Monitoring and Shutdown (BAMS)
+### Applets
+
+> Battery Applet with Monitoring and Shutdown (BAMS)
 
 Install the BAMS applet, then run:
 
@@ -210,7 +212,7 @@ Install dependencies:
 
 Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area.
 
-- ScreenShot+RecordDesktop(Записывает в видео область рабочего стола. После добавления апплета необходимо выполнить команду "sudo apt install ffmpeg xdotool x11-utils").
+> ScreenShot+RecordDesktop `sudo pacman -S ffmpeg xdotool xorg-xwininfo xorg-xdpyinfo`
 
 10) Пуск -> Параметры -> Десклеты. Можно поставить десклеты: Disk Space, Binary Clock^2. Для Disk Space включить следующие опции в настройках: Hide decorations, Use a custom circle color. Для Binary Clock^2 можно настроить Pip size: 12. В общих настройках убрать Привязка десклета к сетке;
 
