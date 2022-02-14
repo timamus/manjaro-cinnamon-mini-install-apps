@@ -43,7 +43,7 @@ sudo sed -i 's/quiet/quiet splash/' /etc/default/grub
 sudo update-grub
 sudo systemctl disable lightdm
 sudo systemctl enable lightdm-plymouth
-git clone https://github.com/adi1090x/plymouth-themes.git $HOME/
+git -C $HOME/ clone https://github.com/adi1090x/plymouth-themes.git
 sudo cp -r $HOME/plymouth-themes/pack_3/lone /usr/share/plymouth/themes/
 sudo plymouth-set-default-theme -R lone
 
