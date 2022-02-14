@@ -29,7 +29,7 @@ if [[ -z "$is_swap" ]]; then
   sudo mkinitcpio -P
   sudo update-grub
 else
-  echo "Do whatever you want as \$variable is not empty"
+  echo -en "\033[0;31m Swap already exists! \033[0m \n"
 fi
 
 # Installing and configuring plymouth
