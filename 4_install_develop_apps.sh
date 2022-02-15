@@ -2,6 +2,10 @@
 
 set -Eeuo pipefail
 
+# Installing nodejs & npm
+echo -en "\033[1;33m Installing nodejs & npm... \033[0m \n"
+sudo pacman -S --noconfirm nodejs npm
+
 # Installing mono
 echo -en "\033[1;33m Installing mono... \033[0m \n"
 sudo pacman -S --noconfirm mono
@@ -28,10 +32,6 @@ sudo bash -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
 # Installing pycharm community edition
 echo -en "\033[1;33m Installing pycharm community edition... \033[0m \n"
 sudo pacman -S --noconfirm pycharm-community-edition
-
-# Installing nodejs & npm
-echo -en "\033[1;33m Installing nodejs & npm... \033[0m \n"
-sudo pacman -S --noconfirm nodejs npm
 
 # Installing visual studio code from AUR
 echo -en "\033[1;33m Installing visual studio code from AUR... \033[0m \n"
