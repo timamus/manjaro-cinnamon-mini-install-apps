@@ -127,7 +127,7 @@ yay -S --noconfirm yandex-disk-indicator
 # Installing steam
 # You can enable Proton in the Steam Client in Steam > Settings > Steam Play
 echo -en "\033[1;33m Installing steam... \033[0m \n"
-sudo pacman -S steam-manjaro
+sudo pacman -S --noconfirm steam-manjaro
 
 # Installing texstudio (there is also group texlive-lang if you need chinese, cyrillic, etc)
 # The path to change the program language: Options > Configure Texstudio > General > Language
