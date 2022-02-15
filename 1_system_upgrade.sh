@@ -42,7 +42,8 @@ sudo sed -Ei '/EnableAUR/s/^#//' /etc/pamac.conf
 echo -en "\033[1;33m Enable AUR updates for pamac... \033[0m \n"
 sudo sed -Ei '/CheckAURUpdates/s/^#//' /etc/pamac.conf
 
-# Automatic detection and installation of the best available proprietary driver for a pci-connected graphics card
+# Automatic detection and installation of the best available proprietary driver for a pci-connected graphics card, if used
+echo -en "\033[1;33m Automatic detection and installation of the best available proprietary driver for a pci-connected graphics card, if used... \033[0m \n"
 sudo mhwd -a pci nonfree 0300
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
