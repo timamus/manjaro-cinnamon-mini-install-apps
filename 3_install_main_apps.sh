@@ -120,6 +120,10 @@ yay -S --noconfirm luckybackup
 echo -en "\033[1;33m Installing yandex-disk-indicator from AUR... \033[0m \n"
 yay -S --noconfirm yandex-disk-indicator
 
+# Installing tor-browser from AUR
+echo -en "\033[1;33m Installing tor-browser from AUR... \033[0m \n"
+yay -S tor-browser
+
 # Installing steam from flatpak repo
 # echo -en "\033[1;33m Installing steam from flatpak repo... \033[0m \n"
 # sudo flatpak install flathub com.valvesoftware.Steam
