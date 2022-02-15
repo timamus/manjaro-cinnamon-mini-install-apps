@@ -37,5 +37,9 @@ yay -S visual-studio-code-bin
 echo -en "\033[1;33m Installing dbeaver with plugins... \033[0m \n"
 sudo pacman -S --noconfirm dbeaver dbeaver-plugin-office dbeaver-plugin-svg-format
 
+# Installing postman from AUR
+echo -en "\033[1;33m Installing postman from AUR... \033[0m \n"
+yay -S postman-bin
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
