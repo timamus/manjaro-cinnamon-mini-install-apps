@@ -89,8 +89,8 @@ echo -en "\033[1;33m Installing bitwarden... \033[0m \n"
 sudo pacman -S --noconfirm bitwarden
 
 # Installing goldendict
-echo -en "\033[1;33m Installing goldendict... \033[0m \n"
-sudo pacman -S --noconfirm goldendict
+echo -en "\033[1;33m Installing goldendict from AUR... \033[0m \n"
+yay -S --noconfirm goldendict-git
 
 # Installing calibre
 echo -en "\033[1;33m Installing calibre... \033[0m \n"
