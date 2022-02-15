@@ -14,9 +14,13 @@ yay -S --noconfirm dotnet-sdk-bin
 # echo -en "\033[1;33m Installing rider from flatpak repo... \033[0m \n"
 # sudo flatpak install flathub com.jetbrains.Rider
 
-# Installing rider & xamarin-android from AUR
-echo -en "\033[1;33m Installing rider & xamarin-android from AUR... \033[0m \n"
-yay -S --noconfirm rider xamarin-android
+# Installing xamarin-android from AUR
+echo -en "\033[1;33m Installing xamarin-android from AUR... \033[0m \n"
+yay -S --noconfirm xamarin-android
+
+# Installing rider from AUR
+echo -en "\033[1;33m Installing rider from AUR... \033[0m \n"
+yay -S --noconfirm rider
 
 sudo sed -i '/1.2.3.4 account.jetbrains.com/d' /etc/hosts
 sudo bash -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
