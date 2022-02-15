@@ -100,8 +100,8 @@ sudo pacman -S --noconfirm calibre
 echo -en "\033[1;33m Installing redshift... \033[0m \n"
 sudo pacman -S --noconfirm redshift
 
-# Installing libreoffice with russian language pack
-echo -en "\033[1;33m Installing libreoffice with russian language pack... \033[0m \n"
+# Installing libreoffice with hunspell-en_us & hyphen-en packages
+echo -en "\033[1;33m Installing libreoffice with hunspell-en_us & hyphen-en packages... \033[0m \n"
 sudo pacman -S --noconfirm libreoffice-still hunspell-en_us hyphen-en
 
 # Installing MS Windows 10 21H2 Build fonts from a local folder
