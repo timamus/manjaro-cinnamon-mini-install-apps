@@ -58,10 +58,6 @@ sudo pacman -S --noconfirm rhythmbox
 echo -en "\033[1;33m Installing firefox... \033[0m \n"
 sudo pacman -S --noconfirm firefox firefox-i18n-en-us
 
-# Installing thunderbird
-echo -en "\033[1;33m Installing thunderbird... \033[0m \n"
-sudo pacman -S --noconfirm thunderbird
-
 # Deleting midori browser and all the dependencies
 echo -en "\033[1;33m Deleting midori browser and all the dependencies... \033[0m \n"
 if pacman -Qs midori > /dev/null ; then
@@ -79,6 +75,10 @@ if [ -d "$HOME/.local/share/zeitgeist" ]
 then
   rm -R $HOME/.local/share/zeitgeist
 fi
+
+# Installing thunderbird
+echo -en "\033[1;33m Installing thunderbird... \033[0m \n"
+sudo pacman -S --noconfirm thunderbird
 
 # Installing telegram
 echo -en "\033[1;33m Installing telegram... \033[0m \n"
