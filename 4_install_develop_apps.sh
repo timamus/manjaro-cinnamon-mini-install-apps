@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 
 # Installing nodejs & npm. Npm is needed for xamarin-android
-echo -en "\033[1;33m Installing nodejs & npm... Npm is needed for xamarin-android \033[0m \n"
+echo -en "\033[1;33m Installing nodejs & npm... \033[0m \n"
 sudo pacman -S --noconfirm nodejs npm
 
 # Installing mono
@@ -19,7 +19,7 @@ yay -S --noconfirm dotnet-sdk-bin
 # sudo flatpak install flathub com.jetbrains.Rider
 
 # Installing pv - monitor the progress of data through a pipe. Needed for xamarin-android
-echo -en "\033[1;33m Installing pv - monitor the progress of data through a pipe... Needed for xamarin-android \033[0m \n"
+echo -en "\033[1;33m Installing pv - monitor the progress of data through a pipe... \033[0m \n"
 sudo pacman -S --noconfirm pv
 
 # Installing xamarin-android from AUR
