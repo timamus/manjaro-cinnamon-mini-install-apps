@@ -14,17 +14,23 @@ sudo pacman -S --noconfirm mono
 echo -en "\033[1;33m Installing dotnet-sdk from AUR... \033[0m \n"
 yay -S --noconfirm dotnet-sdk-bin
 
-# Installing rider from flatpak repo
-# echo -en "\033[1;33m Installing rider from flatpak repo... \033[0m \n"
-# sudo flatpak install flathub com.jetbrains.Rider
-
 # Installing pv - monitor the progress of data through a pipe. Needed for xamarin-android
 echo -en "\033[1;33m Installing pv - monitor the progress of data through a pipe... \033[0m \n"
 sudo pacman -S --noconfirm pv
 
 # Installing xamarin-android from AUR
-echo -en "\033[1;33m Installing xamarin-android from AUR... \033[0m \n"
-yay -S --noconfirm xamarin-android
+# echo -en "\033[1;33m Installing xamarin-android from AUR... \033[0m \n"
+# yay -S --noconfirm xamarin-android
+
+cd $HOME/.cache/yay/ && 
+yay -G xamarin-android && 
+cd $HOME/.cache/yay/xamarin-android && 
+sed -i 's/_cleanup/# _cleanup/' PKGBUILD && 
+makepkg -si
+
+# Installing rider from flatpak repo
+# echo -en "\033[1;33m Installing rider from flatpak repo... \033[0m \n"
+# sudo flatpak install flathub com.jetbrains.Rider
 
 # Installing rider from AUR
 echo -en "\033[1;33m Installing rider from AUR... \033[0m \n"
