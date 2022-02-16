@@ -61,7 +61,7 @@ sudo pacman -S --noconfirm firefox firefox-i18n-en-us
 # Deleting midori browser and all the dependencies
 echo -en "\033[1;33m Deleting midori browser and all the dependencies... \033[0m \n"
 if pacman -Qs midori > /dev/null ; then
-  sudo pacman -Runs midori # https://www.reddit.com/r/archlinux/comments/ki9hmm/how_to_properly_removeuninstall_packagesapps_with/
+  sudo pacman -Runs --noconfirm midori # https://www.reddit.com/r/archlinux/comments/ki9hmm/how_to_properly_removeuninstall_packagesapps_with/
 fi
 if [ -d "$HOME/.config/midori" ] 
 then
