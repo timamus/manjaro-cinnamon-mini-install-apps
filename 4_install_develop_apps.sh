@@ -19,7 +19,7 @@ echo -en "\033[1;33m Installing pv - monitor the progress of data through a pipe
 sudo pacman -S --noconfirm pv
 
 # Installing xamarin-android from AUR
-# echo -en "\033[1;33m Installing xamarin-android from AUR... \033[0m \n"
+echo -en "\033[1;33m Installing xamarin-android from AUR... \033[0m \n"
 # yay -S --noconfirm xamarin-android
 
 cd $HOME/.cache/yay/
@@ -28,6 +28,7 @@ cd $HOME/.cache/yay/xamarin-android
 # Fix some bug with not found _cleanup command in PKGBUILD file
 sed -i 's/_cleanup/# _cleanup/' PKGBUILD
 makepkg -si
+cd $HOME/
 
 # Installing rider from flatpak repo
 # echo -en "\033[1;33m Installing rider from flatpak repo... \033[0m \n"
