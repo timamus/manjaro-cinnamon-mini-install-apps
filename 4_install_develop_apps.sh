@@ -22,10 +22,11 @@ sudo pacman -S --noconfirm pv
 # echo -en "\033[1;33m Installing xamarin-android from AUR... \033[0m \n"
 # yay -S --noconfirm xamarin-android
 
-cd $HOME/.cache/yay/ && 
-yay -G xamarin-android && 
-cd $HOME/.cache/yay/xamarin-android && 
-sed -i 's/_cleanup/# _cleanup/' PKGBUILD && 
+cd $HOME/.cache/yay/
+yay -G xamarin-android
+cd $HOME/.cache/yay/xamarin-android
+# Fix some bug with not found _cleanup command in PKGBUILD file
+sed -i 's/_cleanup/# _cleanup/' PKGBUILD
 makepkg -si
 
 # Installing rider from flatpak repo
