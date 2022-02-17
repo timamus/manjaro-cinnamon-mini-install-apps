@@ -2,12 +2,6 @@
 
 set -Eeuo pipefail
 
-# Installing and enable the Timeshift auto-snapshot script for ext4 volumes
-echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
-sudo pacman -S --noconfirm timeshift-autosnap-manjaro
-# Allow system snapshots to be created via rsync for ext4 volumes
-sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
-
 # Creating a swap file with automatic determination of its size for hibernation
 echo -en "\033[1;33m Creating a swap file with automatic determination of its size for hibernation... \033[0m \n"
 if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file), if not, then create it
@@ -71,6 +65,12 @@ gsettings set org.cinnamon.desktop.screensaver lock-delay 15
 gsettings set org.cinnamon.desktop.sound maximum-volume 150
 # Background image format
 gsettings set org.cinnamon.desktop.background picture-options 'stretched'
+
+# Installing and enable the Timeshift auto-snapshot script for ext4 volumes
+echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
+sudo pacman -S --noconfirm timeshift-autosnap-manjaro
+# Allow system snapshots to be created via rsync for ext4 volumes
+sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
