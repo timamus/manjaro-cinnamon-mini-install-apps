@@ -117,7 +117,7 @@ sudo systemctl disable lightdm &&
 sudo systemctl enable lightdm-plymouth
 ```
 
-\*\* To install plymouth correctly, you may need the old 'cantarell-fonts' package. To find out how to do this, look at the script file '5_settings.sh'.
+\*\* To install plymouth correctly, you may need the old "cantarell-fonts" package. To find out how to do this, look at the script file "5_settings.sh".
 
 Note: This does not work in every case! For a SiS 65x/M650/740 PCI/AGP VGA Display Adapter, there is no "Kernel driver in use" line.
 
@@ -177,7 +177,7 @@ gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false &&
 gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
 ```
 
-Then, install the applet 'keyboard@cinnamon.org' and run the command `sudo pacman -S iso-flag-png` to support flags if you need
+Then, install the applet "keyboard@cinnamon.org" and run the command `sudo pacman -S iso-flag-png` to support flags if you need
 
 ### Changing default fonts in the system
 
@@ -215,7 +215,7 @@ sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rg
 
 Install dependencies: `sudo pacman -S upower sox zenity`
 
-Then, in the applet settings, select the option 'Compact - Battery Percentage without extended messages' in the 'Display Mode' area.
+Then, in the applet settings, select the option "Compact - Battery Percentage without extended messages" in the "Display Mode" area.
 
 > ScreenShot+RecordDesktop
 
