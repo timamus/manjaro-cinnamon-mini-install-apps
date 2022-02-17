@@ -16,8 +16,8 @@ if [[ -z "$is_swap" ]]; then # Check if there is any swap (partition or file), i
   TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
   TOTAL_MEMORY_SQRT=$(echo "$TOTAL_MEMORY_G" | awk '{print sqrt($1)}')
   ADD_SWAP_SIZE=$(echo "$TOTAL_MEMORY_SQRT" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
-  SWAP_SIZE_WITH_HYBER=$(($TOTAL_MEMORY_ROUND + $ADD_SWAP_SIZE))
-  sudo dd if=/dev/zero of=/swapfile bs=1G count=$SWAP_SIZE_WITH_HYBER status=progress
+  SWAP_SIZE_WITH_HYBER_M=$(($TOTAL_MEMORY_ROUND + $ADD_SWAP_SIZE) * 1024)
+  sudo dd if=/dev/zero of=/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_M status=progress
   sudo chmod 600 /swapfile
   sudo mkswap /swapfile
   sudo swapon /swapfile
