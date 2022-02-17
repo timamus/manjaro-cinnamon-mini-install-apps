@@ -98,7 +98,7 @@ Restore a snapshot (selecting which snapshot to restore interactively):
 
 ## Splash screen
 
-Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process. To install and configure Plymouth, use the script below, once:
+Plymouth is an application that provides the ability to show a graphical boot animation during the system boot process. To install and configure Plymouth, use the script below**:
 
 ```bash
 sudo pacman -S --noconfirm plymouth && 
@@ -116,6 +116,8 @@ sudo update-grub &&
 sudo systemctl disable lightdm && 
 sudo systemctl enable lightdm-plymouth
 ```
+
+\*\* To install plymouth correctly, you may need the old 'cantarell-fonts' package. To find out how to do this, look at the script file '5_settings.sh'.
 
 Note: This does not work in every case! For a SiS 65x/M650/740 PCI/AGP VGA Display Adapter, there is no "Kernel driver in use" line.
 
