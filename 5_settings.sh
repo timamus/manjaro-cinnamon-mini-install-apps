@@ -40,7 +40,7 @@ NUM_LINE_HOOKS=$(sed -n '/HOOKS="/=' /etc/mkinitcpio.conf)
 if ! grep -q "plymouth" /etc/mkinitcpio.conf ; then
     sudo sed -i -e ''"$NUM_LINE_HOOKS"' s/base udev/base udev plymouth/' -e ''"$NUM_LINE_HOOKS"' s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf
 fi
-sudo mkinitcpio -P &&
+sudo mkinitcpio -P
 if ! grep -q "splash" /etc/default/grub ; then
     sudo sed -i 's/quiet/quiet splash/' /etc/default/grub
 fi
