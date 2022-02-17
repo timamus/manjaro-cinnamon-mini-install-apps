@@ -15,6 +15,7 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
   TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
   TOTAL_MEMORY_SQRT=$(echo "$TOTAL_MEMORY_G" | awk '{print sqrt($1)}')
   ADD_SWAP_SIZE=$(echo "$TOTAL_MEMORY_SQRT" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
+  # A block size of 1 mebibyte is better, in case of a small amount of RAM, the dd process will not be killed by oomkiller
   SWAP_SIZE_WITH_HYBER_M=$(($TOTAL_MEMORY_ROUND + $ADD_SWAP_SIZE) * 1024)
   sudo dd if=/dev/zero of=/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_M status=progress
   sudo chmod 600 /swapfile
