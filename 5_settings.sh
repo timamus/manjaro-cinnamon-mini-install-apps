@@ -26,6 +26,10 @@ else
   echo -en "\033[0;31m Swap already exists! \033[0m \n"
 fi
 
+# Installing cantarell fonts 0.301-1 from a local folder
+echo -en "\033[1;33m Installing cantarell fonts 0.301-1 from a local folder... \033[0m \n"
+sudo pacman -U --noconfirm ttf-ms-win10-10.0.19043.1055-1-any.pkg.tar.zst
+
 # Installing and configuring plymouth
 echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
 sudo pacman -S --noconfirm plymouth
