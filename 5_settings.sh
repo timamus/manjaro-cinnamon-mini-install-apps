@@ -10,8 +10,7 @@ sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-a
 
 # Creating a swap file with automatic determination of its size for hibernation
 echo -en "\033[1;33m Creating a swap file with automatic determination of its size for hibernation... \033[0m \n"
-is_swap=$(swapon -s)
-if [[ -z "$is_swap" ]]; then # Check if there is any swap (partition or file), if not, then create it
+if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file), if not, then create it
   TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo)
   TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
   TOTAL_MEMORY_SQRT=$(echo "$TOTAL_MEMORY_G" | awk '{print sqrt($1)}')
