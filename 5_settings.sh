@@ -29,7 +29,7 @@ fi
 # Installing cantarell fonts 0.301-1 from a local folder
 echo -en "\033[1;33m Installing cantarell fonts 0.301-1 from a local folder... \033[0m \n"
 sudo pacman -U --noconfirm "cantarell-fonts-1 0.301-1-any.pkg.tar.zst"
-sudo sed '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
+sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
 
 # Installing and configuring plymouth
 echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
