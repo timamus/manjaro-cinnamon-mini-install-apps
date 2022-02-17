@@ -27,7 +27,7 @@ yay -G xamarin-android
 cd $HOME/.cache/yay/xamarin-android
 # Fix some bug with not found _cleanup command in PKGBUILD file
 sed -i 's/_cleanup/# _cleanup/' PKGBUILD
-makepkg -si
+makepkg -si --noconfirm
 cd $HOME/
 
 # Installing rider from flatpak repo
