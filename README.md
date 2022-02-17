@@ -38,7 +38,7 @@ My recommendation:
 
 Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
 
-\* Manjaro encrypts your kernel and initramfs, by default. This means, that grub has to unlock the volume before loading your kernel. Unfortunately, grub does not provide a lot of options at that point. When distros, like pop, are showing you are a “pretty” unlock screen, they are using plymouth or something similar to do that. However, that requires that your kernel and initramfs be kept in an unencrypted location. If you are OK with that, during the install create an unencrypted /boot partition. Then you can install plymouth after the fact.
+\* Manjaro encrypts your kernel and initramfs, by default. This means, that grub has to unlock the volume before loading your kernel. Unfortunately, grub does not provide a lot of options at that point. When distros, like pop, are showing you are a "pretty" unlock screen, they are using plymouth or something similar to do that. However, that requires that your kernel and initramfs be kept in an unencrypted location. If you are OK with that, during the install create an unencrypted /boot partition. Then you can install plymouth after the fact.
 
 ## Creating and Enabling a Static Swapfile
 
