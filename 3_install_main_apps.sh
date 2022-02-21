@@ -88,9 +88,15 @@ sudo pacman -S --noconfirm telegram-desktop
 echo -en "\033[1;33m Installing bitwarden... \033[0m \n"
 sudo pacman -S --noconfirm bitwarden
 
-# Installing goldendict
-echo -en "\033[1;33m Installing goldendict from AUR... \033[0m \n"
-yay -S --noconfirm goldendict-git
+# Installing goldendict-git
+# echo -en "\033[1;33m Installing goldendict-git from AUR... \033[0m \n"
+# yay -S --noconfirm goldendict-git
+
+# Installing goldendict-git
+echo -en "\033[1;33m Installing goldendict-git from local folder... \033[0m \n"
+cd GoldenDict
+sudo pacman -U libeb-4.4.3-1-x86_64.pkg.tar.xz libiconv-1.16-3-x86_64.pkg.tar.xz goldendict-git-1.5.0.RC.1145.g8acb288c-1-x86_64.pkg.tar.xz
+cd ..
 
 # Installing calibre
 echo -en "\033[1;33m Installing calibre... \033[0m \n"
