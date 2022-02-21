@@ -125,7 +125,7 @@ Place a new plymouth themes into /usr/share/plymouth/themes directory. You can c
 
 ```bash
 git clone https://github.com/adi1090x/plymouth-themes.git && 
-sudo cp -r ./plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
+sudo cp -r plymouth-themes/pack_3/lone /usr/share/plymouth/themes/ && 
 sudo plymouth-set-default-theme -R lone
 ```
 
