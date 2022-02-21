@@ -48,7 +48,7 @@ sudo update-grub
 sudo systemctl disable lightdm
 sudo systemctl enable lightdm-plymouth
 git clone https://github.com/adi1090x/plymouth-themes.git
-sudo cp -r ./plymouth-themes/pack_3/lone /usr/share/plymouth/themes/
+sudo cp -r plymouth-themes/pack_3/lone /usr/share/plymouth/themes/
 sudo plymouth-set-default-theme -R lone
 
 # Changing the keyboard layout with hotkey
