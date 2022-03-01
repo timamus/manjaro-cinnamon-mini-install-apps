@@ -12,7 +12,7 @@ sudo pacman -S --noconfirm mono
 
 # Installing dotnet-sdk from AUR
 echo -en "\033[1;33m Installing dotnet-sdk from AUR... \033[0m \n"
-yay -S --noconfirm dotnet-sdk-bin
+yay -S --noconfirm dotnet-sdk-bin aspnet-runtime-bin
 
 # Installing pv - monitor the progress of data through a pipe. Needed for xamarin-android
 echo -en "\033[1;33m Installing pv - monitor the progress of data through a pipe... \033[0m \n"
