@@ -26,7 +26,7 @@ My recommendation:
    Select the free space → Create  
    a. Size → input 512  
    b. Filesystem → select FAT32  
-   c. Mountpoint → select /boot (not /boot/efi, because plymouth-encrypt won't work)
+   c. Mountpoint → select /boot (not /boot/efi, because plymouth-encrypt won't work)  
    d. Flags → check boot → OK  
 
 2. ROOT PARTITION  
