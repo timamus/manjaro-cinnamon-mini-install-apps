@@ -75,6 +75,8 @@ gsettings set org.cinnamon.desktop.screensaver lock-delay 15
 gsettings set org.cinnamon.desktop.sound maximum-volume 150
 # Background image format
 gsettings set org.cinnamon.desktop.background picture-options 'stretched'
+# Window frames 
+gsettings set org.cinnamon.desktop.wm.preferences theme 'Mint-Y'
 
 # Installing and enable the Timeshift auto-snapshot script for ext4 volumes
 echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
