@@ -114,6 +114,14 @@ sudo pacman -S --noconfirm libreoffice-still hunspell-en_us hyphen-en
 echo -en "\033[1;33m Installing MS Windows 10 21H2 Build fonts from a local folder... \033[0m \n"
 sudo pacman -U --noconfirm Fonts/ttf-ms-win10-10.0.19043.1055-1-any.pkg.tar.zst
 
+# Installing ttf-jetbrains-mono
+echo -en "\033[1;33m Installing ttf-jetbrains-mono... \033[0m \n"
+sudo pacman -S --noconfirm ttf-jetbrains-mono
+
+# Installing ttf-hack
+echo -en "\033[1;33m Installing ttf-hack... \033[0m \n"
+sudo pacman -S --noconfirm ttf-hack
+
 # Installing ProtonVPN from AUR
 echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
 yay -S --noconfirm protonvpn
