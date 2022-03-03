@@ -13,6 +13,7 @@ sudo pacman -S --noconfirm yay
 # Installing debtap
 echo -en "\033[1;33m Installing debtap from AUR... \033[0m \n"
 yay -S --noconfirm debtap
+# Updating debtap database
 sudo debtap -U
 
 # Installing gufw
