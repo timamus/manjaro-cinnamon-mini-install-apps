@@ -45,6 +45,14 @@ sudo bash -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
 echo -en "\033[1;33m Installing pycharm community edition... \033[0m \n"
 sudo pacman -S --noconfirm pycharm-community-edition
 
+# Installing clion from AUR
+# Clion currently uses version 11 of Java, as does Pycharm.
+# If Pycharm is not installed, then follow the steps below.
+# First install it: sudo pacman -S jre11-openjdk
+# Then run: sudo archlinux-java set java-11-openjdk
+# echo -en "\033[1;33m Installing clion from AUR... \033[0m \n"
+# yay -S --noconfirm clion clion-cmake clion-gdb clion-lldb
+
 # Installing visual studio code from AUR
 echo -en "\033[1;33m Installing visual studio code from AUR... \033[0m \n"
 yay -S --noconfirm visual-studio-code-bin
