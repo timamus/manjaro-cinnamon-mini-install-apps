@@ -10,6 +10,11 @@ sudo pacman -S --noconfirm timeshift
 echo -en "\033[1;33m Installing yay – AUR Helper... \033[0m \n"
 sudo pacman -S --noconfirm yay
 
+# Installing debtap
+echo -en "\033[1;33m Installing debtap from AUR... \033[0m \n"
+yay -S --noconfirm debtap
+sudo debtap -U
+
 # Installing gufw
 echo -en "\033[1;33m Installing gufw... \033[0m \n"
 sudo pacman -S --noconfirm gufw
