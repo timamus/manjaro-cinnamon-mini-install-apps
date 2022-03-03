@@ -26,6 +26,31 @@ Then, to reload your new udev rules, execute:
 
 Make sure you are member of adbusers user group to access adb devices. 
 
+
+
+
+Resource file missing
+
+Next up, I got the following error:
+
+Source file '/home/acu/RiderProjects/App1/App1/App1.Android/Resources/Resource.Designer.cs' could not be found.
+
+Nasty error, what I figured out is that this problem happens because Linux is case sensitive (Windows isn't).
+
+In the Android project file "<same_name>.Droid.csproj" there's the following line:
+
+<AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+
+And a bit further down in the same file, there's the following:
+
+<Compile Include="Resources\Resource.Designer.cs" />
+
+As far as the Linux file system is concerned, Resource.Designer.cs and Resource.designer.cs are different files. You can fix the casing in either line - and the error's gone.
+
+And that's it, now I was able to compile the Android project successfully
+
+
+
 - https://github.com/Flying--Dutchman/RiderXamarinAndroid/blob/main/README.md
 
 - https://rider-support.jetbrains.com/hc/en-us/articles/360000557259--Obsolete-How-to-develop-Xamarin-Android-applications-on-Linux-with-Rider
