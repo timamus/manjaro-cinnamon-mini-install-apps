@@ -41,8 +41,17 @@ sudo pacman -S --noconfirm jdk8-openjdk
 1.3 Java Development Kit Location (e.g. /usr/lib/jvm/java-11-adoptopenjdk)
 2. Also check your mono and dotnet settings, search for "Mono" (should be under "Build, Execution, Deployment" --> "Toolset and Build".
 
+2. Click on "More actions" --> SDK Manager
+3. Under "SDK Platforms" install the desired API-levels.
+4. Under "SDK Tools" make sure that the following are installed:<br>
+4.1 Android SDK Build-Tools<br>
+4.2 NDK (Side by side)<br>
+4.3 Android SDK Command-line Tools<br>
+4.4 CMake<br>
+4.5 Android Emulator<br>
+4.6 Android SDK Platform-Tools
 
-Resource file missing
+## Resource file missing
 
 Next up, I got the following error:
 
