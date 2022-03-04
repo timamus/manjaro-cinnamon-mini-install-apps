@@ -24,12 +24,18 @@ My recommendation:
 
 1. BOOT PARTITION\*  
    Select the free space → Create  
-   a. Size → input 512  
+   a. Size → input 256  
    b. Filesystem → select FAT32  
-   c. Mountpoint → select /boot (not /boot/efi, because plymouth-encrypt won't work)  
+   c. Mountpoint → select /boot/efi
    d. Flags → check boot → OK  
 
-2. ROOT PARTITION  
+2. BOOT PARTITION\*  
+   Select the free space → Create  
+   a. Size → input 512  
+   b. Filesystem → select ext4  
+   c. Mountpoint → select /boot  
+
+3. ROOT PARTITION  
    Select the free space → Create  
    a. Size → use all remaining available space  
    b. Filesystem → select ext4  
