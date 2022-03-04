@@ -1,5 +1,17 @@
+# How to install xamarin-android for Rider
 
+## 1. Xamarin.Android package
 
+1. Download the current release of Xamarin.Android from the build server: https://dev.azure.com/xamarin/public/_build?definitionId=48&_a=summary
+2. Pick one where both stages were successfull and click on it.
+3. In the "Summary" box, check for "Related" and click on "n published" below it.
+4. Download the "installers-unsigned - Linux" (Using the 3 dots menu on the far right)
+5. Unzip the downloaded file.
+6. If possible install using your package manager. <br>
+6.1 **Arch Linux users**: You can install the .deb package using "debtap"<br>
+6.2 sudo debtap -U<br>
+6.2 debtap -U < deb_file ><br>
+6.3 When asked to edit the .PGKINFO file, do so with your favourite editor and remove any invalid, or not needed dependency. (In my case I removed c, c0 and java8-sdk)<br>
 
 For a custom editor or any other key to continue: 4
 :: Enter command for running custom editor: xed
