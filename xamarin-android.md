@@ -26,30 +26,31 @@ SUBSYSTEM=="usb",ATTR{idVendor}=="[VENDOR ID]",ATTR{idProduct}=="[PRODUCT ID]",S
 
 Then, to reload your new udev rules, execute:
 
-# udevadm control --reload-rules
+`udevadm control --reload-rules`
+
+`sudo adb kill-server && sudo adb start-server && sudo adb devices`
 
 Make sure you are member of adbusers user group to access adb devices. 
 
-## 3. Install java8
+## 3. Install OpenJDK Java 8 development kit
 
 sudo pacman -S --noconfirm jdk8-openjdk
 
-## 4. Rider
-1. In your Rider settings, search for "Android" and set the following fields (should be under "Build, Execution, Deployment" --> "Android"):<br>
-1.1 Android SDK Location (e.g. /home/user/Android/Sdk)<br>
-1.2 Android NDK Location (e.g. /home/user/Android/Sdk/ndk/< version >)<br>
-1.3 Java Development Kit Location (e.g. /usr/lib/jvm/java-11-adoptopenjdk)
-2. Also check your mono and dotnet settings, search for "Mono" (should be under "Build, Execution, Deployment" --> "Toolset and Build".
+## 4. Setting up Rider
 
-2. Click on "More actions" --> SDK Manager
-3. Under "SDK Platforms" install the desired API-levels.
-4. Under "SDK Tools" make sure that the following are installed:<br>
-4.1 Android SDK Build-Tools<br>
-4.2 NDK (Side by side)<br>
-4.3 Android SDK Command-line Tools<br>
-4.4 CMake<br>
-4.5 Android Emulator<br>
-4.6 Android SDK Platform-Tools
+1. In your Rider settings, search for "SDK Components" and set the following fields (should be under "Build, Execution, Deployment" --> "Android" --> "SDK Components"):<br>
+2. Under "SDK Platforms" install the Android API and the latest stable Android version.
+3. Under "SDK Tools" make sure that the following are installed:<br>
+3.1 Android SDK Build-Tools<br>
+3.2 NDK (Side by side)<br>
+3.3 Android SDK Command-line Tools<br>
+3.4 CMake<br>
+3.5 Android Emulator<br>
+3.6 Android SDK Platform-Tools
+4. In your Rider settings, search for "Android" and set the following fields (should be under "Build, Execution, Deployment" --> "Android"):<br>
+4.1 Android SDK Location (e.g. /home/user/Android/Sdk)<br>
+4.2 Android NDK Location (e.g. /home/user/Android/Sdk/ndk/< version >)<br>
+4.3 Java Development Kit Location (e.g. /usr/lib/jvm/java-8-openjdk)
 
 ## Resource file missing
 
