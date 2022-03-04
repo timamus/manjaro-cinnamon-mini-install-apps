@@ -26,7 +26,7 @@ My recommendation:
    Select the free space → Create  
    a. Size → input 256  
    b. Filesystem → select FAT32  
-   c. Mountpoint → select /boot/efi
+   c. Mountpoint → select /boot/efi  
    d. Flags → check boot → OK  
 
 2. BOOT PARTITION\*  
