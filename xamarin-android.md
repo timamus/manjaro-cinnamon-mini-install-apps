@@ -10,19 +10,11 @@
 6. If possible install using your package manager. <br>
 6.1 **Arch Linux users**: You can install the .deb package using "debtap"<br>
 6.2 sudo debtap -U<br>
-6.2 debtap -U < deb_file ><br>
-6.3 When asked to edit the .PGKINFO file, do so with your favourite editor and remove any invalid, or not needed dependency. (In my case I removed c, c0 and java8-sdk)<br>
+6.3 sudo debtap -U < deb_file ><br>
+6.4 Enter Packager name: xamarin-android
+6.5 When asked to edit the .PGKINFO file, do so with your favourite editor (select number 4 and enter xed) and remove any invalid, or not needed dependency. (In my case I removed c, c0 and java8-sdk)<br>
 
-For a custom editor or any other key to continue: 4
-:: Enter command for running custom editor: xed
-
-
-
-Enter Packager name:
-xamarin-android
-
-
-Adding udev rules
+## 2. Adding udev rules
 
 Use the rules from android-udev (or android-udev-gitAUR), install them manually from Android developer, or use the following template for your udev rules, just replace [VENDOR ID] and [PRODUCT ID] with yours. Copy these rules into /etc/udev/rules.d/51-android.rules:
 
@@ -38,7 +30,16 @@ Then, to reload your new udev rules, execute:
 
 Make sure you are member of adbusers user group to access adb devices. 
 
+## 3. Install java8
 
+sudo pacman -S --noconfirm jdk8-openjdk
+
+## 4. Rider
+1. In your Rider settings, search for "Android" and set the following fields (should be under "Build, Execution, Deployment" --> "Android"):<br>
+1.1 Android SDK Location (e.g. /home/user/Android/Sdk)<br>
+1.2 Android NDK Location (e.g. /home/user/Android/Sdk/ndk/< version >)<br>
+1.3 Java Development Kit Location (e.g. /usr/lib/jvm/java-11-adoptopenjdk)
+2. Also check your mono and dotnet settings, search for "Mono" (should be under "Build, Execution, Deployment" --> "Toolset and Build".
 
 
 Resource file missing
