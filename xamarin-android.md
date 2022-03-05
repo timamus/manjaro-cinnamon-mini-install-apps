@@ -13,8 +13,11 @@
 6.3 sudo debtap -U < deb_file ><br>
 6.4 Enter Packager name: xamarin-android
 6.5 When asked to edit the .PGKINFO file, do so with your favourite editor (select number 4 and enter xed) and remove any invalid, or not needed dependency. (In my case I removed c, c0 and java8-sdk)<br>
+6.6 Install the zst package using the command sudo pacman -U < zst_file ><br>
 
 ## 2. Adding udev rules
+
+sudo pacman -S --noconfirm android-udev
 
 Use the rules from android-udev (or android-udev-gitAUR), install them manually from Android developer, or use the following template for your udev rules, just replace [VENDOR ID] and [PRODUCT ID] with yours. Copy these rules into /etc/udev/rules.d/51-android.rules:
 
@@ -36,7 +39,11 @@ Make sure you are member of adbusers user group to access adb devices.
 
 sudo pacman -S --noconfirm jdk8-openjdk
 
-## 4. Setting up Rider
+## 4. Install plugin "Rider Xamarin Android Support"
+
+## 5. Setting up Rider
+
+In the Rider, when creating a Xamarin project, you can immediately put the base version of the Android SDK. Then go to the "SDK Components" tab and install NDK.
 
 1. In your Rider settings, search for "SDK Components" and set the following fields (should be under "Build, Execution, Deployment" --> "Android" --> "SDK Components"):<br>
 2. Under "SDK Platforms" install the Android API and the latest stable Android version.
