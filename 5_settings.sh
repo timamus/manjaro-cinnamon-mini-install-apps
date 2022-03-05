@@ -35,14 +35,19 @@ sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
 echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
 sudo pacman -S --noconfirm plymouth
 KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*: //')
+if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then
+  sudo sed -i 's/MODULES=""/MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"/' /etc/mkinitcpio.conf
+fi
 sudo sed -i 's/MODULES=""/MODULES="'"$KERNEL_DRIVER"'"/' /etc/mkinitcpio.conf
 NUM_LINE_HOOKS=$(sed -n '/HOOKS="/=' /etc/mkinitcpio.conf)
 if ! grep -q "plymouth" /etc/mkinitcpio.conf ; then
-    sudo sed -i -e ''"$NUM_LINE_HOOKS"' s/base udev/base udev plymouth/' -e ''"$NUM_LINE_HOOKS"' s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf
+  sudo sed -i -e ''"$NUM_LINE_HOOKS"' s/base udev/base udev plymouth/' -e ''"$NUM_LINE_HOOKS"' s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf
 fi
 sudo mkinitcpio -P
 if ! grep -q "splash" /etc/default/grub ; then
-    sudo sed -i 's/quiet/quiet splash/' /etc/default/grub
+  if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then
+    sudo sed -i 's/quiet/nvidia-drm.modeset=1 quiet splash/' /etc/default/grub
+  fi
 fi
 sudo update-grub
 sudo systemctl disable lightdm
