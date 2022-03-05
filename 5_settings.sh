@@ -83,6 +83,8 @@ gsettings set org.cinnamon.desktop.sound maximum-volume 150
 gsettings set org.cinnamon.desktop.background picture-options 'stretched'
 # Window frames 
 gsettings set org.cinnamon.desktop.wm.preferences theme 'Mint-Y'
+# In the right menu bar, reduce the size of the color icon to 16 px from 24px
+gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 48, "center": 0, "right": 16}]'
 
 # Installing and enable the Timeshift auto-snapshot script for ext4 volumes
 echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
