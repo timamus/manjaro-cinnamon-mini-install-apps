@@ -86,6 +86,10 @@ gsettings set org.cinnamon.desktop.wm.preferences theme 'Mint-Y'
 # In the right menu bar, reduce the size of the color icon to 16 px from 24px
 gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 48, "center": 0, "right": 16}]'
 
+# Setting up timeshift
+echo -en "\033[1;33m Configure timeshift for your PC. After setting up, close timeshift and the installation script will continue. This is necessary for the timeshift-autosnap script to work correctly... \033[0m \n"
+sudo timeshift-launcher
+
 # Installing and enable the Timeshift auto-snapshot script for ext4 volumes
 echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
 sudo pacman -S --noconfirm timeshift-autosnap-manjaro
