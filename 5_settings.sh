@@ -29,6 +29,7 @@ fi
 # Installing cantarell fonts 0.301-1 from a local folder. To install plymouth correctly, you may need the old "cantarell-fonts" package
 echo -en "\033[1;33m Installing cantarell fonts 0.301-1 from a local folder... \033[0m \n"
 sudo pacman -U --noconfirm Fonts/"cantarell-fonts-1 0.301-1-any.pkg.tar.zst"
+sudo sed -i '/IgnorePkg = cantarell-fonts/d' /etc/pacman.conf
 sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
 
 # Installing and configuring plymouth
