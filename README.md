@@ -249,6 +249,8 @@ https://www.reddit.com/r/wallpaper/comments/sox44n/chill_vibes_3440_1440/
 
 https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
 
+## Change background for login screen
+
 `sudo mkdir -p /usr/share/backgrounds/login/ && sudo cp $HOME/manjaro-cinnamon-mini-install-apps/Wallpapers/< SOME_BACKGROUND_FILE > $_`, then then change the background in System Settings --> Login Window.
 
 ### Favorite apps
