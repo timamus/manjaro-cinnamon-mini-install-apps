@@ -184,6 +184,10 @@ Addons:
 - https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
 - https://addons.mozilla.org/ru/firefox/addon/musicpro/
 
+## Yandex.Disk
+
+To configure yandex.disk, use the command: `yandex-disk setup`. If you plan to backup the yandex.disk folder via rsync, it is better not to use a dot in the folder name.
+
 ## Cinnamon Desktop Environment Settings
 
 ### Changing the keyboard layout with hotkey
