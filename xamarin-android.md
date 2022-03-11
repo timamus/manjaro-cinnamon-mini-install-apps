@@ -53,7 +53,6 @@ In the Rider, when creating a Xamarin project, you can immediately put the base 
 
 ## Resource file missing
 
-
 Next up, I got the following error:<br>
 Source file "/home/acu/RiderProjects/App1/App1/App1.Android/Resources/Resource.Designer.cs" could not be found.<br>
 Nasty error, what I figured out is that this problem happens because Linux is case sensitive (Windows isn't).<br>
