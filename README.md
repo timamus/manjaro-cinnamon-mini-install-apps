@@ -263,7 +263,9 @@ https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
 
 ### Change background for login screen
 
-`sudo mkdir -p /usr/share/backgrounds/login/ && sudo cp $HOME/manjaro-cinnamon-mini-install-apps/Wallpapers/< SOME_BACKGROUND_FILE > $_`, then then change the background in System Settings --> Login Window.
+For change the login screen background, run the command below, where "some_file" is the name of the picture file:
+
+`sudo mkdir -p /usr/share/backgrounds/login/ && sudo cp $HOME/manjaro-cinnamon-mini-install-apps/Wallpapers/< some_file > $_`, then change the background in System Settings --> Login Window.
 
 ### Favorite apps
 
