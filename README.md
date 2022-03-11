@@ -279,4 +279,4 @@ You can change your favorite applications in System Settings --> Favorite applic
 
 If I want to update only arch packages I use pacman `sudo pacman -Syu`, if I want to update and/or access AUR I use yay. For a full system update (arch and AUR) I use `yay -Syu --noconfirm --cleanafter`. I would also recommend aliasing yay to `yay --aur` if you want to keep yay and pacman separate. 
 
-Autosnaphot can be temporarily skipped by setting SKIP_AUTOSNAP environment variable (e.g. `sudo SKIP_AUTOSNAP=1 pacman -Syu`).
+If the package "timeshift-autosnap" is installed, autosnaphot can be temporarily skipped by setting SKIP_AUTOSNAP environment variable (e.g. `sudo SKIP_AUTOSNAP=1 pacman -Syu`). Use `yay -Syu --combinedupgrade --batchinstall` to update multiple AUR packages at once.
