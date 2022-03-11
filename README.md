@@ -269,7 +269,7 @@ For change the login screen background, run the command below, where "some_file"
 
 ### Favorite apps
 
-System Settings --> Favorite applications:
+You can change your favorite applications in System Settings --> Favorite applications:
 
 - Music : mpv --> SMPlayer
 - Video : mpv --> SMPlayer
