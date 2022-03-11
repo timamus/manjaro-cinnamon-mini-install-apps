@@ -53,10 +53,13 @@ In the Rider, when creating a Xamarin project, you can immediately put the base 
 
 ## Resource file missing
 
-Next up, I got the following error: Source file '/home/acu/RiderProjects/App1/App1/App1.Android/Resources/Resource.Designer.cs' could not be found.<br>
+Next up, I got the following error:<br>
+Source file '/home/acu/RiderProjects/App1/App1/App1.Android/Resources/Resource.Designer.cs' could not be found.<br>
 Nasty error, what I figured out is that this problem happens because Linux is case sensitive (Windows isn't).<br>
-In the Android project file "<same_name>.Droid.csproj" there's the following line: <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile><br>
-And a bit further down in the same file, there's the following: <Compile Include="Resources\Resource.Designer.cs" /><br>
+In the Android project file "<same_name>.Droid.csproj" there's the following line:<br>
+<AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile><br>
+And a bit further down in the same file, there's the following:<br>
+<Compile Include="Resources\Resource.Designer.cs" /><br>
 As far as the Linux file system is concerned, Resource.Designer.cs and Resource.designer.cs are different files. You can fix the casing in either line - and the error's gone. And that's it, now I was able to compile the Android project successfully
 
 ## Links
