@@ -31,7 +31,7 @@ My recommendation:
 
 2. BOOT PARTITION\*  
    Select the free space → Create  
-   a. Size → input 512  
+   a. Size → input 768  
    b. Filesystem → select ext4  
    c. Mountpoint → select /boot  
 
