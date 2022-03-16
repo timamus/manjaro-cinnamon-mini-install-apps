@@ -108,7 +108,7 @@ Plymouth is an application that provides the ability to show a graphical boot an
 
 ```bash
 sudo pacman -S --noconfirm plymouth && 
-KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | sed -r 's/^[^:]*: //') && 
+KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | head -1 | sed -r 's/^[^:]*: //') && 
 if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then 
   sudo sed -i 's/MODULES=""/MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"/' /etc/mkinitcpio.conf 
 else 
