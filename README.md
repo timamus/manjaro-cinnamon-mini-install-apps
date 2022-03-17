@@ -121,13 +121,13 @@ fi
 sudo mkinitcpio -P && 
 if ! grep -q "splash" /etc/default/grub ; then 
   if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then 
-    sudo sed -i 's/quiet/nvidia-drm.modeset=1 quiet splash/' /etc/default/grub 
+    sudo sed -i 's/quiet/video=efifb:nobgrt nvidia-drm.modeset=1 quiet splash/' /etc/default/grub 
   fi 
   if [[ "$KERNEL_DRIVER" = "i915" ]] ; then 
-    sudo sed -i 's/quiet/i915.modeset=1 quiet splash/' /etc/default/grub 
+    sudo sed -i 's/quiet/video=efifb:nobgrt i915.modeset=1 quiet splash/' /etc/default/grub 
   fi 
   if [[ "$KERNEL_DRIVER" = "radeon" ]] ; then 
-    sudo sed -i 's/quiet/radeon.modeset=1 quiet splash/' /etc/default/grub 
+    sudo sed -i 's/quiet/video=efifb:nobgrt radeon.modeset=1 quiet splash/' /etc/default/grub 
   fi 
 fi 
 sudo update-grub && 
