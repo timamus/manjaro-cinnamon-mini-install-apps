@@ -60,9 +60,7 @@ fi
 sudo update-grub
 sudo systemctl disable lightdm
 sudo systemctl enable lightdm-plymouth
-git clone https://github.com/adi1090x/plymouth-themes.git
-sudo cp -r plymouth-themes/pack_3/lone /usr/share/plymouth/themes/
-sudo plymouth-set-default-theme -R lone
+sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant
 
 # Changing the keyboard layout with hotkey
 echo -en "\033[1;33m Changing the keyboard layout with hotkey... \033[0m \n"
