@@ -175,6 +175,15 @@ sudo update-grub
 
 Identify the display manager used in the system: `systemctl status display-manager`
 
+## Installing optimus-manager for hybrid graphics management
+
+```bash
+yay -S --noconfirm optimus-manager optimus-manager-qt && 
+sudo systemctl enable optimus-manager.service
+```
+
+After that, run `optimus-manager-qt` and enable autoloading in the program settings. Use the option `prime-run %command%` to launch each game on steam.
+
 ## Firefox Options
 
 Addons:
