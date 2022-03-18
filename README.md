@@ -182,7 +182,7 @@ yay -S --noconfirm optimus-manager optimus-manager-qt &&
 sudo systemctl enable optimus-manager.service
 ```
 
-After that, run `optimus-manager-qt` and enable autoloading in the program settings. Use the option `prime-run %command%` to launch each game on steam.
+After that, run `optimus-manager-qt` and enable autoloading in the program settings. You can also change the icon from `cpu-symbolic` to `prime-intel`. Use the option `prime-run %command%` to launch each game on steam. 
 
 ## Firefox Options
 
