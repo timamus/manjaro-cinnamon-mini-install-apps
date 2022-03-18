@@ -290,7 +290,7 @@ You can change your favorite applications in System Settings --> Favorite applic
 
 ## Other components
 
-- https://gitgud.io/hovere***e/manjaro_install_nonfree_components
+- `git clone https://gitgud.io/hovere***e/manjaro_install_nonfree_components.git`
 
 ## How to update
 
