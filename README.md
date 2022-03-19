@@ -241,13 +241,13 @@ Install the BAMS applet, then run:
 ```bash
 mkdir $HOME/batterymonitor@pdcurtis && 
 cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/stylesheet.css $HOME/batterymonitor@pdcurtis && 
-sed -i -e '9 s/rgba(0,255,0,0.3)/rgba(0,0,0,0.1)/' -e '13 s/rgba(0,255,0,0.5)/rgba(0,0,0,0.1)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
+sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
 ```
 
 or to fix the BAMS applet settings directly, use the command below, but you will have to do this when the applet is updated
 
 ```bash
-sed -i -e 's/rgba(0,255,0,0.3)/rgba(0,0,0,0)/2' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e 's/red/rgba(0,0,0,0)/1' $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/3.2/stylesheet.css
+sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/3.2/stylesheet.css
 ```
 
 Install dependencies: `sudo pacman -S upower sox zenity`
