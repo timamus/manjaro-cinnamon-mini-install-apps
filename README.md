@@ -188,7 +188,7 @@ After that, run `optimus-manager-qt` and enable autoloading in the program setti
 
 Addons:
 
-- https://addons.mozilla.org/ru/firefox/addon/adblocker-ultimate/
+- https://addons.mozilla.org/ru/firefox/addon/ublock-origin/
 - https://addons.mozilla.org/ru/firefox/addon/bitwarden-password-manager/
 - https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
 - https://addons.mozilla.org/ru/firefox/addon/musicpro/
