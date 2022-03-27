@@ -274,6 +274,8 @@ https://www.reddit.com/r/wallpaper/comments/sox44n/chill_vibes_3440_1440/
 
 https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
 
+https://gitlab.com/tromsite/tromjaro/iso-profiles/-/tree/master/tromjaro/xfce/live-overlay/usr/share/backgrounds
+
 ### Change background for login screen
 
 For change the login screen background, run the command below, where "some_file" is the name of the picture file:
