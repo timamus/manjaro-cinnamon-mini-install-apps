@@ -267,13 +267,9 @@ Install dependencies: `sudo pacman -S ffmpeg xdotool xorg-xwininfo xorg-xdpyinfo
 ### Desktop wallpapers
 
 - https://wallpaperaccess.com/manjaro
-
 - https://www.reddit.com/r/wallpaper/
-
 - https://www.reddit.com/r/wallpaper/comments/sox44n/chill_vibes_3440_1440/
-
 - https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
-
 - https://gitlab.com/tromsite/tromjaro/iso-profiles/-/tree/master/tromjaro/xfce/live-overlay/usr/share/backgrounds
 
 ### Change background for login screen
