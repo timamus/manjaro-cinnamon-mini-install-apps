@@ -286,9 +286,10 @@ You can change your favorite applications in System Settings --> Favorite applic
 - Video : mpv --> SMPlayer
 - Photo : Pix --> Xviewer
 
-## Other components
+## Other resources
 
 - `git clone https://gitgud.io/hovere***e/manjaro_install_nonfree_components.git`
+- https://jetbra.in/s
 
 ## How to update
 
