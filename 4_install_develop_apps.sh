@@ -39,9 +39,13 @@ yay -S --noconfirm rider
 sudo sed -i '/1.2.3.4 account.jetbrains.com/d' /etc/hosts
 sudo bash -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
 
+# Installing pycharm professional edition
+echo -en "\033[1;33m Installing pycharm professional edition... \033[0m \n"
+yay -S --noconfirm pycharm-professional
+
 # Installing pycharm community edition
-echo -en "\033[1;33m Installing pycharm community edition... \033[0m \n"
-sudo pacman -S --noconfirm pycharm-community-edition
+# echo -en "\033[1;33m Installing pycharm community edition... \033[0m \n"
+# sudo pacman -S --noconfirm pycharm-community-edition
 
 # Installing clion from AUR
 # Clion currently uses version 11 of Java, as does Pycharm.
