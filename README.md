@@ -288,7 +288,7 @@ You can change your favorite applications in System Settings --> Favorite applic
 
 ## Other resources
 
-- `git clone https://gitgud.io/hovere***e/manjaro_install_nonfree_components.git`
+- `git clone https://gitgud.io/hovereagle/manjaro_install_nonfree_components.git`
 - https://jetbra.in/s
 
 ## How to update
