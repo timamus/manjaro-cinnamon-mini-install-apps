@@ -5,6 +5,7 @@ set -Eeuo pipefail
 # Installing nodejs & npm. Npm is needed for xamarin-android
 echo -en "\033[1;33m Installing nodejs & npm... \033[0m \n"
 sudo pacman -S --noconfirm nodejs npm
+npm config set prefix ~/.npm-packages
 
 # Installing mono
 echo -en "\033[1;33m Installing mono... \033[0m \n"
