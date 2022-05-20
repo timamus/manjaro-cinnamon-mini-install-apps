@@ -5,8 +5,8 @@ set -Eeuo pipefail
 
 ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//')
 if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
-   sudo sed -i '/\/@/s/defaults/defaults,noatime,compress=zstd/' /etc/fstab
-   sudo sed -i '/\/@home/s/defaults/defaults,noatime,compress=zstd/' /etc/fstab
+   sudo sed -i '/\/@/s/defaults/defaults,noatime,compress=zstd,commit=120/' /etc/fstab
+   sudo sed -i '/\/@home/s/defaults/defaults,noatime,compress=zstd,commit=120/' /etc/fstab
    sudo mount -a
 fi
 
