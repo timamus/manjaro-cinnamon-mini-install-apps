@@ -5,9 +5,11 @@ set -Eeuo pipefail
 # Adding btrfs mount options
 ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//')
 if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
-   sudo sed -i '/\/@/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
-   sudo sed -i '/\/@home/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
-   sudo mount -a
+   if [[ -z $(grep "defaults," /etc/mkinitcpio.conf) ]]; then # check whether the mounting options have been changed, if not, then add new options
+      sudo sed -i '/\/@/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
+      sudo sed -i '/\/@home/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
+      sudo mount -a
+   fi
 fi
 
 # Update mirror list and set fastest download server
