@@ -2,6 +2,14 @@
 
 set -Eeuo pipefail
 
+
+ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//')
+if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
+   sudo sed -i '/\/@/s/defaults/defaults,noatime,compress=zstd,commit=300,discard=async/' /etc/fstab
+   sudo sed -i '/\/@home/s/defaults/defaults,noatime,compress=zstd,commit=300,discard=async/' /etc/fstab
+   sudo mount -a
+fi
+
 # Update mirror list and set fastest download server
 echo -en "\033[1;33m Update mirror list and set fastest download server... \033[0m \n"
 sudo pacman-mirrors --fasttrack --api --protocol https
