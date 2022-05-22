@@ -4,24 +4,84 @@ set -Eeuo pipefail
 
 # Creating a swap file with automatic determination of its size for hibernation
 echo -en "\033[1;33m Creating a swap file with automatic determination of its size for hibernation... \033[0m \n"
+# Calculate required swap size
+TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo)
+TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
+TOTAL_MEMORY_SQRT=$(echo "$TOTAL_MEMORY_G" | awk '{print sqrt($1)}')
+ADD_SWAP_SIZE=$(echo "$TOTAL_MEMORY_SQRT" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
+# A block size of 1 mebibyte is better, in case of a small amount of RAM, the dd process will not be killed by oomkiller
+SWAP_SIZE_WITH_HYBER_M=$((($TOTAL_MEMORY_ROUND + $ADD_SWAP_SIZE) * 1024))
+ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//')
 if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file), if not, then create it
-  TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo)
-  TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
-  TOTAL_MEMORY_SQRT=$(echo "$TOTAL_MEMORY_G" | awk '{print sqrt($1)}')
-  ADD_SWAP_SIZE=$(echo "$TOTAL_MEMORY_SQRT" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
-  # A block size of 1 mebibyte is better, in case of a small amount of RAM, the dd process will not be killed by oomkiller
-  SWAP_SIZE_WITH_HYBER_M=$((($TOTAL_MEMORY_ROUND + $ADD_SWAP_SIZE) * 1024))
-  sudo dd if=/dev/zero of=/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_M status=progress
-  sudo chmod 600 /swapfile
-  sudo mkswap /swapfile
-  sudo swapon /swapfile
-  sudo bash -c "echo /swapfile none swap defaults 0 0 >> /etc/fstab"
-  SWAP_DEVICE=$(findmnt -no UUID -T /swapfile)
-  SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')
-  sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID='"$SWAP_DEVICE"' resume_offset='"$SWAP_FILE_OFFSET"' /' /etc/default/grub
-  sudo sed -i '52 s/fsck/resume fsck/' /etc/mkinitcpio.conf
-  sudo mkinitcpio -P
-  sudo update-grub
+  if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "ext4" ]]; then # Configure swap for ext4 with hibernate support
+    sudo dd if=/dev/zero of=/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_M status=progress
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
+    sudo bash -c "echo -e '# Swapfile for hibernation support\n/swapfile none swap defaults 0 0' >> /etc/fstab"
+    SWAP_DEVICE=$(findmnt -no UUID -T /swapfile)
+    SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')
+    sudo mkdir -p /etc/default/grub.d/
+    if [[ -z $(grep "source /etc/default/grub.d/*" /etc/default/grub) ]]
+      then
+        sudo bash -c "echo -e '\n\nsource /etc/default/grub.d/*' >> /etc/default/grub"
+    fi
+    sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT resume=UUID=$SWAP_DEVICE resume_offset=$SWAP_FILE_OFFSET\"' > /etc/default/grub.d/resume.cfg"
+    sudo sed -i 's/filesystems/filesystems resume/g' /etc/mkinitcpio.conf
+    sudo mkinitcpio -P
+    sudo update-grub
+    sudo sed -i -e 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf 
+  fi
+  # Configure swapfile on btrfs nested subvolume to maintain Timeshift compatibility with hibernate support
+  if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
+    sudo mount $ROOT_PATH /mnt
+    sudo btrfs subvolume create /mnt/@swap
+    sudo umount /mnt
+    sudo mkdir /swap
+    sudo mount -o subvol=@swap $ROOT_PATH /swap
+    sudo touch /swap/swapfile
+    sudo truncate -s 0 /swap/swapfile
+    sudo chattr +C /swap/swapfile
+    sudo btrfs property set /swap/swapfile compression none
+    sudo dd if=/dev/zero of=/swap/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_M status=progress
+    sudo chmod 0600 /swap/swapfile
+    sudo mkswap /swap/swapfile
+    sudo bash -c "echo -e '# Swapfile for hibernation support, on nested subvolume\n"$ROOT_PATH"\t/swap\tbtrfs\tsubvol=@swap\t0\t0\n/swap/swapfile\tnone\tswap\tsw\t0\t0' >> /etc/fstab"
+    [[ -z $(swapon -s | grep "/swap/swapfile") ]] && sudo swapon /swap/swapfile
+    # Enable Hibernation
+    # pm-utils should be there for legacy support, but since Manjaro uses systemd, it would be obsolete (will be removed after clearly verified)  
+    # pacman -S --noconfirm pm-utils
+    PHYS_OFFSET=$(sudo ./btrfs_map_physical /swap/swapfile | sed -n '2 p' | awk '{print $(NF)}')
+    PAGESIZE=$(getconf PAGESIZE)
+    RESUME_OFFSET=$((PHYS_OFFSET / PAGESIZE))
+    UUID=$(findmnt -no UUID -T /swap/swapfile)
+    sudo mkdir -p /etc/default/grub.d/
+    if [[ -z $(grep "source /etc/default/grub.d/*" /etc/default/grub) ]]
+      then
+        sudo bash -c "echo -e '\n\nsource /etc/default/grub.d/*' >> /etc/default/grub"
+    fi
+    sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT resume=UUID=$UUID resume_offset=$RESUME_OFFSET\"' > /etc/default/grub.d/resume.cfg"
+    if [[ -z $(grep "resume" /etc/mkinitcpio.conf) ]]
+      then
+        sudo sed -i "s/filesystems/filesystems resume/g" /etc/mkinitcpio.conf 
+    fi
+    # Due no support for btrfs we need to bypass the memory check
+    sudo mkdir -p /etc/systemd/system/systemd-logind.service.d/		
+    sudo mkdir -p /etc/systemd/system/systemd-hibernate.service.d/		
+    logind="/etc/systemd/system/systemd-logind.service.d/bypass_hibernation_memory_check.conf"
+    hibernate="/etc/systemd/system/systemd-hibernate.service.d/bypass_hibernation_memory_check.conf"
+    if [[ ! -f $logind ]]
+      then
+        sudo bash -c "echo -e '#Added by a script\nEnvironment=SYSTEMD_BYPASS_HIBERNATION_MEMORY_CHECK=1' > /etc/systemd/system/systemd-logind.service.d/bypass_hibernation_memory_check.conf"
+    fi
+    if [[ ! -f $hibernate ]]
+      then
+        sudo bash -c "echo -e '#Added by a script\nEnvironment=SYSTEMD_BYPASS_HIBERNATION_MEMORY_CHECK=1' > /etc/systemd/system/systemd-hibernate.service.d/bypass_hibernation_memory_check.conf"
+    fi
+    sudo mkinitcpio -P
+    sudo update-grub
+    sudo sed -i -e 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf
+  fi
 else
   echo -en "\033[0;31m Swap already exists! \033[0m \n"
 fi
@@ -98,8 +158,19 @@ sudo timeshift-launcher
 # Installing and enable the Timeshift auto-snapshot script for ext4 volumes
 echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
 sudo pacman -S --noconfirm timeshift-autosnap-manjaro
-# Allow system snapshots to be created via rsync for ext4 volumes
-sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
+if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "ext4" ]]; then
+  # Allow system snapshots to be created via rsync for ext4 volumes
+  sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
+fi
+if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
+  # Increasing the number of snapshots for btrfs
+  sudo sed -i -e 's@#maxSnapshots=3@maxSnapshots=15@g' /etc/timeshift-autosnap.conf
+  # Installing grub-btrfs
+  sudo pacman -S --noconfirm grub-btrfs
+  # Enable automatically update grub upon snapshot with Timeshift
+  sudo systemctl enable grub-btrfs.path
+  sudo systemctl start grub-btrfs.path
+fi
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
