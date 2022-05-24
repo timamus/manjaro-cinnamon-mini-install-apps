@@ -97,11 +97,11 @@ ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//') &&
 sudo mount $ROOT_PATH /mnt && 
 sudo btrfs subvolume delete /mnt/@swap && 
 sudo umount /mnt && 
-[[ -d /swap ]] && sudo rm -rf /swap && 
+[[ -d /swap ]] && sudo rm -rf /swap 
 sudo sed -i '/grub.d/d' /etc/fstab && 
-[[ -d /etc/default/grub.d ]] && sudo rm -rf /etc/default/grub.d && 
-[[ -d /etc/systemd/system/systemd-logind.service.d ]] && sudo rm -rf /etc/systemd/system/systemd-logind.service.d && 
-[[ -d /etc/systemd/system/systemd-hibernate.service.d ]] && sudo rm -rf /etc/systemd/system/systemd-hibernate.service.d && 
+[[ -d /etc/default/grub.d ]] && sudo rm -rf /etc/default/grub.d 
+[[ -d /etc/systemd/system/systemd-logind.service.d ]] && sudo rm -rf /etc/systemd/system/systemd-logind.service.d 
+[[ -d /etc/systemd/system/systemd-hibernate.service.d ]] && sudo rm -rf /etc/systemd/system/systemd-hibernate.service.d 
 sudo sed -i 's/filesystems resume/filesystems/g' /etc/mkinitcpio.conf && 
 sudo sed -i -e 's@HibernateDelaySec=60min@#HibernateDelaySec=180min@g' /etc/systemd/sleep.conf && 
 sudo mkinitcpio -P && 
