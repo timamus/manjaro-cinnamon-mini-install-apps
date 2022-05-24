@@ -78,9 +78,9 @@ If the RAM size changes, use the following script to delete the swapfile and its
 sudo swapoff /swapfile && 
 sudo sed -i '/[Ss]wap/d' /etc/fstab && 
 sudo mount -a && 
-sudo rm -rf /etc/default/grub.d/resume.cfg && 
+[[ -d /etc/default/grub.d ]] && sudo rm -rf /etc/default/grub.d 
 sudo sed -i 's/filesystems resume/filesystems/g' /etc/mkinitcpio.conf && 
-sudo rm -rf /swapfile && 
+[[ -f /swapfile ]] && sudo rm -rf /swapfile 
 sudo mkinitcpio -P && 
 sudo update-grub
 ```
