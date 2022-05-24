@@ -72,16 +72,40 @@ sudo sed -i '52 s/fsck/resume fsck/' /etc/mkinitcpio.conf &&
 sudo mkinitcpio -P && sudo update-grub
 ```
 
-If the RAM size changes, use the following script to delete the swapfile and its configuration.
+If the RAM size changes, use the following script to delete the swapfile and its configuration for EXT4.
 
 ```bash
-sudo sed -i '/swapfile none swap defaults 0 0/d' /etc/fstab && 
-SWAP_DEVICE=$(findmnt -no UUID -T /swapfile) && 
-SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}') && 
-sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID='"$SWAP_DEVICE"' resume_offset='"$SWAP_FILE_OFFSET"' /GRUB_CMDLINE_LINUX_DEFAULT="/' /etc/default/grub && 
-sudo sed -i '52 s/resume fsck/fsck/' /etc/mkinitcpio.conf && 
-sudo mkinitcpio -P && sudo update-grub && 
-sudo swapoff /swapfile && sudo rm -f /swapfile
+sudo swapoff /swapfile && 
+sudo sed -i '/[Ss]wap/d' /etc/fstab && 
+sudo mount -a && 
+sudo rm -rf /etc/default/grub.d/resume.cfg && 
+sudo sed -i 's/filesystems resume/filesystems/g' /etc/mkinitcpio.conf && 
+sudo rm -rf /swapfile && 
+sudo mkinitcpio -P && 
+sudo update-grub
+```
+
+If the RAM size changes, use the following script to delete the swapfile and its configuration for BTRFS.
+
+```bash
+SWAP_PATH=$(swapon -s | sed -n '2 p' | awk '{print $1;}') && 
+sudo swapoff $SWAP_PATH && 
+sudo sed -i '/[Ss]wap/d' /etc/fstab && 
+sudo mount -a && 
+sudo umount /swap && 
+ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//') && 
+sudo mount $ROOT_PATH /mnt && 
+sudo btrfs subvolume delete /mnt/@swap && 
+sudo umount /mnt && 
+[[ -d /swap ]] && sudo rm -rf /swap && 
+sudo sed -i '/grub.d/d' /etc/fstab && 
+[[ -d /etc/default/grub.d ]] && sudo rm -rf /etc/default/grub.d && 
+[[ -d /etc/systemd/system/systemd-logind.service.d ]] && sudo rm -rf /etc/systemd/system/systemd-logind.service.d && 
+[[ -d /etc/systemd/system/systemd-hibernate.service.d ]] && sudo rm -rf /etc/systemd/system/systemd-hibernate.service.d && 
+sudo sed -i 's/filesystems resume/filesystems/g' /etc/mkinitcpio.conf && 
+sudo sed -i -e 's@HibernateDelaySec=60min@#HibernateDelaySec=180min@g' /etc/systemd/sleep.conf && 
+sudo mkinitcpio -P && 
+sudo update-grub
 ```
 
 ## Installing and using the Timeshift auto-snapshot script
