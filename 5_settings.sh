@@ -92,35 +92,47 @@ sudo pacman -U --noconfirm Fonts/"cantarell-fonts-1 0.301-1-any.pkg.tar.zst"
 sudo sed -i '/IgnorePkg = cantarell-fonts/d' /etc/pacman.conf
 sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
 
-# Installing and configuring plymouth
-echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
-sudo pacman -S --noconfirm plymouth
-KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | head -1 | sed -r 's/^[^:]*: //')
-if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then
-  sudo sed -i 's/MODULES=""/MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"/' /etc/mkinitcpio.conf
-else
-  sudo sed -i 's/MODULES=""/MODULES="'"$KERNEL_DRIVER"'"/' /etc/mkinitcpio.conf
-fi
-NUM_LINE_HOOKS=$(sed -n '/HOOKS="/=' /etc/mkinitcpio.conf)
-if ! grep -q "plymouth" /etc/mkinitcpio.conf ; then
-  sudo sed -i -e ''"$NUM_LINE_HOOKS"' s/base udev/base udev plymouth/' -e ''"$NUM_LINE_HOOKS"' s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf
-fi
-sudo mkinitcpio -P
-if ! grep -q "splash" /etc/default/grub ; then
-  if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then
-    sudo sed -i 's/quiet/video=efifb:nobgrt nvidia-drm.modeset=1 quiet splash/' /etc/default/grub
-  fi
-  if [[ "$KERNEL_DRIVER" = "i915" ]] ; then
-    sudo sed -i 's/quiet/video=efifb:nobgrt i915.modeset=1 quiet splash/' /etc/default/grub
-  fi
-  if [[ "$KERNEL_DRIVER" = "radeon" ]] ; then
-    sudo sed -i 's/quiet/video=efifb:nobgrt radeon.modeset=1 quiet splash/' /etc/default/grub
-  fi
-fi
-sudo update-grub
-sudo systemctl disable lightdm
-sudo systemctl enable lightdm-plymouth
-sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant
+PS3='Please enter your main filesystem: '
+options=("Plymouth" "Btrfs" "Quit")
+select opt in "${options[@]}"
+do
+  case $opt in
+    "Plymouth")
+      # Installing and configuring plymouth
+      echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
+      sudo pacman -S --noconfirm plymouth
+      KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | head -1 | sed -r 's/^[^:]*: //')
+      if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then
+        sudo sed -i 's/MODULES=""/MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"/' /etc/mkinitcpio.conf
+      else
+        sudo sed -i 's/MODULES=""/MODULES="'"$KERNEL_DRIVER"'"/' /etc/mkinitcpio.conf
+      fi
+      NUM_LINE_HOOKS=$(sed -n '/HOOKS="/=' /etc/mkinitcpio.conf)
+      if ! grep -q "plymouth" /etc/mkinitcpio.conf ; then
+        sudo sed -i -e ''"$NUM_LINE_HOOKS"' s/base udev/base udev plymouth/' -e ''"$NUM_LINE_HOOKS"' s/encrypt/plymouth-encrypt/' /etc/mkinitcpio.conf
+      fi
+      sudo mkinitcpio -P
+      if ! grep -q "splash" /etc/default/grub ; then
+        if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then
+          sudo sed -i 's/quiet/video=efifb:nobgrt nvidia-drm.modeset=1 quiet splash/' /etc/default/grub
+        fi
+        if [[ "$KERNEL_DRIVER" = "i915" ]] ; then
+          sudo sed -i 's/quiet/video=efifb:nobgrt i915.modeset=1 quiet splash/' /etc/default/grub
+        fi
+        if [[ "$KERNEL_DRIVER" = "radeon" ]] ; then
+          sudo sed -i 's/quiet/video=efifb:nobgrt radeon.modeset=1 quiet splash/' /etc/default/grub
+        fi
+      fi
+      sudo update-grub
+      sudo systemctl disable lightdm
+      sudo systemctl enable lightdm-plymouth
+      sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant
+    "Quit")
+      break
+      ;;
+    *) echo "invalid option $REPLY";;
+  esac
+done
 
 # Changing the keyboard layout with hotkey
 echo -en "\033[1;33m Changing the keyboard layout with hotkey... \033[0m \n"
