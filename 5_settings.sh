@@ -92,7 +92,7 @@ sudo pacman -U --noconfirm Fonts/"cantarell-fonts-1 0.301-1-any.pkg.tar.zst"
 sudo sed -i '/IgnorePkg = cantarell-fonts/d' /etc/pacman.conf
 sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
 
-PS3='Please enter your main filesystem: '
+PS3='Select the option to boot your system. Option number 2 is recommended. For more information, see the README. '
 options=("Install & enable plymouth" "Remove quiet boot option" "Do not change anything")
 select opt in "${options[@]}"
 do
