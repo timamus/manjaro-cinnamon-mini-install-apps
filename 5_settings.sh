@@ -128,7 +128,7 @@ do
       sudo systemctl enable lightdm-plymouth
       sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant
     "no quiet")
-      sudo sed -i '/quiet /d' /etc/default/grub
+      sudo sed -i 's/quiet //g' /etc/default/grub
       sudo update-grub
       ;;
     "Quit")
