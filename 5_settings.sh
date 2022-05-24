@@ -93,11 +93,11 @@ sudo sed -i '/IgnorePkg = cantarell-fonts/d' /etc/pacman.conf
 sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
 
 PS3='Please enter your main filesystem: '
-options=("Plymouth" "Btrfs" "Quit")
+options=("Install & enable plymouth" "Remove quiet boot option" "Do not change anything")
 select opt in "${options[@]}"
 do
   case $opt in
-    "Plymouth")
+    "Install & enable plymouth")
       # Installing and configuring plymouth
       echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
       sudo pacman -S --noconfirm plymouth
@@ -127,11 +127,11 @@ do
       sudo systemctl disable lightdm
       sudo systemctl enable lightdm-plymouth
       sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant
-    "no quiet")
+    "Remove quiet boot option")
       sudo sed -i 's/quiet //g' /etc/default/grub
       sudo update-grub
       ;;
-    "Quit")
+    "Do not change anything")
       break
       ;;
     *) echo "invalid option $REPLY";;
