@@ -3,11 +3,13 @@
 set -Eeuo pipefail
 
 # Adding btrfs mount options
+echo -en "\033[1;33m Check if the root file system is btrfs... \033[0m \n"
 ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//')
 if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
+   echo -en "\033[1;33m Root file system is btrfs, adding mount options in /etc/fstab... \033[0m \n"
    if [[ -z $(grep "defaults," /etc/fstab) ]]; then # check whether the mounting options have been changed, if not, then add new options
-      sudo sed -i '/\/@/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
-      sudo sed -i '/\/@home/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
+      sudo sed -i '/\/\@/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
+      sudo sed -i '/\/home\@/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
       sudo mount -a
    fi
 fi
