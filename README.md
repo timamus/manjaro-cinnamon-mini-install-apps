@@ -52,25 +52,7 @@ There is no reason you can't have both a swap partition and a swapfile. This is 
 
 For more modern systems (>4GB), your swap space should be at a minimum be ROUNDUP(SQRT(RAM)) I.E. the square root of your RAM size rounded up to the next GB. However, if you use hibernation, you need a minimum of physical memory (RAM) size plus ROUNDUP(SQRT(RAM)). The maximum, is again twice the amount of RAM, again because of diminishing returns.
 
-Below is a script that creates a swap file with automatic determination of its size for hibernation. A block size of 1 mebibyte is better, in case of a small amount of RAM, the dd process will not be killed by oomkiller.
-
-```bash
-TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo) && 
-TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}') && 
-TOTAL_MEMORY_SQRT=$(echo "$TOTAL_MEMORY_G" | awk '{print sqrt($1)}') && 
-ADD_SWAP_SIZE=$(echo "$TOTAL_MEMORY_SQRT" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}') && 
-SWAP_SIZE_WITH_HYBER_M=$(($TOTAL_MEMORY_ROUND + $ADD_SWAP_SIZE) * 1024) && 
-sudo dd if=/dev/zero of=/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_M status=progress && 
-sudo chmod 600 /swapfile && 
-sudo mkswap /swapfile && 
-sudo swapon /swapfile && 
-sudo bash -c "echo /swapfile none swap defaults 0 0 >> /etc/fstab" && 
-SWAP_DEVICE=$(findmnt -no UUID -T /swapfile) && 
-SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}') && 
-sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID='"$SWAP_DEVICE"' resume_offset='"$SWAP_FILE_OFFSET"' /' /etc/default/grub && 
-sudo sed -i '52 s/fsck/resume fsck/' /etc/mkinitcpio.conf && 
-sudo mkinitcpio -P && sudo update-grub
-```
+How to create and enable a swapfile for the ext4 or btrfs file system, see the script file "5_settings.sh"
 
 If the RAM size changes, use the following script to delete the swapfile and its configuration for EXT4.
 
@@ -85,7 +67,7 @@ sudo mkinitcpio -P &&
 sudo update-grub
 ```
 
-If the RAM size changes, use the following script to delete the swapfile and its configuration for BTRFS.
+Also, use the following script to delete the swapfile and its configuration for BTRFS.
 
 ```bash
 SWAP_PATH=$(swapon -s | sed -n '2 p' | awk '{print $1;}') && 
