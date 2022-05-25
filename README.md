@@ -81,7 +81,7 @@ sudo mount $ROOT_PATH /mnt &&
 sudo btrfs subvolume delete /mnt/@swap && 
 sudo umount /mnt && 
 [[ -d /swap ]] && sudo rm -rf /swap 
-sudo sed -i '/grub.d/d' /etc/fstab && 
+sudo sed -i '/grub.d/d' /etc/default/grub && 
 [[ -d /etc/default/grub.d ]] && sudo rm -rf /etc/default/grub.d 
 [[ -d /etc/systemd/system/systemd-logind.service.d ]] && sudo rm -rf /etc/systemd/system/systemd-logind.service.d 
 [[ -d /etc/systemd/system/systemd-hibernate.service.d ]] && sudo rm -rf /etc/systemd/system/systemd-hibernate.service.d 
