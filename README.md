@@ -60,6 +60,7 @@ If the RAM size changes, use the following script to delete the swapfile and its
 sudo swapoff /swapfile && 
 sudo sed -i '/[Ss]wap/d' /etc/fstab && 
 sudo mount -a && 
+sudo systemctl daemon-reload && 
 [[ -d /etc/default/grub.d ]] && sudo rm -rf /etc/default/grub.d 
 sudo sed -i 's/filesystems resume/filesystems/g' /etc/mkinitcpio.conf && 
 [[ -f /swapfile ]] && sudo rm -rf /swapfile 
@@ -73,6 +74,7 @@ Also, use the following script to delete the swapfile and its configuration for 
 sudo swapoff /swap/swapfile && 
 sudo sed -i '/[Ss]wap/d' /etc/fstab && 
 sudo mount -a && 
+sudo systemctl daemon-reload && 
 sudo umount /swap && 
 ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//') && 
 sudo mount $ROOT_PATH /mnt && 
