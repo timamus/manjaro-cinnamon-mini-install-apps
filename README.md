@@ -70,8 +70,7 @@ sudo update-grub
 Also, use the following script to delete the swapfile and its configuration for BTRFS.
 
 ```bash
-SWAP_PATH=$(swapon -s | sed -n '2 p' | awk '{print $1;}') && 
-sudo swapoff $SWAP_PATH && 
+sudo swapoff /swap/swapfile && 
 sudo sed -i '/[Ss]wap/d' /etc/fstab && 
 sudo mount -a && 
 sudo umount /swap && 
@@ -89,6 +88,8 @@ sudo sed -i -e 's@HibernateDelaySec=60min@#HibernateDelaySec=180min@g' /etc/syst
 sudo mkinitcpio -P && 
 sudo update-grub
 ```
+
+To detect the swap location path in the script, use: `SWAP_PATH=$(swapon -s | sed -n '2 p' | awk '{print $1;}')`
 
 ## Installing and using the Timeshift auto-snapshot script
 
