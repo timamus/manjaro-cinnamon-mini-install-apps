@@ -1,10 +1,6 @@
 # manjaro-cinnamon-mini-install-apps
 Manjaro cinnamon minimal installation apps scripts
 
-## Link for readme file
-
-`https://raw.githubusercontent.com/timamus/manjaro-cinnamon-mini-install-apps/main/README.md`
-
 ## Quick start
 
 - `git clone https://github.com/timamus/manjaro-cinnamon-mini-install-apps.git`
