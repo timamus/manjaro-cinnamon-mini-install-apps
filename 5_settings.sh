@@ -96,6 +96,7 @@ sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
 PS3=$'\033[1;33mSelect the option to boot your system (option number 2 is recommended, for more information, see the README): \033[0m'
 options=("Install & enable plymouth" "Remove quiet boot option" "Do not change anything")
 COLUMNS=1
+echo -en "\033[1;33m"
 select opt in "${options[@]}"
 do
   case $opt in
