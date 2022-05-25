@@ -184,6 +184,7 @@ if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
   # Increasing the number of snapshots for btrfs
   sudo sed -i -e 's@#maxSnapshots=3@maxSnapshots=15@g' /etc/timeshift-autosnap.conf
   # Installing grub-btrfs
+  echo -en "\033[1;33m Installing grub-btrfs... \033[0m \n"
   sudo pacman -S --noconfirm grub-btrfs
   # Enable automatically update grub upon snapshot with Timeshift
   sudo systemctl enable grub-btrfs.path
