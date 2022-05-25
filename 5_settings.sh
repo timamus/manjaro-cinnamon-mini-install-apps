@@ -128,12 +128,14 @@ do
       sudo systemctl disable lightdm
       sudo systemctl enable lightdm-plymouth
       sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant
+      break
       ;;
     "Remove quiet boot option")
       # Remove quiet boot option from grub
       echo -en "\033[1;33m Remove quiet boot option from grub... \033[0m \n"
       sudo sed -i 's/quiet //g' /etc/default/grub
       sudo update-grub
+      break
       ;;
     "Do not change anything")
       break
