@@ -47,6 +47,7 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     sudo chmod 600 /swap/swapfile
     sudo mkswap /swap/swapfile
     # sudo bash -c "echo -e '# Swapfile for hibernation support, on nested subvolume\n"$ROOT_PATH"\t/swap\tbtrfs\tsubvol=@swap\t0\t0\n/swap/swapfile\tnone\tswap\tsw\t0\t0' >> /etc/fstab"
+    sudo bash -c "echo -e '# Swapfile for hibernation support, on nested subvolume\nUUID="$(findmnt -no UUID -T /)"\t/swap\tbtrfs\tsubvol=@swap\t0\t0\n/swap/swapfile\tnone\tswap\tsw\t0\t0' >> /etc/fstab"    
     [[ -z $(swapon -s | grep "/swap/swapfile") ]] && sudo swapon /swap/swapfile
     # Enable Hibernation
     # pm-utils should be there for legacy support, but since Manjaro uses systemd, it would be obsolete (will be removed after clearly verified)  
@@ -56,7 +57,6 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     PAGESIZE=$(getconf PAGESIZE)
     RESUME_OFFSET=$((PHYS_OFFSET / PAGESIZE))
     UUID=$(findmnt -no UUID -T /swap/swapfile)
-    sudo bash -c "echo -e '# Swapfile for hibernation support, on nested subvolume\nUUID="$UUID"\t/swap\tbtrfs\tsubvol=@swap\t0\t0\n/swap/swapfile\tnone\tswap\tsw\t0\t0' >> /etc/fstab"
     sudo mkdir -p /etc/default/grub.d/
     if [[ -z $(grep "source /etc/default/grub.d/*" /etc/default/grub) ]]
       then
