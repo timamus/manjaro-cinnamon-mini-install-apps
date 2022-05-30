@@ -46,8 +46,8 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     sudo dd if=/dev/zero of=/swap/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_M status=progress
     sudo chmod 600 /swap/swapfile
     sudo mkswap /swap/swapfile
-    # sudo bash -c "echo -e '# Swapfile for hibernation support, on nested subvolume\n"$ROOT_PATH"\t/swap\tbtrfs\tsubvol=@swap\t0\t0\n/swap/swapfile\tnone\tswap\tsw\t0\t0' >> /etc/fstab"
-    sudo bash -c "echo -e '# Swapfile for hibernation support, on nested subvolume\nUUID="$(findmnt -no UUID -T /)"\t/swap\tbtrfs\tsubvol=@swap\t0\t0\n/swap/swapfile\tnone\tswap\tsw\t0\t0' >> /etc/fstab"
+    ROOT_UUID=$(findmnt -no UUID -T /)
+    sudo bash -c "echo -e '# Swapfile for hibernation support, on nested subvolume\nUUID="$ROOT_UUID"\t/swap\tbtrfs\tsubvol=@swap\t0\t0\n/swap/swapfile\tnone\tswap\tsw\t0\t0' >> /etc/fstab"
     [[ -z $(swapon -s | grep "/swap/swapfile") ]] && sudo swapon /swap/swapfile
     # Enable Hibernation
     # pm-utils should be there for legacy support, but since Manjaro uses systemd, it would be obsolete (will be removed after clearly verified)  
