@@ -175,26 +175,28 @@ gsettings set org.cinnamon.desktop.wm.preferences theme 'Mint-Y'
 # In the right menu bar, reduce the size of the color icon to 16 px from 24px
 gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 48, "center": 0, "right": 16}]'
 
-# Setting up timeshift
-echo -en "\033[1;33m Configure timeshift for your PC. After setting up, close timeshift and the installation script will continue. This is necessary for the timeshift-autosnap script to work correctly... \033[0m \n"
-sudo timeshift-launcher
+if which timeshift &> /dev/null ; then
+  # Setting up timeshift
+  echo -en "\033[1;33m Configure timeshift for your PC. After setting up, close timeshift and the installation script will continue. This is necessary for the timeshift-autosnap script to work correctly... \033[0m \n"
+  sudo timeshift-launcher
 
-# Installing and enable the Timeshift auto-snapshot script for ext4 volumes
-echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
-sudo pacman -S --noconfirm timeshift-autosnap-manjaro
-if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "ext4" ]]; then
-  # Allow system snapshots to be created via rsync for ext4 volumes
-  sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
-fi
-if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
-  # Increasing the number of snapshots for btrfs
-  sudo sed -i -e 's@#maxSnapshots=3@maxSnapshots=15@g' /etc/timeshift-autosnap.conf
-  # Installing grub-btrfs
-  echo -en "\033[1;33m Installing grub-btrfs... \033[0m \n"
-  sudo pacman -S --noconfirm grub-btrfs
-  # Enable automatically update grub upon snapshot with Timeshift
-  sudo systemctl enable grub-btrfs.path
-  sudo systemctl start grub-btrfs.path
+  # Installing and enable the Timeshift auto-snapshot script for ext4 volumes
+  echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
+  sudo pacman -S --noconfirm timeshift-autosnap-manjaro
+  if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "ext4" ]]; then
+    # Allow system snapshots to be created via rsync for ext4 volumes
+    sudo sed -i 's/skipRsyncAutosnap=true/skipRsyncAutosnap=false/' /etc/timeshift-autosnap.conf
+  fi
+  if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
+    # Increasing the number of snapshots for btrfs
+    sudo sed -i -e 's@#maxSnapshots=3@maxSnapshots=15@g' /etc/timeshift-autosnap.conf
+    # Installing grub-btrfs
+    echo -en "\033[1;33m Installing grub-btrfs... \033[0m \n"
+    sudo pacman -S --noconfirm grub-btrfs
+    # Enable automatically update grub upon snapshot with Timeshift
+    sudo systemctl enable grub-btrfs.path
+    sudo systemctl start grub-btrfs.path
+  fi
 fi
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
