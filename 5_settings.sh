@@ -199,6 +199,8 @@ if which timeshift &> /dev/null ; then
     sudo systemctl enable grub-btrfs.path
     sudo systemctl start grub-btrfs.path
   fi
+else
+  echo -en "\033[0;31m The timeshift program was not installed! \033[0m \n"
 fi
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
