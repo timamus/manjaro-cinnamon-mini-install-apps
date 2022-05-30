@@ -56,13 +56,13 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     PHYS_OFFSET=$(sudo ./btrfs_map_physical /swap/swapfile | sed -n '2 p' | awk '{print $(NF)}')
     PAGESIZE=$(getconf PAGESIZE)
     RESUME_OFFSET=$((PHYS_OFFSET / PAGESIZE))
-    UUID=$(findmnt -no UUID -T /swap/swapfile)
+    SWAP_UUID=$(findmnt -no UUID -T /swap/swapfile)
     sudo mkdir -p /etc/default/grub.d/
     if [[ -z $(grep "source /etc/default/grub.d/*" /etc/default/grub) ]]
       then
         sudo bash -c "echo -e '\n\nsource /etc/default/grub.d/*' >> /etc/default/grub"
     fi
-    sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT resume=UUID=$UUID resume_offset=$RESUME_OFFSET\"' > /etc/default/grub.d/resume.cfg"
+    sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT resume=UUID=$SWAP_UUID resume_offset=$RESUME_OFFSET\"' > /etc/default/grub.d/resume.cfg"
     if [[ -z $(grep "resume" /etc/mkinitcpio.conf) ]]
       then
         sudo sed -i "s/filesystems/filesystems resume/g" /etc/mkinitcpio.conf 
