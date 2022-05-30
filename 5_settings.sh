@@ -85,7 +85,7 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     sudo sed -i -e 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf
   fi
 else
-  echo -en "\033[0;31m Swap already exists! \033[0m \n"
+  echo -en "\033[0;31m Cancelled! Swap already exists... \033[0m \n"
 fi
 
 # Installing cantarell fonts 0.301-1 from a local folder. To install plymouth correctly, you may need the old "cantarell-fonts" package
@@ -182,8 +182,8 @@ if which timeshift &> /dev/null ; then
   echo -en "\033[1;33m Configure timeshift for your PC. After setting up, close timeshift and the installation script will continue. This is necessary for the timeshift-autosnap script to work correctly... \033[0m \n"
   sudo timeshift-launcher
 
-  # Installing and enable the Timeshift auto-snapshot script for ext4 volumes
-  echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script for ext4 volumes... \033[0m \n"
+  # Installing and enable the Timeshift auto-snapshot script
+  echo -en "\033[1;33m Installing and enable the Timeshift auto-snapshot script... \033[0m \n"
   sudo pacman -S --noconfirm timeshift-autosnap-manjaro
   if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "ext4" ]]; then
     # Allow system snapshots to be created via rsync for ext4 volumes
@@ -200,7 +200,7 @@ if which timeshift &> /dev/null ; then
     sudo systemctl start grub-btrfs.path
   fi
 else
-  echo -en "\033[0;31m The timeshift program was not installed! \033[0m \n"
+  echo -en "\033[0;31m Cancelled! The timeshift program was not installed... \033[0m \n"
 fi
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
