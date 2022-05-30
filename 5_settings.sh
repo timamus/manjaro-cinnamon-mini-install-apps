@@ -11,7 +11,7 @@ TOTAL_MEMORY_SQRT=$(echo "$TOTAL_MEMORY_G" | awk '{print sqrt($1)}')
 ADD_SWAP_SIZE=$(echo "$TOTAL_MEMORY_SQRT" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
 # A block size of 1 mebibyte is better, in case of a small amount of RAM, the dd process will not be killed by oomkiller
 SWAP_SIZE_WITH_HYBER_M=$((($TOTAL_MEMORY_ROUND + $ADD_SWAP_SIZE) * 1024))
-ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//')
+ROOT_PATH=$(df / | sed -n '2 p' | awk '{print $1;}')
 if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file), if not, then create it
   if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "ext4" ]]; then # Configure swap for ext4 with hibernate support
     sudo dd if=/dev/zero of=/swapfile bs=1M count=$SWAP_SIZE_WITH_HYBER_M status=progress
