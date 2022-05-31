@@ -30,7 +30,7 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     sudo sed -i 's/filesystems/filesystems resume/g' /etc/mkinitcpio.conf
     sudo mkinitcpio -P
     sudo update-grub
-    sudo sed -i -e 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf 
+    sudo sed -i 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf 
   fi
   # Configure swapfile on btrfs nested subvolume to maintain Timeshift compatibility with hibernate support
   if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
@@ -82,7 +82,7 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     fi
     sudo mkinitcpio -P
     sudo update-grub
-    sudo sed -i -e 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf
+    sudo sed -i 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf
   fi
 else
   echo -en "\033[0;31m Cancelled! Swap already exists... \033[0m \n"
