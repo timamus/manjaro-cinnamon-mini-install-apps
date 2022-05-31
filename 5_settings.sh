@@ -94,13 +94,20 @@ sudo pacman -U --noconfirm Fonts/"cantarell-fonts-1 0.301-1-any.pkg.tar.zst"
 sudo sed -i '/IgnorePkg = cantarell-fonts/d' /etc/pacman.conf
 sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = cantarell-fonts' /etc/pacman.conf
 
-PS3=$'\033[1;33mSelect the option to boot your system (option number 2 is recommended, for more information, see the README): \033[0m'
-options=("Install & enable plymouth" "Remove quiet boot option" "Do not change anything")
+PS3=$'\033[1;33mSelect the option to boot your system (option number 1 is recommended, for more information, see the README): \033[0m'
+options=("Remove quiet boot option" "Install & enable plymouth" "Do not change anything")
 COLUMNS=1
 echo -en "\033[1;33m"
 select opt in "${options[@]}"
 do
   case $opt in
+    "Remove quiet boot option")
+      # Remove quiet boot option from grub
+      echo -en "\033[1;33m Remove quiet boot option from grub... \033[0m \n"
+      sudo sed -i 's/quiet //g' /etc/default/grub
+      sudo update-grub
+      break
+      ;;
     "Install & enable plymouth")
       # Installing and configuring plymouth
       echo -en "\033[1;33m Installing and configuring plymouth... \033[0m \n"
@@ -131,13 +138,6 @@ do
       sudo systemctl disable lightdm
       sudo systemctl enable lightdm-plymouth
       sudo pacman -S --noconfirm plymouth-theme-manjaro-elegant
-      break
-      ;;
-    "Remove quiet boot option")
-      # Remove quiet boot option from grub
-      echo -en "\033[1;33m Remove quiet boot option from grub... \033[0m \n"
-      sudo sed -i 's/quiet //g' /etc/default/grub
-      sudo update-grub
       break
       ;;
     "Do not change anything")
