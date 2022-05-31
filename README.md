@@ -74,7 +74,7 @@ sudo sed -i '/[Ss]wap/d' /etc/fstab &&
 sudo mount -a && 
 sudo systemctl daemon-reload && 
 sudo umount /swap && 
-ROOT_PATH=$(cat /proc/cmdline | sed -e 's/^.*root=//' -e 's/ .*$//') && 
+ROOT_PATH=$(df / | sed -n '2 p' | awk '{print $1;}') && 
 sudo mount $ROOT_PATH /mnt && 
 sudo btrfs subvolume delete /mnt/@swap && 
 sudo umount /mnt && 
