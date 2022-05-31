@@ -57,9 +57,10 @@ sudo swapoff /swapfile &&
 sudo sed -i '/[Ss]wap/d' /etc/fstab && 
 sudo mount -a && 
 sudo systemctl daemon-reload && 
+[[ -f /swapfile ]] && sudo rm -rf /swapfile 
 [[ -d /etc/default/grub.d ]] && sudo rm -rf /etc/default/grub.d 
 sudo sed -i 's/filesystems resume/filesystems/g' /etc/mkinitcpio.conf && 
-[[ -f /swapfile ]] && sudo rm -rf /swapfile 
+sudo sed -i -e 's@HibernateDelaySec=60min@#HibernateDelaySec=180min@g' /etc/systemd/sleep.conf && 
 sudo mkinitcpio -P && 
 sudo update-grub
 ```
