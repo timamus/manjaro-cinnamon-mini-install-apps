@@ -177,6 +177,7 @@ gsettings set org.cinnamon.desktop.wm.preferences theme 'Mint-Y'
 gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 48, "center": 0, "right": 16}]'
 
 # Check if timeshift is installed in the system
+echo -en "\033[1;33m Check whether timeshift is installed to configure it... \033[0m \n"
 if which timeshift &> /dev/null ; then
   # Setting up timeshift
   echo -en "\033[1;33m Configure timeshift for your PC. After setting up, close timeshift and the installation script will continue. This is necessary for the timeshift-autosnap script to work correctly... \033[0m \n"
