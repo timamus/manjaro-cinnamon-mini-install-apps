@@ -44,7 +44,7 @@ sudo sed -i '/1.2.3.4 account.jetbrains.com/d' /etc/hosts
 sudo bash -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
 
 # Installing pycharm professional edition
-echo -en "\033[1;33m Installing pycharm professional edition... \033[0m \n"
+echo -en "\033[1;33m Installing pycharm professional edition from AUR... \033[0m \n"
 yay -S --noconfirm pycharm-professional
 # Excluded from the upgrade packages. It weighs too much, for constant updating
 sudo sed -i '/IgnorePkg = pycharm-professional/d' /etc/pacman.conf
@@ -53,6 +53,13 @@ sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = pycharm-professional' /etc/pacman.co
 # Installing pycharm community edition
 # echo -en "\033[1;33m Installing pycharm community edition... \033[0m \n"
 # sudo pacman -S --noconfirm pycharm-community-edition
+
+# Installing intellij idea ultimate edition
+echo -en "\033[1;33m Installing intellij idea ultimate edition from AUR... \033[0m \n"
+yay -S --noconfirm intellij-idea-ultimate-edition
+# Excluded from the upgrade packages. It weighs too much, for constant updating
+sudo sed -i '/IgnorePkg = intellij-idea-ultimate-edition/d' /etc/pacman.conf
+sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = intellij-idea-ultimate-edition' /etc/pacman.conf
 
 # Installing clion from AUR
 # Clion currently uses version 11 of Java, as does Pycharm.
