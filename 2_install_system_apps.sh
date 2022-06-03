@@ -97,5 +97,12 @@ sudo pacman -S --noconfirm gnome-calendar
 echo -en "\033[1;33m Installing blueman for bluetooth support... \033[0m \n"
 sudo pacman -S --noconfirm blueman
 
+# Printing
+sudo pacman -S --noconfirm manjaro-printer system-config-printer simple-scan
+sudo gpasswd -a yourusername sys
+sudo systemctl enable --now cups.service
+sudo systemctl enable --now cups.socket
+sudo systemctl enable --now cups.path
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
