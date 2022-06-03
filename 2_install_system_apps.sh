@@ -99,7 +99,7 @@ sudo pacman -S --noconfirm blueman
 
 # Printing
 sudo pacman -S --noconfirm manjaro-printer system-config-printer simple-scan
-sudo gpasswd -a yourusername sys
+sudo gpasswd -a $(whoami) sys
 sudo systemctl enable --now cups.service
 sudo systemctl enable --now cups.socket
 sudo systemctl enable --now cups.path
