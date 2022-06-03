@@ -97,8 +97,10 @@ sudo pacman -S --noconfirm gnome-calendar
 echo -en "\033[1;33m Installing blueman for bluetooth support... \033[0m \n"
 sudo pacman -S --noconfirm blueman
 
-# Printing
-sudo pacman -S --noconfirm manjaro-printer system-config-printer simple-scan
+# Adding printing and scanning capabilities
+# Disable the firewall while searching for printing and scanning devices
+echo -en "\033[1;33m Adding printing and scanning capabilities... \033[0m \n"
+sudo pacman -S --noconfirm manjaro-printer ipp-usb system-config-printer simple-scan
 sudo gpasswd -a $(whoami) sys
 sudo systemctl enable --now cups.service
 sudo systemctl enable --now cups.socket
