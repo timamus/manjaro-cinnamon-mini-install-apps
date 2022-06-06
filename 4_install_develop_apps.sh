@@ -56,7 +56,7 @@ sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = pycharm-professional' /etc/pacman.co
 
 # Installing intellij idea ultimate edition
 echo -en "\033[1;33m Installing intellij idea ultimate edition from AUR... \033[0m \n"
-yay -S --noconfirm intellij-idea-ultimate-edition
+yay -S --noconfirm intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre
 # Excluded from the upgrade packages. It weighs too much, for constant updating
 sudo sed -i '/IgnorePkg = intellij-idea-ultimate-edition/d' /etc/pacman.conf
 sudo sed -i '/^#IgnoreGroup.*/i IgnorePkg = intellij-idea-ultimate-edition' /etc/pacman.conf
