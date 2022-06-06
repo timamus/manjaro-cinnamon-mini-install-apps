@@ -11,6 +11,7 @@ if [[ $(lsblk -no FSTYPE $ROOT_PATH) == "btrfs" ]]; then
       sudo sed -i '/\/\@,/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
       sudo sed -i '/\/\@home/s/defaults/defaults,noatime,discard=async,compress=zstd/' /etc/fstab
       sudo mount -a
+      sudo systemctl daemon-reload
    fi
 fi
 
